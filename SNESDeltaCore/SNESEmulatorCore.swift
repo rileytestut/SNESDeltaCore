@@ -6,9 +6,19 @@
 //  Copyright (c) 2015 Riley Testut. All rights reserved.
 //
 
-import UIKit
 import DeltaCore
 
 public class SNESEmulatorCore: EmulatorCore
 {
+    //MARK: Dynamic Subclassing
+    
+    public override class func isDynamicSubclass() -> Bool
+    {
+        return true
+    }
+    
+    public override class func dynamicIdentifier() -> String?
+    {
+        return kUTTypeSNESGame as String;
+    }
 }

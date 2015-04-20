@@ -8,4 +8,4 @@
 
 #import "SNESDeltaCoreConstants.h"
 
-const CFStringRef kUTTypeSNESGame = (__bridge __nonnull CFStringRef)@"com.rileytestut.delta.game.SNES";
+const CFStringRef kUTTypeSNESGame = (__bridge __nonnull CFStringRef)@"com.rileytestut.delta.game.snes";

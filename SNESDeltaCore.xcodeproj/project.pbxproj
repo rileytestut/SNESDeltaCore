@@ -8,30 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		BF9F4FE21AAD8070004C9500 /* SNESDeltaCore.h in Headers */ = {isa = PBXBuildFile; fileRef = BF9F4FE11AAD8070004C9500 /* SNESDeltaCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BFC134D61AAD80AF0087AD7B /* SNESGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC134D51AAD80AF0087AD7B /* SNESGame.swift */; };
-		BFC134DB1AAD80F30087AD7B /* SNESGame+Dynamic.h in Headers */ = {isa = PBXBuildFile; fileRef = BFC134D91AAD80F30087AD7B /* SNESGame+Dynamic.h */; };
-		BFC134DC1AAD80F30087AD7B /* SNESGame+Dynamic.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC134DA1AAD80F30087AD7B /* SNESGame+Dynamic.m */; };
 		BFC134DE1AAD821C0087AD7B /* DeltaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC134DD1AAD821C0087AD7B /* DeltaCore.framework */; };
 		BFEC73261AAE9EFC00650035 /* SNESDeltaCoreConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = BFEC73241AAE9EFC00650035 /* SNESDeltaCoreConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BFEC73271AAE9EFC00650035 /* SNESDeltaCoreConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = BFEC73251AAE9EFC00650035 /* SNESDeltaCoreConstants.m */; };
 		BFF912D31AB0993600AC07A1 /* SNESEmulatorCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF912D21AB0993600AC07A1 /* SNESEmulatorCore.swift */; };
-		BFF912D71AB0998600AC07A1 /* SNESEmulatorCore+Dynamic.h in Headers */ = {isa = PBXBuildFile; fileRef = BFF912D51AB0998600AC07A1 /* SNESEmulatorCore+Dynamic.h */; };
-		BFF912D81AB0998600AC07A1 /* SNESEmulatorCore+Dynamic.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF912D61AB0998600AC07A1 /* SNESEmulatorCore+Dynamic.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BF9F4FDC1AAD8070004C9500 /* SNESDeltaCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SNESDeltaCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF9F4FE01AAD8070004C9500 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF9F4FE11AAD8070004C9500 /* SNESDeltaCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNESDeltaCore.h; sourceTree = "<group>"; };
-		BFC134D51AAD80AF0087AD7B /* SNESGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNESGame.swift; sourceTree = "<group>"; };
-		BFC134D91AAD80F30087AD7B /* SNESGame+Dynamic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SNESGame+Dynamic.h"; sourceTree = "<group>"; };
-		BFC134DA1AAD80F30087AD7B /* SNESGame+Dynamic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SNESGame+Dynamic.m"; sourceTree = "<group>"; };
 		BFC134DD1AAD821C0087AD7B /* DeltaCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeltaCore.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/Delta-cubiloonxwcpqtawcqdjabbtttfl/Build/Products/Debug-iphoneos/DeltaCore.framework"; sourceTree = "<group>"; };
 		BFEC73241AAE9EFC00650035 /* SNESDeltaCoreConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNESDeltaCoreConstants.h; sourceTree = "<group>"; };
 		BFEC73251AAE9EFC00650035 /* SNESDeltaCoreConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNESDeltaCoreConstants.m; sourceTree = "<group>"; };
 		BFF912D21AB0993600AC07A1 /* SNESEmulatorCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNESEmulatorCore.swift; sourceTree = "<group>"; };
-		BFF912D51AB0998600AC07A1 /* SNESEmulatorCore+Dynamic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SNESEmulatorCore+Dynamic.h"; sourceTree = "<group>"; };
-		BFF912D61AB0998600AC07A1 /* SNESEmulatorCore+Dynamic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SNESEmulatorCore+Dynamic.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,9 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				BF9F4FE11AAD8070004C9500 /* SNESDeltaCore.h */,
-				BFC134D71AAD80B30087AD7B /* Model */,
 				BFF912D41AB0996500AC07A1 /* Core */,
-				BFC134D81AAD80E30087AD7B /* Dynamic */,
 				BFEC73291AAEA00A00650035 /* Constants */,
 				BF9F4FDF1AAD8070004C9500 /* Supporting Files */,
 			);
@@ -82,25 +70,6 @@
 				BF9F4FE01AAD8070004C9500 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		BFC134D71AAD80B30087AD7B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				BFC134D51AAD80AF0087AD7B /* SNESGame.swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		BFC134D81AAD80E30087AD7B /* Dynamic */ = {
-			isa = PBXGroup;
-			children = (
-				BFC134D91AAD80F30087AD7B /* SNESGame+Dynamic.h */,
-				BFC134DA1AAD80F30087AD7B /* SNESGame+Dynamic.m */,
-				BFF912D51AB0998600AC07A1 /* SNESEmulatorCore+Dynamic.h */,
-				BFF912D61AB0998600AC07A1 /* SNESEmulatorCore+Dynamic.m */,
-			);
-			name = Dynamic;
 			sourceTree = "<group>";
 		};
 		BFC134DF1AAD82240087AD7B /* Frameworks */ = {
@@ -137,8 +106,6 @@
 			files = (
 				BF9F4FE21AAD8070004C9500 /* SNESDeltaCore.h in Headers */,
 				BFEC73261AAE9EFC00650035 /* SNESDeltaCoreConstants.h in Headers */,
-				BFC134DB1AAD80F30087AD7B /* SNESGame+Dynamic.h in Headers */,
-				BFF912D71AB0998600AC07A1 /* SNESEmulatorCore+Dynamic.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,9 +177,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFF912D31AB0993600AC07A1 /* SNESEmulatorCore.swift in Sources */,
-				BFC134DC1AAD80F30087AD7B /* SNESGame+Dynamic.m in Sources */,
-				BFF912D81AB0998600AC07A1 /* SNESEmulatorCore+Dynamic.m in Sources */,
-				BFC134D61AAD80AF0087AD7B /* SNESGame.swift in Sources */,
 				BFEC73271AAE9EFC00650035 /* SNESDeltaCoreConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
