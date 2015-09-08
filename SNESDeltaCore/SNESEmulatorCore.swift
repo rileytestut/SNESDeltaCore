@@ -26,6 +26,18 @@ public enum GameInput: InputType
 
 public class SNESEmulatorCore: EmulatorCore
 {
+    //MARK: - DynamicObject
+    /// DynamicObject
+    public override class func isDynamicSubclass() -> Bool
+    {
+        return true
+    }
+    
+    public override class func dynamicIdentifier() -> String?
+    {
+        return kUTTypeSNESGame as String;
+    }
+    
     //MARK: - Overrides -
     /** Overrides **/
     
@@ -45,15 +57,57 @@ public class SNESEmulatorCore: EmulatorCore
         print("Deactivated \(input)")
     }
     
-    //MARK: - DynamicObject
-    /// DynamicObject
-    public override class func isDynamicSubclass() -> Bool
+    //MARK: - Input Transformation -
+    /// Input Transformation
+    public override func inputsForMFiExternalControllerInput(input: InputType) -> [InputType]
     {
-        return true
+        guard let input = input as? MFiExternalControllerInput else { return [] }
+        
+        var inputs: [InputType] = []
+        
+        switch input
+        {
+        case let .DPad(xAxis: xAxis, yAxis: yAxis): inputs.appendContentsOf(self.inputsForXAxis(xAxis, yAxis: yAxis))
+        case let .LeftThumbstick(xAxis: xAxis, yAxis: yAxis): inputs.appendContentsOf(self.inputsForXAxis(xAxis, yAxis: yAxis))
+        case .RightThumbstick(xAxis: _, yAxis: _): break
+        case .A: inputs.append(GameInput.A)
+        case .B: inputs.append(GameInput.B)
+        case .X: inputs.append(GameInput.X)
+        case .Y: inputs.append(GameInput.Y)
+        case .L: inputs.append(GameInput.L)
+        case .R: inputs.append(GameInput.R)
+        case .LeftTrigger: inputs.append(GameInput.L)
+        case .RightTrigger: inputs.append(GameInput.R)
+        }
+        
+        return inputs
     }
-    
-    public override class func dynamicIdentifier() -> String?
+}
+
+private extension SNESEmulatorCore
+{
+    func inputsForXAxis(xAxis: Float, yAxis: Float) -> [InputType]
     {
-        return kUTTypeSNESGame as String;
+        var inputs: [InputType] = []
+        
+        if xAxis > 0.0
+        {
+            inputs.append(GameInput.Right)
+        }
+        else if xAxis < 0.0
+        {
+            inputs.append(GameInput.Left)
+        }
+        
+        if yAxis > 0.0
+        {
+            inputs.append(GameInput.Up)
+        }
+        else if yAxis < 0.0
+        {
+            inputs.append(GameInput.Down)
+        }
+        
+        return inputs
     }
 }
