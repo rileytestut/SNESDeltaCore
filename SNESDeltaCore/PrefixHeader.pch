@@ -29,14 +29,6 @@
 #define UNZIP_SUPPORT
 #define LSB_FIRST
 
-// "Fixing" SNES9X Source when updated
-// ===================================
-// IMPORTANT: if you crash on S9xFixColour* when porting updated SNES9X sources, modify port.h to have these, after "#define GFX_MULTI_FORMAT"
-#ifdef __IPHONE__
-#undef GFX_MULTI_FORMAT
-#define PIXEL_FORMAT RGB555
-#endif
-
 // IMPORTANT: there was another fix that was applied some time ago, but it seems not to matter now. In apu.cpp, replace:
 // -               if (shrink_buffer_size < (sample_count << 1))
 // with

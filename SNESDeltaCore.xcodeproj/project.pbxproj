@@ -184,6 +184,7 @@
 		BFC800351BA4C8DB00824180 /* SNESEmulatorBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = BFC800331BA4C8DB00824180 /* SNESEmulatorBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BFC800361BA4C8DB00824180 /* SNESEmulatorBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC800341BA4C8DB00824180 /* SNESEmulatorBridge.m */; };
 		BFC800381BA4D3B600824180 /* SNESEmulatorCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC800371BA4D3B600824180 /* SNESEmulatorCore.swift */; };
+		BFC8003A1BA4D3E700824180 /* SNESGameRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC800391BA4D3E700824180 /* SNESGameRenderer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -367,6 +368,7 @@
 		BFC800331BA4C8DB00824180 /* SNESEmulatorBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNESEmulatorBridge.h; sourceTree = "<group>"; };
 		BFC800341BA4C8DB00824180 /* SNESEmulatorBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNESEmulatorBridge.m; sourceTree = "<group>"; };
 		BFC800371BA4D3B600824180 /* SNESEmulatorCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNESEmulatorCore.swift; sourceTree = "<group>"; };
+		BFC800391BA4D3E700824180 /* SNESGameRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNESGameRenderer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -596,6 +598,14 @@
 			name = unzip;
 			sourceTree = "<group>";
 		};
+		BF961A141BA4FF90005EF3A7 /* Rendering */ = {
+			isa = PBXGroup;
+			children = (
+				BFC800391BA4D3E700824180 /* SNESGameRenderer.swift */,
+			);
+			name = Rendering;
+			sourceTree = "<group>";
+		};
 		BF9F4FD21AAD8070004C9500 = {
 			isa = PBXGroup;
 			children = (
@@ -620,6 +630,7 @@
 				BF785C9E1B603C2C00189DB8 /* SNESDeltaCore.swift */,
 				BFBD7BF81B6035C8007B75D2 /* Model */,
 				BFF912D41AB0996500AC07A1 /* Core */,
+				BF961A141BA4FF90005EF3A7 /* Rendering */,
 				BF9F4FDF1AAD8070004C9500 /* Supporting Files */,
 			);
 			path = SNESDeltaCore;
@@ -917,6 +928,7 @@
 				BF0476831B9FF0F10034A5A5 /* dma.cpp in Sources */,
 				BF0476E61B9FF17E0034A5A5 /* lzmadec.cpp in Sources */,
 				BF785C9F1B603C2C00189DB8 /* SNESDeltaCore.swift in Sources */,
+				BFC8003A1BA4D3E700824180 /* SNESGameRenderer.swift in Sources */,
 				BF04769E1B9FF1310034A5A5 /* hq2x.cpp in Sources */,
 				BF0477411B9FF2100034A5A5 /* snes9x.cpp in Sources */,
 				BF0476331B9FF0C10034A5A5 /* apu.cpp in Sources */,
@@ -1004,6 +1016,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

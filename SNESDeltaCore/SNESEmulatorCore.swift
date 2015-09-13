@@ -26,6 +26,8 @@ public enum GameInput: InputType
 
 public class SNESEmulatorCore: EmulatorCore
 {
+    private let renderer = SNESGameRenderer()
+    
     //MARK: - DynamicObject
     /// DynamicObject
     public override class func isDynamicSubclass() -> Bool
@@ -35,11 +37,28 @@ public class SNESEmulatorCore: EmulatorCore
     
     public override class func dynamicIdentifier() -> String?
     {
-        return kUTTypeSNESGame as String;
+        return kUTTypeSNESGame as String
     }
     
     //MARK: - Overrides -
     /** Overrides **/
+    
+    public override func startEmulation()
+    {
+        if let path: NSString? = self.game.URL.path, cPath = path?.UTF8String
+        {
+            let emulationQueue: dispatch_queue_t = dispatch_queue_create("com.rileytestut.delta.SNESEmulatorCore.emulationQueue", DISPATCH_QUEUE_SERIAL)
+            
+            dispatch_async(emulationQueue) {
+                SISetEmulationPaused(0);
+                SISetEmulationRunning(1);
+                SIStartWithROM(cPath);
+                SISetEmulationRunning(0);                
+            }
+            
+            self.renderer.activate()
+        }
+    }
     
     //MARK: - EmulatorCore
     /// EmulatorCore
@@ -82,6 +101,27 @@ public class SNESEmulatorCore: EmulatorCore
         
         return inputs
     }
+    
+    public override func addGameView(gameView: GameView)
+    {
+        super.addGameView(gameView)
+        
+        self.renderer.gameView = gameView
+    }
+    
+    public override func removeGameView(gameView: GameView)
+    {
+        super.removeGameView(gameView)
+        
+        self.renderer.gameView = nil
+    }
+}
+
+//MARK: - Game Views -
+/// Game Views
+public extension SNESEmulatorCore
+{
+    
 }
 
 private extension SNESEmulatorCore

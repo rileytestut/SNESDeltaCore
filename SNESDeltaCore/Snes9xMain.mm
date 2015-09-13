@@ -327,6 +327,10 @@ extern "C" int SIStartWithROM(const char* romFileNameCString)
   int soundBufferSize = samplecount<<(1+(Settings.Stereo?1:0));
   S9xInitSound(soundBufferSize, 0);
 	S9xSetSoundMute(TRUE);
+    
+#ifdef GFX_MULTI_FORMAT
+    S9xSetRenderPixelFormat(RGB565);
+#endif
   
   S9xReset();
   
@@ -350,10 +354,6 @@ extern "C" int SIStartWithROM(const char* romFileNameCString)
 	ASSIGN_BUTTONf(SI_BUTTON_RIGHT,     "Joypad1 Right");
   
 	S9xReportControllers();
-  
-#ifdef GFX_MULTI_FORMAT
-	S9xSetRenderPixelFormat(RGB565);
-#endif
   
 	uint32	saved_flags = CPU.Flags;
 	bool8	loaded = FALSE;

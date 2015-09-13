@@ -204,16 +204,6 @@
 #define SNES_JOY_READ_CALLBACKS
 #endif
 
-#ifdef __MACOSX__
-#undef GFX_MULTI_FORMAT
-#define PIXEL_FORMAT RGB555
-#endif
-
-#ifdef __IPHONE__
-#undef GFX_MULTI_FORMAT
-#define PIXEL_FORMAT RGB555
-#endif
-
 #ifndef snes9x_types_defined
 #define snes9x_types_defined
 typedef unsigned char		bool8;
