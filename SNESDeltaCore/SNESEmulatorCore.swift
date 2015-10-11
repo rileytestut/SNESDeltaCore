@@ -45,7 +45,7 @@ public class SNESEmulatorCore: EmulatorCore
     
     public override func startEmulation()
     {
-        if let path: NSString? = self.game.URL.path, cPath = path?.UTF8String
+        if let path: NSString? = self.game.fileURL.path, cPath = path?.UTF8String
         {
             let emulationQueue: dispatch_queue_t = dispatch_queue_create("com.rileytestut.delta.SNESEmulatorCore.emulationQueue", DISPATCH_QUEUE_SERIAL)
             
