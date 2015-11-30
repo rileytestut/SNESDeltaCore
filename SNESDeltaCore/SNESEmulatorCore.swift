@@ -26,6 +26,8 @@ public enum GameInput: InputType
 
 public class SNESEmulatorCore: EmulatorCore
 {
+    public var running = false
+    
     private let renderer = SNESGameRenderer()
     
     //MARK: - DynamicObject
@@ -45,19 +47,35 @@ public class SNESEmulatorCore: EmulatorCore
     
     public override func startEmulation()
     {
+        guard !self.running else { return }
+        
+        self.running = true
+        
         if let path: NSString? = self.game.fileURL.path, cPath = path?.UTF8String
         {
             let emulationQueue: dispatch_queue_t = dispatch_queue_create("com.rileytestut.delta.SNESEmulatorCore.emulationQueue", DISPATCH_QUEUE_SERIAL)
             
             dispatch_async(emulationQueue) {
-                SISetEmulationPaused(0);
-                SISetEmulationRunning(1);
-                SIStartWithROM(cPath);
-                SISetEmulationRunning(0);                
+                SISetEmulationPaused(0)
+                SISetEmulationRunning(1)
+                SIStartWithROM(cPath)
+                SISetEmulationRunning(0)             
             }
             
             self.renderer.activate()
         }
+    }
+    
+    public override func stopEmulation()
+    {
+        guard self.running else { return }
+        
+        self.renderer.deactivate()
+        
+        SISetEmulationRunning(0)
+        SIWaitForEmulationEnd()
+        
+        self.running = true
     }
     
     //MARK: - EmulatorCore
