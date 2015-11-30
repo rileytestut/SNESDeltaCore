@@ -117,11 +117,13 @@ public class SNESEmulatorCore: EmulatorCore
     }
 }
 
-//MARK: - Game Views -
-/// Game Views
+//MARK: - System Information -
+/// System Information
 public extension SNESEmulatorCore
 {
-    
+    override var preferredRenderingSize: CGSize {
+        return CGSizeMake(256, 224)
+    }
 }
 
 private extension SNESEmulatorCore
