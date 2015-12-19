@@ -126,8 +126,8 @@ public class SNESEmulatorCore: EmulatorCore
         
         switch input
         {
-        case let .DPad(xAxis: xAxis, yAxis: yAxis): inputs.appendContentsOf(self.inputsForXAxis(xAxis, yAxis: yAxis))
-        case let .LeftThumbstick(xAxis: xAxis, yAxis: yAxis): inputs.appendContentsOf(self.inputsForXAxis(xAxis, yAxis: yAxis))
+        case let .DPad(xAxis: xAxis, yAxis: yAxis): inputs.appendContentsOf(self.inputsForXAxis(xAxis, YAxis: yAxis))
+        case let .LeftThumbstick(xAxis: xAxis, yAxis: yAxis): inputs.appendContentsOf(self.inputsForXAxis(xAxis, YAxis: yAxis))
         case .RightThumbstick(xAxis: _, yAxis: _): break
         case .A: inputs.append(GameInput.A)
         case .B: inputs.append(GameInput.B)
@@ -168,7 +168,7 @@ public extension SNESEmulatorCore
 
 private extension SNESEmulatorCore
 {
-    func inputsForXAxis(xAxis: Float, yAxis: Float) -> [InputType]
+    func inputsForXAxis(xAxis: Float, YAxis yAxis: Float) -> [InputType]
     {
         var inputs: [InputType] = []
         
