@@ -78,6 +78,24 @@ public class SNESEmulatorCore: EmulatorCore
         self.running = true
     }
     
+    public override func pauseEmulation()
+    {
+        guard self.running else { return }
+        
+        SISetEmulationPaused(1)
+        
+        self.running = false
+    }
+    
+    public override func resumeEmulation()
+    {
+        guard !self.running else { return }
+        
+        SISetEmulationPaused(0)
+        
+        self.running = true
+    }
+    
     //MARK: - EmulatorCore
     /// EmulatorCore
     public override func gameController(gameController: GameControllerType, didActivateInput input: InputType)
