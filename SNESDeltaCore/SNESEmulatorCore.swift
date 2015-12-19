@@ -8,20 +8,20 @@
 
 import DeltaCore
 
-public enum GameInput: InputType
+public enum GameInput: UInt, InputType
 {
-    case Up
-    case Down
-    case Left
-    case Right
-    case A
-    case B
-    case X
-    case Y
-    case L
-    case R
-    case Start
-    case Select
+    case Up     = 0x1
+    case Down   = 0x10
+    case Left   = 0x4
+    case Right  = 0x40
+    case A      = 0b1000000000000    // 1 << 12
+    case B      = 0b10000000000000   // 1 << 13
+    case X      = 0b100000000000000  // 1 << 14
+    case Y      = 0b1000000000000000 // 1 << 15
+    case L      = 0b10000000000      // 1 << 10
+    case R      = 0b100000000000     // 1 << 11
+    case Start  = 0b100000000        // 1 << 8
+    case Select = 0b1000000000       // 1 << 9
 }
 
 public class SNESEmulatorCore: EmulatorCore
@@ -103,6 +103,8 @@ public class SNESEmulatorCore: EmulatorCore
         guard let input = input as? GameInput else { return }
         
         print("Activated \(input)")
+        
+        SISetControllerPushButton(input.rawValue)
     }
     
     public override func gameController(gameController: GameControllerType, didDeactivateInput input: InputType)
@@ -110,6 +112,8 @@ public class SNESEmulatorCore: EmulatorCore
         guard let input = input as? GameInput else { return }
         
         print("Deactivated \(input)")
+        
+        SISetControllerReleaseButton(input.rawValue)
     }
     
     //MARK: - Input Transformation -
