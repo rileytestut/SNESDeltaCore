@@ -23,59 +23,52 @@ public class SNESControllerSkin: ControllerSkin
         return controllerSkin
     }
     
-    public override func inputsForPoint(point: CGPoint, inRect rect: CGRect, key: String) -> [InputType]
+    public override func inputsForItem(item: Item, point: CGPoint) -> [InputType]
     {
         var inputs: [InputType] = []
         
-        switch key
+        for key in item.keys
         {
-        case "D-Pad":
-            
-            let topRect = CGRect(x: rect.minX, y: rect.minY, width: rect.width, height: rect.height / 3.0)
-            let bottomRect = CGRect(x: rect.minX, y: rect.maxY - rect.height / 3.0, width: rect.width, height: rect.height / 3.0)
-            let leftRect = CGRect(x: rect.minX, y: rect.minY, width: rect.width / 3.0, height: rect.height)
-            let rightRect = CGRect(x: rect.maxX - rect.width / 3.0, y: rect.minY, width: rect.width / 3.0, height: rect.height)
-            
-            if CGRectContainsPoint(topRect, point)
+            switch key
             {
-                inputs.append(GameInput.Up)
+            case "dpad":
+                
+                let topRect = CGRect(x: item.frame.minX, y: item.frame.minY, width: item.frame.width, height: item.frame.height / 3.0)
+                let bottomRect = CGRect(x: item.frame.minX, y: item.frame.maxY - item.frame.height / 3.0, width: item.frame.width, height: item.frame.height / 3.0)
+                let leftRect = CGRect(x: item.frame.minX, y: item.frame.minY, width: item.frame.width / 3.0, height: item.frame.height)
+                let rightRect = CGRect(x: item.frame.maxX - item.frame.width / 3.0, y: item.frame.minY, width: item.frame.width / 3.0, height: item.frame.height)
+                
+                if CGRectContainsPoint(topRect, point)
+                {
+                    inputs.append(GameInput.Up)
+                }
+                
+                if CGRectContainsPoint(bottomRect, point)
+                {
+                    inputs.append(GameInput.Down)
+                }
+                
+                if CGRectContainsPoint(leftRect, point)
+                {
+                    inputs.append(GameInput.Left)
+                }
+                
+                if CGRectContainsPoint(rightRect, point)
+                {
+                    inputs.append(GameInput.Right)
+                }
+                
+            case "a": inputs.append(GameInput.A)
+            case "b": inputs.append(GameInput.B)
+            case "x": inputs.append(GameInput.X)
+            case "y": inputs.append(GameInput.Y)
+            case "l": inputs.append(GameInput.L)
+            case "r": inputs.append(GameInput.R)
+            case "start": inputs.append(GameInput.Start)
+            case "select": inputs.append(GameInput.Select)
+            case "menu": inputs.append(ControllerInput.Menu)
+            default: break
             }
-            
-            if CGRectContainsPoint(bottomRect, point)
-            {
-                inputs.append(GameInput.Down)
-            }
-            
-            if CGRectContainsPoint(leftRect, point)
-            {
-                inputs.append(GameInput.Left)
-            }
-            
-            if CGRectContainsPoint(rightRect, point)
-            {
-                inputs.append(GameInput.Right)
-            }
-            
-        case "A":
-            inputs.append(GameInput.A)
-        case "B":
-            inputs.append(GameInput.B)
-        case "X":
-            inputs.append(GameInput.X)
-        case "Y":
-            inputs.append(GameInput.Y)
-        case "L":
-            inputs.append(GameInput.L)
-        case "R":
-            inputs.append(GameInput.R)
-        case "Start":
-            inputs.append(GameInput.Start)
-        case "Select":
-            inputs.append(GameInput.Select)
-        case "Menu":
-            inputs.append(ControllerInput.Menu)
-        default:
-            inputs = []
         }
         
         return inputs
