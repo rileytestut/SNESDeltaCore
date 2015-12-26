@@ -68,14 +68,15 @@ public class SNESEmulatorCore: EmulatorCore
     
     public override func stopEmulation()
     {
-        guard self.running else { return }
+        // Don't check if we're already running; we should stop no matter what
+        // guard self.running else { return }
         
         self.renderer.deactivate()
         
         SISetEmulationRunning(0)
         SIWaitForEmulationEnd()
         
-        self.running = true
+        self.running = false
     }
     
     public override func pauseEmulation()
