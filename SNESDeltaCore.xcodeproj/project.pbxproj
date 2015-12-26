@@ -255,7 +255,6 @@
 		BF86253D1BB74E2800C12EEE /* apu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04761F1B9FF0C10034A5A5 /* apu.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF86253E1BB74E2800C12EEE /* sdd1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0477071B9FF2100034A5A5 /* sdd1.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF86253F1BB74E2800C12EEE /* dsp1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476651B9FF0F10034A5A5 /* dsp1.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625401BB74E2800C12EEE /* SNESControllerSkin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD7BF91B6035DE007B75D2 /* SNESControllerSkin.swift */; };
 		BF8625411BB74E2800C12EEE /* fxinst.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476A81B9FF1490034A5A5 /* fxinst.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF8625421BB74E2800C12EEE /* loadzip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476F01B9FF2100034A5A5 /* loadzip.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF8625441BB74E2800C12EEE /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0477791B9FF3A20034A5A5 /* libz.tbd */; };
@@ -1255,7 +1254,6 @@
 				BF86253D1BB74E2800C12EEE /* apu.cpp in Sources */,
 				BF86253E1BB74E2800C12EEE /* sdd1.cpp in Sources */,
 				BF86253F1BB74E2800C12EEE /* dsp1.cpp in Sources */,
-				BF8625401BB74E2800C12EEE /* SNESControllerSkin.swift in Sources */,
 				BF8625411BB74E2800C12EEE /* fxinst.cpp in Sources */,
 				BF8625421BB74E2800C12EEE /* loadzip.cpp in Sources */,
 			);
