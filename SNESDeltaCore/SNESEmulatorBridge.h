@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class SNESEmulatorBridge;
+@class DLTARingBuffer;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,8 +21,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SNESEmulatorBridge : NSObject
 
-// Screen
+// Audio
+@property (strong, nonatomic, nullable) DLTARingBuffer *ringBuffer;
+
+// Video
 @property (weak, nonatomic, nullable) id<SNESScreenRefreshDelegate> screenRefreshDelegate;
+
+// Emulation
+@property (assign, nonatomic, getter=isFastForwarding) BOOL fastForwarding;
 
 + (instancetype)sharedBridge;
 

@@ -9,8 +9,6 @@
 #include "../SNES9X/controls.h"
 #include "../SNES9X/display.h"
 
-#include "iOSAudio.h"
-
 #pragma mark Defines
 
 #define MAX_PATH 255
@@ -29,13 +27,12 @@ unsigned char* _imageBuffer;
 extern "C" void SILoadRunningStateForGameNamed(const char* romFileName);
 extern "C" void SISaveRunningStateForGameNamed(const char* romFileName);
 
+extern "C" void SNESFinalizeSamplesCallback(void *);
+
 // these are reset when stopping/resetting to make sure the auto-frameskip works
 extern struct timeval SI_NextFrameTime;
 extern int SI_FrameTimeDebt;
 extern int SI_SleptLastFrame;
-
-// audio tracking
-extern volatile int SI_AudioIsOnHold;
 
 #pragma mark - Global Variables
 
@@ -162,7 +159,7 @@ extern "C" void SIWaitForPause()
 {
   if(SI_EmulationPaused == 1 && SI_EmulationIsRunning == 1)
     // wait for the pause to conclude
-    while((SI_EmulationDidPause == 0 || SI_AudioIsOnHold == 0) && SI_EmulationIsRunning == 1){}
+    while((SI_EmulationDidPause == 0) && SI_EmulationIsRunning == 1){}
 }
 
 extern "C" void SIWaitForEmulationEnd()
@@ -270,42 +267,34 @@ extern "C" int SIStartWithROM(const char* romFileNameCString)
 	mkdir(SI_SRAMPath, dir_mode);
   
   // unix init
-	ZeroMemory(&Settings, sizeof(Settings));
-	Settings.MouseMaster = TRUE;
-	Settings.SuperScopeMaster = TRUE;
-	Settings.JustifierMaster = TRUE;
-	Settings.MultiPlayer5Master = TRUE;
-	Settings.FrameTimePAL = 20000;
-	Settings.FrameTimeNTSC = 16667;
-	Settings.SixteenBitSound = TRUE;
-	Settings.Stereo = TRUE;
-  //Settings.Stereo = FALSE;
-	Settings.SoundPlaybackRate = 32000;
-  //Settings.SoundPlaybackRate = 22050;
-	//Settings.SoundInputRate = 32000;
-  Settings.SoundInputRate = 32000;
-  Settings.SoundSync = FALSE;
-	Settings.SupportHiRes = TRUE;
-	Settings.Transparency = TRUE;
-	Settings.AutoDisplayMessages = TRUE;
-	Settings.InitialInfoStringTimeout = 120;
-	Settings.HDMATimingHack = 100;
-	Settings.BlockInvalidVRAMAccessMaster = TRUE;
-	Settings.StopEmulation = TRUE;
-	Settings.WrongMovieStateProtection = TRUE;
-	Settings.DumpStreamsMaxFrames = -1;
-	Settings.StretchScreenshots = 1;
-	Settings.SnapshotScreenshots = TRUE;
-  if(SI_AutoFrameskip)
+    ZeroMemory(&Settings, sizeof(Settings));
+    Settings.MouseMaster = TRUE;
+    Settings.SuperScopeMaster = TRUE;
+    Settings.JustifierMaster = TRUE;
+    Settings.MultiPlayer5Master = TRUE;
+    Settings.FrameTimePAL = 20000;
+    Settings.FrameTimeNTSC = 16667;
+    Settings.SixteenBitSound = TRUE;
+    Settings.Stereo = TRUE;
+    Settings.SoundPlaybackRate = 32000;
+    Settings.SoundInputRate = 32000;
+    Settings.SupportHiRes = TRUE;
+    Settings.Transparency = TRUE;
+    Settings.AutoDisplayMessages = TRUE;
+    Settings.InitialInfoStringTimeout = 120;
+    Settings.HDMATimingHack = 100;
+    Settings.BlockInvalidVRAMAccessMaster = TRUE;
+    Settings.StopEmulation = TRUE;
+    Settings.WrongMovieStateProtection = TRUE;
+    Settings.DumpStreamsMaxFrames = -1;
+    Settings.StretchScreenshots = 1;
+    Settings.SnapshotScreenshots = TRUE;
     Settings.SkipFrames = AUTO_FRAMERATE;
-  else
-    Settings.SkipFrames = SI_Frameskip;
-  //Settings.SkipFrames = 1;
-	Settings.TurboSkipFrames = 15;
-	Settings.CartAName[0] = 0;
-	Settings.CartBName[0] = 0;
+    Settings.TurboSkipFrames = 4;
+    Settings.CartAName[0] = 0;
+    Settings.CartBName[0] = 0;
 #ifdef NETPLAY_SUPPORT
-	Settings.ServerName[0] = 0;
+    Settings.ServerName[0] = 0;
 #endif
   
 	CPU.Flags = 0;
@@ -521,8 +510,10 @@ extern "C" int SIStartWithROM(const char* romFileNameCString)
   SI_EmulationPaused = 0;
   
   //if(SI_SoundOn)
-  SIDemuteSound(soundBufferSize);
+    
 	S9xSetSoundMute(FALSE);
+    
+    S9xSetSamplesAvailableCallback(SNESFinalizeSamplesCallback, NULL);
   
 #ifdef NETPLAY_SUPPORT
 	bool8	NP_Activated = Settings.NetPlay;
@@ -608,8 +599,6 @@ extern "C" int SIStartWithROM(const char* romFileNameCString)
         {
           SISaveSRAM();
           SISaveRunningStateForGameNamed(rom_filename);
-          
-          SIMuteSound();
           
           S9xGraphicsDeinit();
           Memory.Deinit();

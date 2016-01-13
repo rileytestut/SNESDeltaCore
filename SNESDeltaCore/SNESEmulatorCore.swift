@@ -7,6 +7,7 @@
 //
 
 import DeltaCore
+import AVFoundation
 
 public enum GameInput: UInt, InputType
 {
@@ -26,9 +27,22 @@ public enum GameInput: UInt, InputType
 
 public class SNESEmulatorCore: EmulatorCore
 {
-    public var running = false
+    
+    override public var fastForwarding: Bool {
+        didSet
+        {
+            SNESEmulatorBridge.sharedBridge().fastForwarding = self.fastForwarding
+        }
+    }
     
     private let renderer = SNESGameRenderer()
+    
+    public required init(game: GameType)
+    {
+        super.init(game: game)
+        
+        SNESEmulatorBridge.sharedBridge().ringBuffer = self.audioManager.ringBuffer
+    }
     
     //MARK: - DynamicObject
     /// DynamicObject
@@ -46,10 +60,10 @@ public class SNESEmulatorCore: EmulatorCore
     /** Overrides **/
     
     public override func startEmulation()
-    {
+    {        
         guard !self.running else { return }
         
-        self.running = true
+        super.startEmulation()
         
         if let path: NSString? = self.game.fileURL.path, cPath = path?.UTF8String
         {
@@ -61,7 +75,7 @@ public class SNESEmulatorCore: EmulatorCore
                 SIStartWithROM(cPath)
                 SISetEmulationRunning(0)             
             }
-            
+                        
             self.renderer.activate()
         }
     }
@@ -76,7 +90,7 @@ public class SNESEmulatorCore: EmulatorCore
         SISetEmulationRunning(0)
         SIWaitForEmulationEnd()
         
-        self.running = false
+        super.stopEmulation()
     }
     
     public override func pauseEmulation()
@@ -85,7 +99,7 @@ public class SNESEmulatorCore: EmulatorCore
         
         SISetEmulationPaused(1)
         
-        self.running = false
+        super.pauseEmulation()
     }
     
     public override func resumeEmulation()
@@ -94,7 +108,7 @@ public class SNESEmulatorCore: EmulatorCore
         
         SISetEmulationPaused(0)
         
-        self.running = true
+        super.resumeEmulation()
     }
     
     //MARK: - EmulatorCore
@@ -113,7 +127,7 @@ public class SNESEmulatorCore: EmulatorCore
         guard let input = input as? GameInput else { return }
         
         print("Deactivated \(input)")
-        
+                
         SISetControllerReleaseButton(input.rawValue)
     }
     
@@ -164,6 +178,18 @@ public extension SNESEmulatorCore
 {
     override var preferredRenderingSize: CGSize {
         return CGSizeMake(256, 224)
+    }
+    
+    override var preferredBufferSize: Int {
+        return 2132
+    }
+    
+    override var audioFormat: AVAudioFormat {
+        return AVAudioFormat(commonFormat: .PCMFormatInt16, sampleRate: 32040.5, channels: 2, interleaved: true)
+    }
+    
+    override var fastForwardRate: Float {
+        return 4.0
     }
 }
 

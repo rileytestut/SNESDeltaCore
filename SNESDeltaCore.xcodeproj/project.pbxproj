@@ -165,8 +165,6 @@
 		BF04775B1B9FF2370034A5A5 /* unzip.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0477521B9FF2370034A5A5 /* unzip.h */; };
 		BF04775C1B9FF2370034A5A5 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = BF0477531B9FF2370034A5A5 /* zip.c */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF04775D1B9FF2370034A5A5 /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0477541B9FF2370034A5A5 /* zip.h */; };
-		BF04776B1B9FF37A0034A5A5 /* iOSAudio.h in Headers */ = {isa = PBXBuildFile; fileRef = BF04775F1B9FF37A0034A5A5 /* iOSAudio.h */; };
-		BF04776C1B9FF37A0034A5A5 /* iOSAudio.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF0477601B9FF37A0034A5A5 /* iOSAudio.mm */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF04776D1B9FF37A0034A5A5 /* SISaveDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0477611B9FF37A0034A5A5 /* SISaveDelegate.h */; };
 		BF04776E1B9FF37A0034A5A5 /* SISaveDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0477621B9FF37A0034A5A5 /* SISaveDelegate.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF0477711B9FF37A0034A5A5 /* Snes9xCallbacks.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0477651B9FF37A0034A5A5 /* Snes9xCallbacks.h */; };
@@ -207,7 +205,7 @@
 		BF86250D1BB74E2800C12EEE /* server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04770B1B9FF2100034A5A5 /* server.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF86250E1BB74E2800C12EEE /* sa1cpu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0477051B9FF2100034A5A5 /* sa1cpu.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF86250F1BB74E2800C12EEE /* crosshairs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04765C1B9FF0F10034A5A5 /* crosshairs.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625101BB74E2800C12EEE /* SNESEmulatorBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC800341BA4C8DB00824180 /* SNESEmulatorBridge.m */; };
+		BF8625101BB74E2800C12EEE /* SNESEmulatorBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = BFC800341BA4C8DB00824180 /* SNESEmulatorBridge.mm */; };
 		BF8625111BB74E2800C12EEE /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = BF0477511B9FF2370034A5A5 /* unzip.c */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF8625121BB74E2800C12EEE /* SNES_SPC_state.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04762B1B9FF0C10034A5A5 /* SNES_SPC_state.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF8625131BB74E2800C12EEE /* blit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04768E1B9FF1310034A5A5 /* blit.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
@@ -222,7 +220,6 @@
 		BF86251C1BB74E2800C12EEE /* SNES_SPC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04762C1B9FF0C10034A5A5 /* SNES_SPC.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF86251D1BB74E2800C12EEE /* dsp4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476681B9FF0F10034A5A5 /* dsp4.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF86251E1BB74E2800C12EEE /* s9x-jma.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476D01B9FF17E0034A5A5 /* s9x-jma.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF86251F1BB74E2800C12EEE /* iOSAudio.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF0477601B9FF37A0034A5A5 /* iOSAudio.mm */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF8625201BB74E2800C12EEE /* fxdbg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476A51B9FF1490034A5A5 /* fxdbg.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF8625211BB74E2800C12EEE /* snes_ntsc.c in Sources */ = {isa = PBXBuildFile; fileRef = BF0476961B9FF1310034A5A5 /* snes_ntsc.c */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF8625221BB74E2800C12EEE /* clip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476501B9FF0F10034A5A5 /* clip.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
@@ -284,7 +281,6 @@
 		BF86255E1BB74E2800C12EEE /* language.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476EF1B9FF2100034A5A5 /* language.h */; };
 		BF86255F1BB74E2800C12EEE /* snes_ntsc_config.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476941B9FF1310034A5A5 /* snes_ntsc_config.h */; };
 		BF8625601BB74E2800C12EEE /* fxinst.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476A91B9FF1490034A5A5 /* fxinst.h */; };
-		BF8625611BB74E2800C12EEE /* iOSAudio.h in Headers */ = {isa = PBXBuildFile; fileRef = BF04775F1B9FF37A0034A5A5 /* iOSAudio.h */; };
 		BF8625621BB74E2800C12EEE /* SPC_DSP.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476301B9FF0C10034A5A5 /* SPC_DSP.h */; };
 		BF8625631BB74E2800C12EEE /* ring_buffer.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476291B9FF0C10034A5A5 /* ring_buffer.h */; };
 		BF8625641BB74E2800C12EEE /* cpuexec.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476581B9FF0F10034A5A5 /* cpuexec.h */; };
@@ -359,7 +355,7 @@
 		BFBD7BFA1B6035DE007B75D2 /* SNESControllerSkin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD7BF91B6035DE007B75D2 /* SNESControllerSkin.swift */; };
 		BFC134DE1AAD821C0087AD7B /* DeltaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC134DD1AAD821C0087AD7B /* DeltaCore.framework */; };
 		BFC800351BA4C8DB00824180 /* SNESEmulatorBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = BFC800331BA4C8DB00824180 /* SNESEmulatorBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BFC800361BA4C8DB00824180 /* SNESEmulatorBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC800341BA4C8DB00824180 /* SNESEmulatorBridge.m */; };
+		BFC800361BA4C8DB00824180 /* SNESEmulatorBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = BFC800341BA4C8DB00824180 /* SNESEmulatorBridge.mm */; };
 		BFC800381BA4D3B600824180 /* SNESEmulatorCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC800371BA4D3B600824180 /* SNESEmulatorCore.swift */; };
 		BFC8003A1BA4D3E700824180 /* SNESGameRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC800391BA4D3E700824180 /* SNESGameRenderer.swift */; };
 /* End PBXBuildFile section */
@@ -524,8 +520,6 @@
 		BF0477531B9FF2370034A5A5 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zip.c; path = Snes9x/unzip/zip.c; sourceTree = SOURCE_ROOT; };
 		BF0477541B9FF2370034A5A5 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zip.h; path = Snes9x/unzip/zip.h; sourceTree = SOURCE_ROOT; };
 		BF04775E1B9FF29B0034A5A5 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		BF04775F1B9FF37A0034A5A5 /* iOSAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSAudio.h; sourceTree = "<group>"; };
-		BF0477601B9FF37A0034A5A5 /* iOSAudio.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iOSAudio.mm; sourceTree = "<group>"; };
 		BF0477611B9FF37A0034A5A5 /* SISaveDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SISaveDelegate.h; sourceTree = "<group>"; };
 		BF0477621B9FF37A0034A5A5 /* SISaveDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SISaveDelegate.m; sourceTree = "<group>"; };
 		BF0477651B9FF37A0034A5A5 /* Snes9xCallbacks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Snes9xCallbacks.h; sourceTree = "<group>"; };
@@ -545,7 +539,7 @@
 		BFBD7BF91B6035DE007B75D2 /* SNESControllerSkin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNESControllerSkin.swift; sourceTree = "<group>"; };
 		BFC134DD1AAD821C0087AD7B /* DeltaCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeltaCore.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/Delta-cubiloonxwcpqtawcqdjabbtttfl/Build/Products/Debug-iphoneos/DeltaCore.framework"; sourceTree = "<group>"; };
 		BFC800331BA4C8DB00824180 /* SNESEmulatorBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNESEmulatorBridge.h; sourceTree = "<group>"; };
-		BFC800341BA4C8DB00824180 /* SNESEmulatorBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNESEmulatorBridge.m; sourceTree = "<group>"; };
+		BFC800341BA4C8DB00824180 /* SNESEmulatorBridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SNESEmulatorBridge.mm; sourceTree = "<group>"; };
 		BFC800371BA4D3B600824180 /* SNESEmulatorCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNESEmulatorCore.swift; sourceTree = "<group>"; };
 		BFC800391BA4D3E700824180 /* SNESGameRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNESGameRenderer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -577,8 +571,6 @@
 		BF04761C1B9FF0300034A5A5 /* Legacy Bridge */ = {
 			isa = PBXGroup;
 			children = (
-				BF04775F1B9FF37A0034A5A5 /* iOSAudio.h */,
-				BF0477601B9FF37A0034A5A5 /* iOSAudio.mm */,
 				BF0477611B9FF37A0034A5A5 /* SISaveDelegate.h */,
 				BF0477621B9FF37A0034A5A5 /* SISaveDelegate.m */,
 				BF0477651B9FF37A0034A5A5 /* Snes9xCallbacks.h */,
@@ -859,7 +851,7 @@
 			isa = PBXGroup;
 			children = (
 				BFC800331BA4C8DB00824180 /* SNESEmulatorBridge.h */,
-				BFC800341BA4C8DB00824180 /* SNESEmulatorBridge.m */,
+				BFC800341BA4C8DB00824180 /* SNESEmulatorBridge.mm */,
 			);
 			name = Bridge;
 			sourceTree = "<group>";
@@ -907,7 +899,6 @@
 				BF86255E1BB74E2800C12EEE /* language.h in Headers */,
 				BF86255F1BB74E2800C12EEE /* snes_ntsc_config.h in Headers */,
 				BF8625601BB74E2800C12EEE /* fxinst.h in Headers */,
-				BF8625611BB74E2800C12EEE /* iOSAudio.h in Headers */,
 				BF8625621BB74E2800C12EEE /* SPC_DSP.h in Headers */,
 				BF8625631BB74E2800C12EEE /* ring_buffer.h in Headers */,
 				BF8625641BB74E2800C12EEE /* cpuexec.h in Headers */,
@@ -1008,7 +999,6 @@
 				BF04771D1B9FF2100034A5A5 /* language.h in Headers */,
 				BF0476A01B9FF1310034A5A5 /* snes_ntsc_config.h in Headers */,
 				BF0476B31B9FF1490034A5A5 /* fxinst.h in Headers */,
-				BF04776B1B9FF37A0034A5A5 /* iOSAudio.h in Headers */,
 				BF0476441B9FF0C10034A5A5 /* SPC_DSP.h in Headers */,
 				BF04763D1B9FF0C10034A5A5 /* ring_buffer.h in Headers */,
 				BF04767A1B9FF0F10034A5A5 /* cpuexec.h in Headers */,
@@ -1206,7 +1196,7 @@
 				BF86250D1BB74E2800C12EEE /* server.cpp in Sources */,
 				BF86250E1BB74E2800C12EEE /* sa1cpu.cpp in Sources */,
 				BF86250F1BB74E2800C12EEE /* crosshairs.cpp in Sources */,
-				BF8625101BB74E2800C12EEE /* SNESEmulatorBridge.m in Sources */,
+				BF8625101BB74E2800C12EEE /* SNESEmulatorBridge.mm in Sources */,
 				BF8625111BB74E2800C12EEE /* unzip.c in Sources */,
 				BF8625121BB74E2800C12EEE /* SNES_SPC_state.cpp in Sources */,
 				BF8625131BB74E2800C12EEE /* blit.cpp in Sources */,
@@ -1221,7 +1211,6 @@
 				BF86251C1BB74E2800C12EEE /* SNES_SPC.cpp in Sources */,
 				BF86251D1BB74E2800C12EEE /* dsp4.cpp in Sources */,
 				BF86251E1BB74E2800C12EEE /* s9x-jma.cpp in Sources */,
-				BF86251F1BB74E2800C12EEE /* iOSAudio.mm in Sources */,
 				BF8625201BB74E2800C12EEE /* fxdbg.cpp in Sources */,
 				BF8625211BB74E2800C12EEE /* snes_ntsc.c in Sources */,
 				BF8625221BB74E2800C12EEE /* clip.cpp in Sources */,
@@ -1291,7 +1280,7 @@
 				BF0477391B9FF2100034A5A5 /* server.cpp in Sources */,
 				BF0477331B9FF2100034A5A5 /* sa1cpu.cpp in Sources */,
 				BF04767E1B9FF0F10034A5A5 /* crosshairs.cpp in Sources */,
-				BFC800361BA4C8DB00824180 /* SNESEmulatorBridge.m in Sources */,
+				BFC800361BA4C8DB00824180 /* SNESEmulatorBridge.mm in Sources */,
 				BF04775A1B9FF2370034A5A5 /* unzip.c in Sources */,
 				BF04763F1B9FF0C10034A5A5 /* SNES_SPC_state.cpp in Sources */,
 				BF04769A1B9FF1310034A5A5 /* blit.cpp in Sources */,
@@ -1306,7 +1295,6 @@
 				BF0476401B9FF0C10034A5A5 /* SNES_SPC.cpp in Sources */,
 				BF04768A1B9FF0F10034A5A5 /* dsp4.cpp in Sources */,
 				BF0476EB1B9FF17E0034A5A5 /* s9x-jma.cpp in Sources */,
-				BF04776C1B9FF37A0034A5A5 /* iOSAudio.mm in Sources */,
 				BF0476AF1B9FF1490034A5A5 /* fxdbg.cpp in Sources */,
 				BF0476A21B9FF1310034A5A5 /* snes_ntsc.c in Sources */,
 				BF0476721B9FF0F10034A5A5 /* clip.cpp in Sources */,

@@ -21,7 +21,6 @@
 #include "../SNES9X/display.h"
 
 #include "Snes9xMain.h"
-#include "iOSAudio.h"
 
 #pragma mark Defines
 
@@ -229,73 +228,95 @@ const char* S9xGetFilenameInc (const char* inExt, enum s9x_getdirtype dirtype)
 
 void S9xSyncSpeed(void)
 {
-  struct timeval now;
-  
-  // calculate lag
-  gettimeofday (&now, NULL);
-  
-  if (SI_NextFrameTime.tv_sec == 0)
-  {
-    SI_NextFrameTime = now;
-    ++SI_NextFrameTime.tv_usec;
-  }
-  int lag = TIMER_DIFF (now, SI_NextFrameTime);
-  SI_FrameTimeDebt += lag-(int)Settings.FrameTime;
-  //printf("Frame Time: %i. Should be less than %i\n", lag, (int)Settings.FrameTime);
-  
-  // if we're  going too fast
-  bool sleptThis = 0;
-  if(SI_FrameTimeDebt < 0 && IPPU.SkippedFrames == 0)
-  //if(debt+(int)Settings.FrameTime < 0 && IPPU.SkippedFrames == 0)
-  {
-    int audioOffset = SIAudioOffset();
-    if(-SI_FrameTimeDebt+audioOffset > 0)
-      usleep(-SI_FrameTimeDebt+audioOffset);
-    //usleep(-(debt+(int)Settings.FrameTime));
-    SI_FrameTimeDebt = 0;
-    sleptThis = 1;
-  }
-  
-  // if we're going too slow or fixed frameskip
-  if (Settings.SkipFrames == AUTO_FRAMERATE && !Settings.SoundSync)
-  {
-    // auto frameskip
-    if(SI_FrameTimeDebt > (int)Settings.FrameTime*10 || IPPU.SkippedFrames >= 2)
-      SI_FrameTimeDebt = 0;
+    if (Settings.SoundSync)
+    {
+        while (!S9xSyncSound())
+        {
+            usleep(0);
+        }
+    }
     
-    if(SI_FrameTimeDebt > 0 && SI_SleptLastFrame == 0)
+    if (Settings.DumpStreams)
     {
-      IPPU.RenderThisFrame = 0;
-      IPPU.SkippedFrames++;
+        return;
     }
+    
+    if (Settings.HighSpeedSeek > 0)
+    {
+        Settings.HighSpeedSeek--;
+    }
+    
+    if (Settings.TurboMode)
+    {
+        if ((++IPPU.FrameSkip >= Settings.TurboSkipFrames) && !Settings.HighSpeedSeek)
+        {
+            IPPU.FrameSkip = 0;
+            IPPU.SkippedFrames = 0;
+            IPPU.RenderThisFrame = TRUE;
+        }
+        else
+        {
+            IPPU.SkippedFrames++;
+            IPPU.RenderThisFrame = FALSE;
+        }
+        
+        return;
+    }
+    
+    static struct timeval	next1 = { 0, 0 };
+    struct timeval			now;
+    
+    while (gettimeofday(&now, NULL) == -1) ;
+    
+    // If there is no known "next" frame, initialize it now.
+    if (next1.tv_sec == 0)
+    {
+        next1 = now;
+        next1.tv_usec++;
+    }
+    
+    // If we're on AUTO_FRAMERATE, we'll display frames always only if there's excess time.
+    // Otherwise we'll display the defined amount of frames.
+    unsigned	limit = (Settings.SkipFrames == AUTO_FRAMERATE) ? (timercmp(&next1, &now, <) ? 10 : 1) : Settings.SkipFrames;
+    
+    IPPU.RenderThisFrame = (++IPPU.SkippedFrames >= limit) ? TRUE : FALSE;
+    
+    if (IPPU.RenderThisFrame)
+        IPPU.SkippedFrames = 0;
     else
     {
-      IPPU.RenderThisFrame = 1;
-      IPPU.SkippedFrames = 0;
+        // If we were behind the schedule, check how much it is.
+        if (timercmp(&next1, &now, <))
+        {
+            unsigned	lag = (now.tv_sec - next1.tv_sec) * 1000000 + now.tv_usec - next1.tv_usec;
+            if (lag >= 500000)
+            {
+                // More than a half-second behind means probably pause.
+                // The next line prevents the magic fast-forward effect.
+                next1 = now;
+            }
+        }
     }
-  }
-  else
-  {
-    // frameskip a set number of frames
-    if(IPPU.SkippedFrames < Settings.SkipFrames)
+    
+    // Delay until we're completed this frame.
+    // Can't use setitimer because the sound code already could be using it. We don't actually need it either.
+    while (timercmp(&next1, &now, >))
     {
-      IPPU.RenderThisFrame = 0;
-      IPPU.SkippedFrames++;
+        // If we're ahead of time, sleep a while.
+        unsigned	timeleft = (next1.tv_sec - now.tv_sec) * 1000000 + next1.tv_usec - now.tv_usec;
+        usleep(timeleft);
+        
+        while (gettimeofday(&now, NULL) == -1) ;
+        // Continue with a while-loop because usleep() could be interrupted by a signal.
     }
-    else
+    
+    // Calculate the timestamp of the next frame.
+    next1.tv_usec += Settings.FrameTime;
+    if (next1.tv_usec >= 1000000)
     {
-      IPPU.RenderThisFrame = 1;
-      IPPU.SkippedFrames = 0;
+        next1.tv_sec += next1.tv_usec / 1000000;
+        next1.tv_usec %= 1000000;
     }
-  }
-  
-  if(sleptThis == 1)
-    SI_SleptLastFrame = 1;
-  else
-    SI_SleptLastFrame = 0;
-  
-  //next_frame_time = now;
-  gettimeofday (&SI_NextFrameTime, NULL);
 }
 
 const char* S9xBasename (const char* in)
