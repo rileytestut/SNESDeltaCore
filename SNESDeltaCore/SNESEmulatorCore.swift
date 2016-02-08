@@ -9,6 +9,8 @@
 import DeltaCore
 import AVFoundation
 
+import Roxas
+
 public enum GameInput: UInt, InputType
 {
     case Up     = 0x1
@@ -27,7 +29,6 @@ public enum GameInput: UInt, InputType
 
 public class SNESEmulatorCore: EmulatorCore
 {
-    
     override public var fastForwarding: Bool {
         didSet
         {
@@ -169,6 +170,25 @@ public class SNESEmulatorCore: EmulatorCore
         super.removeGameView(gameView)
         
         self.renderer.gameView = nil
+    }
+    
+    //MARK: - Save States -
+    /// Save States
+    public override func saveSaveState(completion: (SaveStateType -> Void))
+    {
+        NSFileManager.defaultManager().prepareTemporaryURL { URL in
+            
+            SNESEmulatorBridge.sharedBridge().saveSaveStateToURL(URL)
+            
+            let name = self.timestampDateFormatter.stringFromDate(NSDate())
+            let saveState = SaveState(name: name, fileURL: URL)
+            completion(saveState)
+        }
+    }
+    
+    public override func loadSaveState(saveState: SaveStateType)
+    {
+        SNESEmulatorBridge.sharedBridge().loadSaveStateFromURL(saveState.fileURL)
     }
 }
 

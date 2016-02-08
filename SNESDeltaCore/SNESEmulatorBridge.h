@@ -32,6 +32,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)sharedBridge;
 
+// Save States
+- (void)saveSaveStateToURL:(NSURL *)URL;
+- (void)loadSaveStateFromURL:(NSURL *)URL;
+
 @end
 
 NS_ASSUME_NONNULL_END

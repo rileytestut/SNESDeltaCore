@@ -9,8 +9,9 @@
 #import "SNESEmulatorBridge.h"
 
 // Snes9x
-#include "../SNES9X/snes9x.h"
-#include "../Snes9x/apu/apu.h"
+#include "snes9x.h"
+#include "apu.h"
+#include "snapshot.h"
 
 // Bridge
 #include "Snes9xMain.h"
@@ -51,6 +52,18 @@
 - (void)refreshScreen
 {
     [self.screenRefreshDelegate emulatorBridgeDidRefreshScreen:self];
+}
+
+#pragma mark - Save States -
+
+- (void)saveSaveStateToURL:(NSURL *)URL
+{
+    S9xFreezeGame(URL.path.fileSystemRepresentation);
+}
+
+- (void)loadSaveStateFromURL:(NSURL *)URL
+{
+    S9xUnfreezeGame(URL.path.fileSystemRepresentation);
 }
 
 #pragma mark - Getters/Setters -
