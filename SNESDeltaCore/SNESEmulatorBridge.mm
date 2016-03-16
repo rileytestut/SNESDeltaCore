@@ -17,7 +17,7 @@
 #include "Snes9xMain.h"
 
 // DeltaCore
-#import <DeltaCore/DLTARingBuffer.h>
+#import <DeltaCore/DeltaCore.h>
 
 @implementation SNESEmulatorBridge
 
@@ -51,7 +51,7 @@
 
 - (void)refreshScreen
 {
-    [self.screenRefreshDelegate emulatorBridgeDidRefreshScreen:self];
+    [self.videoRenderer didUpdateVideoBuffer];
 }
 
 #pragma mark - Save States -
@@ -80,6 +80,18 @@
     Settings.TurboMode = fastForwarding;
     
     S9xClearSamples();
+}
+
+- (void)setVideoRenderer:(id<DLTAVideoRendering>)videoRenderer
+{
+    if ([videoRenderer isEqual:_videoRenderer])
+    {
+        return;
+    }
+    
+    _videoRenderer = videoRenderer;
+    
+    SISetScreen(videoRenderer.videoBuffer);
 }
 
 @end

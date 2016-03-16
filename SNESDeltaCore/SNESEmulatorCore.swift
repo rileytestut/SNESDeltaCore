@@ -36,13 +36,12 @@ public class SNESEmulatorCore: EmulatorCore
         }
     }
     
-    private let renderer = SNESGameRenderer()
-    
     public required init(game: GameType)
     {
         super.init(game: game)
         
         SNESEmulatorBridge.sharedBridge().ringBuffer = self.audioManager.ringBuffer
+        SNESEmulatorBridge.sharedBridge().videoRenderer = self.videoManager
     }
     
     //MARK: - DynamicObject
@@ -60,6 +59,11 @@ public class SNESEmulatorCore: EmulatorCore
     //MARK: - Overrides -
     /** Overrides **/
     
+    override public var videoBufferInfo: VideoManager.BufferInfo {
+        let bufferInfo = VideoManager.BufferInfo(inputFormat: .RGB565, inputDimensions: CGSize(width: 256 * 2, height: 224 * 2), outputDimensions: CGSize(width: 256, height: 224))
+        return bufferInfo
+    }
+    
     public override func startEmulation()
     {        
         guard !self.running else { return }
@@ -76,8 +80,6 @@ public class SNESEmulatorCore: EmulatorCore
                 SIStartWithROM(cPath)
                 SISetEmulationRunning(0)             
             }
-                        
-            self.renderer.activate()
         }
     }
     
@@ -85,8 +87,6 @@ public class SNESEmulatorCore: EmulatorCore
     {
         // Don't check if we're already running; we should stop no matter what
         // guard self.running else { return }
-        
-        self.renderer.deactivate()
         
         SISetEmulationRunning(0)
         SIWaitForEmulationEnd()
@@ -156,20 +156,6 @@ public class SNESEmulatorCore: EmulatorCore
         }
         
         return inputs
-    }
-    
-    public override func addGameView(gameView: GameView)
-    {
-        super.addGameView(gameView)
-        
-        self.renderer.gameView = gameView
-    }
-    
-    public override func removeGameView(gameView: GameView)
-    {
-        super.removeGameView(gameView)
-        
-        self.renderer.gameView = nil
     }
     
     //MARK: - Save States -

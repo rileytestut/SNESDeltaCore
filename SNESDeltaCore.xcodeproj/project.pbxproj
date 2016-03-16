@@ -246,7 +246,6 @@
 		BF8625371BB74E2800C12EEE /* dma.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476611B9FF0F10034A5A5 /* dma.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF8625381BB74E2800C12EEE /* lzmadec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476CB1B9FF17E0034A5A5 /* lzmadec.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF8625391BB74E2800C12EEE /* SNESDeltaCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF785C9E1B603C2C00189DB8 /* SNESDeltaCore.swift */; };
-		BF86253A1BB74E2800C12EEE /* SNESGameRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC800391BA4D3E700824180 /* SNESGameRenderer.swift */; };
 		BF86253B1BB74E2800C12EEE /* hq2x.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476921B9FF1310034A5A5 /* hq2x.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF86253C1BB74E2800C12EEE /* snes9x.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0477131B9FF2100034A5A5 /* snes9x.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF86253D1BB74E2800C12EEE /* apu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04761F1B9FF0C10034A5A5 /* apu.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
@@ -357,7 +356,6 @@
 		BFC800351BA4C8DB00824180 /* SNESEmulatorBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = BFC800331BA4C8DB00824180 /* SNESEmulatorBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BFC800361BA4C8DB00824180 /* SNESEmulatorBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = BFC800341BA4C8DB00824180 /* SNESEmulatorBridge.mm */; };
 		BFC800381BA4D3B600824180 /* SNESEmulatorCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC800371BA4D3B600824180 /* SNESEmulatorCore.swift */; };
-		BFC8003A1BA4D3E700824180 /* SNESGameRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC800391BA4D3E700824180 /* SNESGameRenderer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -541,7 +539,6 @@
 		BFC800331BA4C8DB00824180 /* SNESEmulatorBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNESEmulatorBridge.h; sourceTree = "<group>"; };
 		BFC800341BA4C8DB00824180 /* SNESEmulatorBridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SNESEmulatorBridge.mm; sourceTree = "<group>"; };
 		BFC800371BA4D3B600824180 /* SNESEmulatorCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNESEmulatorCore.swift; sourceTree = "<group>"; };
-		BFC800391BA4D3E700824180 /* SNESGameRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNESGameRenderer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -779,14 +776,6 @@
 			name = unzip;
 			sourceTree = "<group>";
 		};
-		BF961A141BA4FF90005EF3A7 /* Rendering */ = {
-			isa = PBXGroup;
-			children = (
-				BFC800391BA4D3E700824180 /* SNESGameRenderer.swift */,
-			);
-			name = Rendering;
-			sourceTree = "<group>";
-		};
 		BF9F4FD21AAD8070004C9500 = {
 			isa = PBXGroup;
 			children = (
@@ -812,7 +801,6 @@
 				BF785C9E1B603C2C00189DB8 /* SNESDeltaCore.swift */,
 				BFBD7BF81B6035C8007B75D2 /* Model */,
 				BFF912D41AB0996500AC07A1 /* Core */,
-				BF961A141BA4FF90005EF3A7 /* Rendering */,
 				BF9F4FDF1AAD8070004C9500 /* Supporting Files */,
 			);
 			path = SNESDeltaCore;
@@ -1237,7 +1225,6 @@
 				BF8625371BB74E2800C12EEE /* dma.cpp in Sources */,
 				BF8625381BB74E2800C12EEE /* lzmadec.cpp in Sources */,
 				BF8625391BB74E2800C12EEE /* SNESDeltaCore.swift in Sources */,
-				BF86253A1BB74E2800C12EEE /* SNESGameRenderer.swift in Sources */,
 				BF86253B1BB74E2800C12EEE /* hq2x.cpp in Sources */,
 				BF86253C1BB74E2800C12EEE /* snes9x.cpp in Sources */,
 				BF86253D1BB74E2800C12EEE /* apu.cpp in Sources */,
@@ -1321,7 +1308,6 @@
 				BF0476831B9FF0F10034A5A5 /* dma.cpp in Sources */,
 				BF0476E61B9FF17E0034A5A5 /* lzmadec.cpp in Sources */,
 				BF785C9F1B603C2C00189DB8 /* SNESDeltaCore.swift in Sources */,
-				BFC8003A1BA4D3E700824180 /* SNESGameRenderer.swift in Sources */,
 				BF04769E1B9FF1310034A5A5 /* hq2x.cpp in Sources */,
 				BF0477411B9FF2100034A5A5 /* snes9x.cpp in Sources */,
 				BF0476331B9FF0C10034A5A5 /* apu.cpp in Sources */,

@@ -243,12 +243,12 @@ extern "C" int SIStartWithROM(const char* romFileNameCString)
     unsigned int bufferBytesPerRow = _bufferWidth*pixelSizeBytes;
     CGBitmapInfo bufferBitmapInfo = kCGImageAlphaNoneSkipLast;
     
-    if(_imageBuffer == nil)
-    {
-        _imageBuffer = (unsigned char*)calloc(_bufferWidth*_bufferHeightExtended, pixelSizeBytes);
-    }
-    
-    SISetScreen(_imageBuffer);
+//    if(_imageBuffer == nil)
+//    {
+//        _imageBuffer = (unsigned char*)calloc(_bufferWidth*_bufferHeightExtended, pixelSizeBytes);
+//    }
+//    
+//    SISetScreen(_imageBuffer);
     
     char* rom_filename = (char*)calloc(strlen(romFileNameCString)+1, sizeof(char));
     strcpy(rom_filename, romFileNameCString);

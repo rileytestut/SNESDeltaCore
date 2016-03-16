@@ -10,14 +10,9 @@
 
 @class SNESEmulatorBridge;
 @class DLTARingBuffer;
+@protocol DLTAVideoRendering;
 
 NS_ASSUME_NONNULL_BEGIN
-
-@protocol SNESScreenRefreshDelegate
-
-- (void)emulatorBridgeDidRefreshScreen:(SNESEmulatorBridge *)emulatorBridge;
-
-@end
 
 @interface SNESEmulatorBridge : NSObject
 
@@ -25,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic, nullable) DLTARingBuffer *ringBuffer;
 
 // Video
-@property (weak, nonatomic, nullable) id<SNESScreenRefreshDelegate> screenRefreshDelegate;
+@property (weak, nonatomic, nullable) id<DLTAVideoRendering> videoRenderer;
 
 // Emulation
 @property (assign, nonatomic, getter=isFastForwarding) BOOL fastForwarding;
