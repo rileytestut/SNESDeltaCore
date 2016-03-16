@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @class SNESEmulatorBridge;
-@class DLTARingBuffer;
+
+@protocol DLTAAudioRendering;
 @protocol DLTAVideoRendering;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -17,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SNESEmulatorBridge : NSObject
 
 // Audio
-@property (strong, nonatomic, nullable) DLTARingBuffer *ringBuffer;
+@property (weak, nonatomic, nullable) id<DLTAAudioRendering> audioRenderer;
 
 // Video
 @property (weak, nonatomic, nullable) id<DLTAVideoRendering> videoRenderer;

@@ -40,7 +40,7 @@ public class SNESEmulatorCore: EmulatorCore
     {
         super.init(game: game)
         
-        SNESEmulatorBridge.sharedBridge().ringBuffer = self.audioManager.ringBuffer
+        SNESEmulatorBridge.sharedBridge().audioRenderer = self.audioManager
         SNESEmulatorBridge.sharedBridge().videoRenderer = self.videoManager
     }
     
@@ -59,9 +59,23 @@ public class SNESEmulatorCore: EmulatorCore
     //MARK: - Overrides -
     /** Overrides **/
     
+    override public var audioBufferInfo: AudioManager.BufferInfo{
+        let inputFormat = AVAudioFormat(commonFormat: .PCMFormatInt16, sampleRate: 32040.5, channels: 2, interleaved: true)
+        
+        let bufferInfo = AudioManager.BufferInfo(inputFormat: inputFormat, preferredSize: 2132)
+        return bufferInfo
+    }
+    
     override public var videoBufferInfo: VideoManager.BufferInfo {
         let bufferInfo = VideoManager.BufferInfo(inputFormat: .RGB565, inputDimensions: CGSize(width: 256 * 2, height: 224 * 2), outputDimensions: CGSize(width: 256, height: 224))
         return bufferInfo
+    }
+    
+    override public var preferredRenderingSize: CGSize {
+        return CGSizeMake(256, 224)
+    }
+    override public var fastForwardRate: Float {
+        return 4.0
     }
     
     public override func startEmulation()
@@ -175,27 +189,6 @@ public class SNESEmulatorCore: EmulatorCore
     public override func loadSaveState(saveState: SaveStateType)
     {
         SNESEmulatorBridge.sharedBridge().loadSaveStateFromURL(saveState.fileURL)
-    }
-}
-
-//MARK: - System Information -
-/// System Information
-public extension SNESEmulatorCore
-{
-    override var preferredRenderingSize: CGSize {
-        return CGSizeMake(256, 224)
-    }
-    
-    override var preferredBufferSize: Int {
-        return 2132
-    }
-    
-    override var audioFormat: AVAudioFormat {
-        return AVAudioFormat(commonFormat: .PCMFormatInt16, sampleRate: 32040.5, channels: 2, interleaved: true)
-    }
-    
-    override var fastForwardRate: Float {
-        return 4.0
     }
 }
 

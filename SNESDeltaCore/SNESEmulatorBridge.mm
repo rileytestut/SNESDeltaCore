@@ -38,7 +38,7 @@
 {
     S9xFinalizeSamples();
     
-    [self.ringBuffer writeToRingBuffer:^int32_t(void * _Nonnull ringBuffer, int32_t availableBytes) {
+    [self.audioRenderer.ringBuffer writeToRingBuffer:^int32_t(void * _Nonnull ringBuffer, int32_t availableBytes) {
         
         int sampleCount = MIN(availableBytes / 2, S9xGetSampleCount());
         S9xMixSamples((uint8 *)ringBuffer, sampleCount);
