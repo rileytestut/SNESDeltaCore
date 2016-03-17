@@ -280,13 +280,13 @@ class ConfigFile {
 
         static void trim(std::string &s){
             int i;
-            i=s.find_first_not_of(" \f\n\r\t\v");
+            i=(int)s.find_first_not_of(" \f\n\r\t\v");
             if(i==-1){
                 s.clear();
                 return;
             }
             if(i>0) s.erase(0, i); // erase leading whitespace
-            i=s.find_last_not_of(" \f\n\r\t\v");
+            i=(int)s.find_last_not_of(" \f\n\r\t\v");
             if(i!=-1) s.erase(i+1); // erase trailing whitespace
 			return;
         }
@@ -296,7 +296,7 @@ class ConfigFile {
         static std::string trimCommented(std::string &s){
 			std::string cmt;
             int i;
-            i=s.find_first_not_of(" \f\n\r\t\v");
+            i=(int)s.find_first_not_of(" \f\n\r\t\v");
             if(i==-1){
                 s.clear();
                 return cmt;
@@ -304,7 +304,7 @@ class ConfigFile {
             if(i>0) s.erase(0, i); // erase leading whitespace
 			int off=0;
 			for(;;){
-				i=s.find('#',off); // find trailing comment
+				i=(int)s.find('#',off); // find trailing comment
 				if(i>=0)
 				{
 					if((int)s.length()>i+1 && s.at(i+1) == '#') {
@@ -312,14 +312,14 @@ class ConfigFile {
 						off = i+1;
 						continue;
 					} else {
-						int j=s.find_first_not_of(" \f\n\r\t\v",i+1);
+						int j=(int)s.find_first_not_of(" \f\n\r\t\v",i+1);
 						if(j!=-1) cmt = s.substr(j); // store
 						s.erase(i); // erase trailing comment
 					}
 				}
 				break;
 			}
-            i=s.find_last_not_of(" \f\n\r\t\v");
+            i=(int)s.find_last_not_of(" \f\n\r\t\v");
             if(i!=-1) s.erase(i+1); // erase trailing whitespace
 			return cmt;
         }
@@ -333,7 +333,7 @@ class ConfigFile {
         }
 
         void parse_key(const std::string &k){
-            int i=k.find("::");
+            int i=(int)k.find("::");
             if(i==-1){
                 section="Uncategorized"; key=k;
             } else {
@@ -366,7 +366,7 @@ class ConfigFile {
 			uint32 seclen;
 			std::map<std::string,uint32>::iterator it;
 			for(it=sections.begin(); it!=sections.end(); it++) {
-				seclen = MIN(section.size(),it->first.size());
+				seclen = (uint32)MIN(section.size(),it->first.size());
 				if(it->first==section || !section.compare(0,seclen,it->first,0,seclen)) count+=it->second;
 			}
 			return count;

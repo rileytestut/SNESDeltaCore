@@ -15,6 +15,5 @@ FOUNDATION_EXPORT double SNESDeltaCoreVersionNumber;
 FOUNDATION_EXPORT const unsigned char SNESDeltaCoreVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <SNESDeltaCore/PublicHeader.h>
-#import <SNESDeltaCore/Snes9xMain.h>
 #import <SNESDeltaCore/SNESEmulatorBridge.h>
 

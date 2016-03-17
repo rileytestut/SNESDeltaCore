@@ -40,32 +40,32 @@ public class SNESControllerSkin: ControllerSkin
                 
                 if CGRectContainsPoint(topRect, point)
                 {
-                    inputs.append(GameInput.Up)
+                    inputs.append(SNESGameInput.Up)
                 }
                 
                 if CGRectContainsPoint(bottomRect, point)
                 {
-                    inputs.append(GameInput.Down)
+                    inputs.append(SNESGameInput.Down)
                 }
                 
                 if CGRectContainsPoint(leftRect, point)
                 {
-                    inputs.append(GameInput.Left)
+                    inputs.append(SNESGameInput.Left)
                 }
                 
                 if CGRectContainsPoint(rightRect, point)
                 {
-                    inputs.append(GameInput.Right)
+                    inputs.append(SNESGameInput.Right)
                 }
                 
-            case "a": inputs.append(GameInput.A)
-            case "b": inputs.append(GameInput.B)
-            case "x": inputs.append(GameInput.X)
-            case "y": inputs.append(GameInput.Y)
-            case "l": inputs.append(GameInput.L)
-            case "r": inputs.append(GameInput.R)
-            case "start": inputs.append(GameInput.Start)
-            case "select": inputs.append(GameInput.Select)
+            case "a": inputs.append(SNESGameInput.A)
+            case "b": inputs.append(SNESGameInput.B)
+            case "x": inputs.append(SNESGameInput.X)
+            case "y": inputs.append(SNESGameInput.Y)
+            case "l": inputs.append(SNESGameInput.L)
+            case "r": inputs.append(SNESGameInput.R)
+            case "start": inputs.append(SNESGameInput.Start)
+            case "select": inputs.append(SNESGameInput.Select)
             case "menu": inputs.append(ControllerInput.Menu)
             default: break
             }

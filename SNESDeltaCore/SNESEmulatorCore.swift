@@ -11,21 +11,7 @@ import AVFoundation
 
 import Roxas
 
-public enum GameInput: UInt, InputType
-{
-    case Up     = 0x1
-    case Down   = 0x10
-    case Left   = 0x4
-    case Right  = 0x40
-    case A      = 0b1000000000000    // 1 << 12
-    case B      = 0b10000000000000   // 1 << 13
-    case X      = 0b100000000000000  // 1 << 14
-    case Y      = 0b1000000000000000 // 1 << 15
-    case L      = 0b10000000000      // 1 << 10
-    case R      = 0b100000000000     // 1 << 11
-    case Start  = 0b100000000        // 1 << 8
-    case Select = 0b1000000000       // 1 << 9
-}
+extension SNESGameInput: InputType {}
 
 public class SNESEmulatorCore: EmulatorCore
 {
@@ -84,26 +70,20 @@ public class SNESEmulatorCore: EmulatorCore
         
         super.startEmulation()
         
-        if let path: NSString? = self.game.fileURL.path, cPath = path?.UTF8String
-        {
-            let emulationQueue: dispatch_queue_t = dispatch_queue_create("com.rileytestut.delta.SNESEmulatorCore.emulationQueue", DISPATCH_QUEUE_SERIAL)
-            
-            dispatch_async(emulationQueue) {
-                SISetEmulationPaused(0)
-                SISetEmulationRunning(1)
-                SIStartWithROM(cPath)
-                SISetEmulationRunning(0)             
-            }
+        let fileURL = self.game.fileURL
+        
+        dispatch_async(self.emulationQueue) {
+            SNESEmulatorBridge.sharedBridge().startWithGameURL(fileURL)
         }
+        
     }
-    
+
     public override func stopEmulation()
     {
         // Don't check if we're already running; we should stop no matter what
         // guard self.running else { return }
         
-        SISetEmulationRunning(0)
-        SIWaitForEmulationEnd()
+        SNESEmulatorBridge.sharedBridge().stop()
         
         super.stopEmulation()
     }
@@ -112,7 +92,7 @@ public class SNESEmulatorCore: EmulatorCore
     {
         guard self.running else { return }
         
-        SISetEmulationPaused(1)
+        SNESEmulatorBridge.sharedBridge().pause()
         
         super.pauseEmulation()
     }
@@ -121,7 +101,7 @@ public class SNESEmulatorCore: EmulatorCore
     {
         guard !self.running else { return }
         
-        SISetEmulationPaused(0)
+        SNESEmulatorBridge.sharedBridge().resume()
         
         super.resumeEmulation()
     }
@@ -130,20 +110,16 @@ public class SNESEmulatorCore: EmulatorCore
     /// EmulatorCore
     public override func gameController(gameController: GameControllerType, didActivateInput input: InputType)
     {
-        guard let input = input as? GameInput else { return }
+        guard let input = input as? SNESGameInput else { return }
         
-        print("Activated \(input)")
-        
-        SISetControllerPushButton(input.rawValue)
+        SNESEmulatorBridge.sharedBridge().activateInput(input)
     }
     
     public override func gameController(gameController: GameControllerType, didDeactivateInput input: InputType)
     {
-        guard let input = input as? GameInput else { return }
+        guard let input = input as? SNESGameInput else { return }
         
-        print("Deactivated \(input)")
-                
-        SISetControllerReleaseButton(input.rawValue)
+        SNESEmulatorBridge.sharedBridge().deactivateInput(input)
     }
     
     //MARK: - Input Transformation -
@@ -159,14 +135,14 @@ public class SNESEmulatorCore: EmulatorCore
         case let .DPad(xAxis: xAxis, yAxis: yAxis): inputs.appendContentsOf(self.inputsForXAxis(xAxis, YAxis: yAxis))
         case let .LeftThumbstick(xAxis: xAxis, yAxis: yAxis): inputs.appendContentsOf(self.inputsForXAxis(xAxis, YAxis: yAxis))
         case .RightThumbstick(xAxis: _, yAxis: _): break
-        case .A: inputs.append(GameInput.A)
-        case .B: inputs.append(GameInput.B)
-        case .X: inputs.append(GameInput.X)
-        case .Y: inputs.append(GameInput.Y)
-        case .L: inputs.append(GameInput.L)
-        case .R: inputs.append(GameInput.R)
-        case .LeftTrigger: inputs.append(GameInput.L)
-        case .RightTrigger: inputs.append(GameInput.R)
+        case .A: inputs.append(SNESGameInput.A)
+        case .B: inputs.append(SNESGameInput.B)
+        case .X: inputs.append(SNESGameInput.X)
+        case .Y: inputs.append(SNESGameInput.Y)
+        case .L: inputs.append(SNESGameInput.L)
+        case .R: inputs.append(SNESGameInput.R)
+        case .LeftTrigger: inputs.append(SNESGameInput.L)
+        case .RightTrigger: inputs.append(SNESGameInput.R)
         }
         
         return inputs
@@ -175,7 +151,7 @@ public class SNESEmulatorCore: EmulatorCore
     //MARK: - Save States -
     /// Save States
     public override func saveSaveState(completion: (SaveStateType -> Void))
-    {
+    {        
         NSFileManager.defaultManager().prepareTemporaryURL { URL in
             
             SNESEmulatorBridge.sharedBridge().saveSaveStateToURL(URL)
@@ -188,7 +164,9 @@ public class SNESEmulatorCore: EmulatorCore
     
     public override func loadSaveState(saveState: SaveStateType)
     {
-        SNESEmulatorBridge.sharedBridge().loadSaveStateFromURL(saveState.fileURL)
+        dispatch_sync(self.emulationQueue) {
+            SNESEmulatorBridge.sharedBridge().loadSaveStateFromURL(saveState.fileURL)
+        }
     }
 }
 
@@ -200,20 +178,20 @@ private extension SNESEmulatorCore
         
         if xAxis > 0.0
         {
-            inputs.append(GameInput.Right)
+            inputs.append(SNESGameInput.Right)
         }
         else if xAxis < 0.0
         {
-            inputs.append(GameInput.Left)
+            inputs.append(SNESGameInput.Left)
         }
         
         if yAxis > 0.0
         {
-            inputs.append(GameInput.Up)
+            inputs.append(SNESGameInput.Up)
         }
         else if yAxis < 0.0
         {
-            inputs.append(GameInput.Down)
+            inputs.append(SNESGameInput.Down)
         }
         
         return inputs

@@ -165,12 +165,6 @@
 		BF04775B1B9FF2370034A5A5 /* unzip.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0477521B9FF2370034A5A5 /* unzip.h */; };
 		BF04775C1B9FF2370034A5A5 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = BF0477531B9FF2370034A5A5 /* zip.c */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF04775D1B9FF2370034A5A5 /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0477541B9FF2370034A5A5 /* zip.h */; };
-		BF04776D1B9FF37A0034A5A5 /* SISaveDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0477611B9FF37A0034A5A5 /* SISaveDelegate.h */; };
-		BF04776E1B9FF37A0034A5A5 /* SISaveDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0477621B9FF37A0034A5A5 /* SISaveDelegate.m */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF0477711B9FF37A0034A5A5 /* Snes9xCallbacks.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0477651B9FF37A0034A5A5 /* Snes9xCallbacks.h */; };
-		BF0477721B9FF37A0034A5A5 /* Snes9xCallbacks.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF0477661B9FF37A0034A5A5 /* Snes9xCallbacks.mm */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF0477731B9FF37A0034A5A5 /* Snes9xMain.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0477671B9FF37A0034A5A5 /* Snes9xMain.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BF0477741B9FF37A0034A5A5 /* Snes9xMain.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF0477681B9FF37A0034A5A5 /* Snes9xMain.mm */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF0477781B9FF39A0034A5A5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0477771B9FF39A0034A5A5 /* AudioToolbox.framework */; };
 		BF04777A1B9FF3A20034A5A5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0477791B9FF3A20034A5A5 /* libz.tbd */; };
 		BF04777C1B9FF3D10034A5A5 /* tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04777B1B9FF3D10034A5A5 /* tile.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
@@ -189,14 +183,12 @@
 		BF8624FD1BB74E2800C12EEE /* SPC_DSP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04762F1B9FF0C10034A5A5 /* SPC_DSP.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF8624FE1BB74E2800C12EEE /* inbyte.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476C31B9FF17E0034A5A5 /* inbyte.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF8624FF1BB74E2800C12EEE /* 7zlzma.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476BA1B9FF17E0034A5A5 /* 7zlzma.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625001BB74E2800C12EEE /* Snes9xMain.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF0477681B9FF37A0034A5A5 /* Snes9xMain.mm */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF8625011BB74E2800C12EEE /* dsp3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476671B9FF0F10034A5A5 /* dsp3.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF8625021BB74E2800C12EEE /* netplay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476F91B9FF2100034A5A5 /* netplay.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF8625031BB74E2800C12EEE /* obc1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476FB1B9FF2100034A5A5 /* obc1.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF8625041BB74E2800C12EEE /* controls.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476531B9FF0F10034A5A5 /* controls.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF8625051BB74E2800C12EEE /* tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04777B1B9FF3D10034A5A5 /* tile.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF8625061BB74E2800C12EEE /* memmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476F31B9FF2100034A5A5 /* memmap.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625071BB74E2800C12EEE /* SISaveDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0477621B9FF37A0034A5A5 /* SISaveDelegate.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF8625081BB74E2800C12EEE /* fxemu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476A61B9FF1490034A5A5 /* fxemu.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF8625091BB74E2800C12EEE /* SNES_SPC_misc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04762A1B9FF0C10034A5A5 /* SNES_SPC_misc.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF86250A1BB74E2800C12EEE /* iiostrm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476C11B9FF17E0034A5A5 /* iiostrm.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
@@ -211,7 +203,6 @@
 		BF8625131BB74E2800C12EEE /* blit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04768E1B9FF1310034A5A5 /* blit.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF8625141BB74E2800C12EEE /* sa1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0477031B9FF2100034A5A5 /* sa1.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF8625151BB74E2800C12EEE /* bsx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476481B9FF0F10034A5A5 /* bsx.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625161BB74E2800C12EEE /* Snes9xCallbacks.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF0477661B9FF37A0034A5A5 /* Snes9xCallbacks.mm */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF8625171BB74E2800C12EEE /* seta.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04770C1B9FF2100034A5A5 /* seta.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF8625181BB74E2800C12EEE /* SNESEmulatorCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC800371BA4D3B600824180 /* SNESEmulatorCore.swift */; };
 		BF8625191BB74E2800C12EEE /* 2xsai.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04768C1B9FF1310034A5A5 /* 2xsai.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
@@ -256,7 +247,6 @@
 		BF8625441BB74E2800C12EEE /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0477791B9FF3A20034A5A5 /* libz.tbd */; };
 		BF8625451BB74E2800C12EEE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0477771B9FF39A0034A5A5 /* AudioToolbox.framework */; };
 		BF8625481BB74E2800C12EEE /* srtc.h in Headers */ = {isa = PBXBuildFile; fileRef = BF04771A1B9FF2100034A5A5 /* srtc.h */; };
-		BF8625491BB74E2800C12EEE /* Snes9xMain.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0477671B9FF37A0034A5A5 /* Snes9xMain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF86254A1BB74E2800C12EEE /* cpuops.h in Headers */ = {isa = PBXBuildFile; fileRef = BF04765B1B9FF0F10034A5A5 /* cpuops.h */; };
 		BF86254B1BB74E2800C12EEE /* portable.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476CD1B9FF17E0034A5A5 /* portable.h */; };
 		BF86254C1BB74E2800C12EEE /* jma.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476C61B9FF17E0034A5A5 /* jma.h */; };
@@ -299,7 +289,6 @@
 		BF8625721BB74E2800C12EEE /* display.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476601B9FF0F10034A5A5 /* display.h */; };
 		BF8625731BB74E2800C12EEE /* pixform.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476FD1B9FF2100034A5A5 /* pixform.h */; };
 		BF8625741BB74E2800C12EEE /* hermite_resampler.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476251B9FF0C10034A5A5 /* hermite_resampler.h */; };
-		BF8625751BB74E2800C12EEE /* Snes9xCallbacks.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0477651B9FF37A0034A5A5 /* Snes9xCallbacks.h */; };
 		BF8625761BB74E2800C12EEE /* 2xsai.h in Headers */ = {isa = PBXBuildFile; fileRef = BF04768D1B9FF1310034A5A5 /* 2xsai.h */; };
 		BF8625771BB74E2800C12EEE /* rcdefs.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476CE1B9FF17E0034A5A5 /* rcdefs.h */; };
 		BF8625781BB74E2800C12EEE /* ppu.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0477001B9FF2100034A5A5 /* ppu.h */; };
@@ -325,7 +314,6 @@
 		BF86258C1BB74E2800C12EEE /* blargg_endian.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476231B9FF0C10034A5A5 /* blargg_endian.h */; };
 		BF86258D1BB74E2800C12EEE /* s9x-jma.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476D11B9FF17E0034A5A5 /* s9x-jma.h */; };
 		BF86258E1BB74E2800C12EEE /* debug.h in Headers */ = {isa = PBXBuildFile; fileRef = BF04765F1B9FF0F10034A5A5 /* debug.h */; };
-		BF86258F1BB74E2800C12EEE /* SISaveDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0477611B9FF37A0034A5A5 /* SISaveDelegate.h */; };
 		BF8625901BB74E2800C12EEE /* movie.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476F81B9FF2100034A5A5 /* movie.h */; };
 		BF8625911BB74E2800C12EEE /* btreecd.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476BE1B9FF17E0034A5A5 /* btreecd.h */; };
 		BF8625921BB74E2800C12EEE /* spc7110dec.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0477171B9FF2100034A5A5 /* spc7110dec.h */; };
@@ -518,12 +506,6 @@
 		BF0477531B9FF2370034A5A5 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zip.c; path = Snes9x/unzip/zip.c; sourceTree = SOURCE_ROOT; };
 		BF0477541B9FF2370034A5A5 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zip.h; path = Snes9x/unzip/zip.h; sourceTree = SOURCE_ROOT; };
 		BF04775E1B9FF29B0034A5A5 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		BF0477611B9FF37A0034A5A5 /* SISaveDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SISaveDelegate.h; sourceTree = "<group>"; };
-		BF0477621B9FF37A0034A5A5 /* SISaveDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SISaveDelegate.m; sourceTree = "<group>"; };
-		BF0477651B9FF37A0034A5A5 /* Snes9xCallbacks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Snes9xCallbacks.h; sourceTree = "<group>"; };
-		BF0477661B9FF37A0034A5A5 /* Snes9xCallbacks.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Snes9xCallbacks.mm; sourceTree = "<group>"; };
-		BF0477671B9FF37A0034A5A5 /* Snes9xMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Snes9xMain.h; sourceTree = "<group>"; };
-		BF0477681B9FF37A0034A5A5 /* Snes9xMain.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Snes9xMain.mm; sourceTree = "<group>"; };
 		BF0477771B9FF39A0034A5A5 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		BF0477791B9FF3A20034A5A5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		BF04777B1B9FF3D10034A5A5 /* tile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tile.cpp; path = Snes9x/tile.cpp; sourceTree = SOURCE_ROOT; };
@@ -565,19 +547,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BF04761C1B9FF0300034A5A5 /* Legacy Bridge */ = {
-			isa = PBXGroup;
-			children = (
-				BF0477611B9FF37A0034A5A5 /* SISaveDelegate.h */,
-				BF0477621B9FF37A0034A5A5 /* SISaveDelegate.m */,
-				BF0477651B9FF37A0034A5A5 /* Snes9xCallbacks.h */,
-				BF0477661B9FF37A0034A5A5 /* Snes9xCallbacks.mm */,
-				BF0477671B9FF37A0034A5A5 /* Snes9xMain.h */,
-				BF0477681B9FF37A0034A5A5 /* Snes9xMain.mm */,
-			);
-			name = "Legacy Bridge";
-			sourceTree = "<group>";
-		};
 		BF04761D1B9FF03B0034A5A5 /* Snes9x */ = {
 			isa = PBXGroup;
 			children = (
@@ -850,7 +819,6 @@
 				BFC800371BA4D3B600824180 /* SNESEmulatorCore.swift */,
 				BFC800321BA4C89F00824180 /* Bridge */,
 				BF04761D1B9FF03B0034A5A5 /* Snes9x */,
-				BF04761C1B9FF0300034A5A5 /* Legacy Bridge */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -863,7 +831,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF8625481BB74E2800C12EEE /* srtc.h in Headers */,
-				BF8625491BB74E2800C12EEE /* Snes9xMain.h in Headers */,
 				BF86254A1BB74E2800C12EEE /* cpuops.h in Headers */,
 				BF86254B1BB74E2800C12EEE /* portable.h in Headers */,
 				BF86254C1BB74E2800C12EEE /* jma.h in Headers */,
@@ -906,7 +873,6 @@
 				BF8625721BB74E2800C12EEE /* display.h in Headers */,
 				BF8625731BB74E2800C12EEE /* pixform.h in Headers */,
 				BF8625741BB74E2800C12EEE /* hermite_resampler.h in Headers */,
-				BF8625751BB74E2800C12EEE /* Snes9xCallbacks.h in Headers */,
 				BF8625761BB74E2800C12EEE /* 2xsai.h in Headers */,
 				BF8625771BB74E2800C12EEE /* rcdefs.h in Headers */,
 				BF8625781BB74E2800C12EEE /* ppu.h in Headers */,
@@ -932,7 +898,6 @@
 				BF86258C1BB74E2800C12EEE /* blargg_endian.h in Headers */,
 				BF86258D1BB74E2800C12EEE /* s9x-jma.h in Headers */,
 				BF86258E1BB74E2800C12EEE /* debug.h in Headers */,
-				BF86258F1BB74E2800C12EEE /* SISaveDelegate.h in Headers */,
 				BF8625901BB74E2800C12EEE /* movie.h in Headers */,
 				BF8625911BB74E2800C12EEE /* btreecd.h in Headers */,
 				BF8625921BB74E2800C12EEE /* spc7110dec.h in Headers */,
@@ -963,7 +928,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF0477481B9FF2100034A5A5 /* srtc.h in Headers */,
-				BF0477731B9FF37A0034A5A5 /* Snes9xMain.h in Headers */,
 				BF04767D1B9FF0F10034A5A5 /* cpuops.h in Headers */,
 				BF0476E81B9FF17E0034A5A5 /* portable.h in Headers */,
 				BF0476E11B9FF17E0034A5A5 /* jma.h in Headers */,
@@ -1006,7 +970,6 @@
 				BF0476821B9FF0F10034A5A5 /* display.h in Headers */,
 				BF04772B1B9FF2100034A5A5 /* pixform.h in Headers */,
 				BF0476391B9FF0C10034A5A5 /* hermite_resampler.h in Headers */,
-				BF0477711B9FF37A0034A5A5 /* Snes9xCallbacks.h in Headers */,
 				BF0476991B9FF1310034A5A5 /* 2xsai.h in Headers */,
 				BF0476E91B9FF17E0034A5A5 /* rcdefs.h in Headers */,
 				BF04772E1B9FF2100034A5A5 /* ppu.h in Headers */,
@@ -1032,7 +995,6 @@
 				BF0476371B9FF0C10034A5A5 /* blargg_endian.h in Headers */,
 				BF0476EC1B9FF17E0034A5A5 /* s9x-jma.h in Headers */,
 				BF0476811B9FF0F10034A5A5 /* debug.h in Headers */,
-				BF04776D1B9FF37A0034A5A5 /* SISaveDelegate.h in Headers */,
 				BF0477261B9FF2100034A5A5 /* movie.h in Headers */,
 				BF0476D91B9FF17E0034A5A5 /* btreecd.h in Headers */,
 				BF0477451B9FF2100034A5A5 /* spc7110dec.h in Headers */,
@@ -1168,14 +1130,12 @@
 				BF8624FD1BB74E2800C12EEE /* SPC_DSP.cpp in Sources */,
 				BF8624FE1BB74E2800C12EEE /* inbyte.cpp in Sources */,
 				BF8624FF1BB74E2800C12EEE /* 7zlzma.cpp in Sources */,
-				BF8625001BB74E2800C12EEE /* Snes9xMain.mm in Sources */,
 				BF8625011BB74E2800C12EEE /* dsp3.cpp in Sources */,
 				BF8625021BB74E2800C12EEE /* netplay.cpp in Sources */,
 				BF8625031BB74E2800C12EEE /* obc1.cpp in Sources */,
 				BF8625041BB74E2800C12EEE /* controls.cpp in Sources */,
 				BF8625051BB74E2800C12EEE /* tile.cpp in Sources */,
 				BF8625061BB74E2800C12EEE /* memmap.cpp in Sources */,
-				BF8625071BB74E2800C12EEE /* SISaveDelegate.m in Sources */,
 				BF8625081BB74E2800C12EEE /* fxemu.cpp in Sources */,
 				BF8625091BB74E2800C12EEE /* SNES_SPC_misc.cpp in Sources */,
 				BF86250A1BB74E2800C12EEE /* iiostrm.cpp in Sources */,
@@ -1190,7 +1150,6 @@
 				BF8625131BB74E2800C12EEE /* blit.cpp in Sources */,
 				BF8625141BB74E2800C12EEE /* sa1.cpp in Sources */,
 				BF8625151BB74E2800C12EEE /* bsx.cpp in Sources */,
-				BF8625161BB74E2800C12EEE /* Snes9xCallbacks.mm in Sources */,
 				BF8625171BB74E2800C12EEE /* seta.cpp in Sources */,
 				BF8625181BB74E2800C12EEE /* SNESEmulatorCore.swift in Sources */,
 				BF8625191BB74E2800C12EEE /* 2xsai.cpp in Sources */,
@@ -1251,14 +1210,12 @@
 				BF0476431B9FF0C10034A5A5 /* SPC_DSP.cpp in Sources */,
 				BF0476DE1B9FF17E0034A5A5 /* inbyte.cpp in Sources */,
 				BF0476D51B9FF17E0034A5A5 /* 7zlzma.cpp in Sources */,
-				BF0477741B9FF37A0034A5A5 /* Snes9xMain.mm in Sources */,
 				BF0476891B9FF0F10034A5A5 /* dsp3.cpp in Sources */,
 				BF0477271B9FF2100034A5A5 /* netplay.cpp in Sources */,
 				BF0477291B9FF2100034A5A5 /* obc1.cpp in Sources */,
 				BF0476751B9FF0F10034A5A5 /* controls.cpp in Sources */,
 				BF04777C1B9FF3D10034A5A5 /* tile.cpp in Sources */,
 				BF0477211B9FF2100034A5A5 /* memmap.cpp in Sources */,
-				BF04776E1B9FF37A0034A5A5 /* SISaveDelegate.m in Sources */,
 				BF0476B01B9FF1490034A5A5 /* fxemu.cpp in Sources */,
 				BF04763E1B9FF0C10034A5A5 /* SNES_SPC_misc.cpp in Sources */,
 				BF0476DC1B9FF17E0034A5A5 /* iiostrm.cpp in Sources */,
@@ -1273,7 +1230,6 @@
 				BF04769A1B9FF1310034A5A5 /* blit.cpp in Sources */,
 				BF0477311B9FF2100034A5A5 /* sa1.cpp in Sources */,
 				BF04766A1B9FF0F10034A5A5 /* bsx.cpp in Sources */,
-				BF0477721B9FF37A0034A5A5 /* Snes9xCallbacks.mm in Sources */,
 				BF04773A1B9FF2100034A5A5 /* seta.cpp in Sources */,
 				BFC800381BA4D3B600824180 /* SNESEmulatorCore.swift in Sources */,
 				BF0476981B9FF1310034A5A5 /* 2xsai.cpp in Sources */,
