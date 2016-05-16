@@ -26,8 +26,10 @@ public class SNESEmulatorCore: EmulatorCore
     {
         super.init(game: game)
         
-        SNESEmulatorBridge.sharedBridge().audioRenderer = self.audioManager
-        SNESEmulatorBridge.sharedBridge().videoRenderer = self.videoManager
+        // These MUST be set in startEmulation(), because it's possible the same emulator core might be stopped, another one started, and then resumed back to this one
+        // AKA, these need to always be set at start to ensure it points to the correct managers
+        // SNESEmulatorBridge.sharedBridge().audioRenderer = self.audioManager
+        // SNESEmulatorBridge.sharedBridge().videoRenderer = self.videoManager
     }
     
     //MARK: - DynamicObject
@@ -64,46 +66,43 @@ public class SNESEmulatorCore: EmulatorCore
         return 4.0
     }
     
-    public override func startEmulation()
+    public override func startEmulation() -> Bool
     {        
-        guard !self.running else { return }
+        guard super.startEmulation() else { return false }
         
-        super.startEmulation()
+        SNESEmulatorBridge.sharedBridge().audioRenderer = self.audioManager
+        SNESEmulatorBridge.sharedBridge().videoRenderer = self.videoManager
         
-        let fileURL = self.game.fileURL
+        SNESEmulatorBridge.sharedBridge().startWithGameURL(self.game.fileURL)
         
-        dispatch_async(self.emulationQueue) {
-            SNESEmulatorBridge.sharedBridge().startWithGameURL(fileURL)
-        }
-        
+        return true
     }
 
-    public override func stopEmulation()
+    public override func stopEmulation() -> Bool
     {
-        // Don't check if we're already running; we should stop no matter what
-        // guard self.running else { return }
+        guard super.stopEmulation() else { return false }
         
         SNESEmulatorBridge.sharedBridge().stop()
         
-        super.stopEmulation()
+        return true
     }
     
-    public override func pauseEmulation()
+    public override func pauseEmulation() -> Bool
     {
-        guard self.running else { return }
+        guard super.pauseEmulation() else { return false }
         
         SNESEmulatorBridge.sharedBridge().pause()
         
-        super.pauseEmulation()
+        return true
     }
     
-    public override func resumeEmulation()
+    public override func resumeEmulation() -> Bool
     {
-        guard !self.running else { return }
+        guard super.resumeEmulation() else { return false }
         
         SNESEmulatorBridge.sharedBridge().resume()
         
-        super.resumeEmulation()
+        return true
     }
     
     //MARK: - EmulatorCore
@@ -150,8 +149,10 @@ public class SNESEmulatorCore: EmulatorCore
     
     //MARK: - Save States -
     /// Save States
-    public override func saveSaveState(completion: (SaveStateType -> Void))
-    {        
+    public override func saveSaveState(completion: (SaveStateType -> Void)) -> Bool
+    {
+        guard super.saveSaveState(completion) else { return false }
+        
         NSFileManager.defaultManager().prepareTemporaryURL { URL in
             
             SNESEmulatorBridge.sharedBridge().saveSaveStateToURL(URL)
@@ -160,13 +161,17 @@ public class SNESEmulatorCore: EmulatorCore
             let saveState = SaveState(name: name, fileURL: URL)
             completion(saveState)
         }
+        
+        return true
     }
     
-    public override func loadSaveState(saveState: SaveStateType)
+    public override func loadSaveState(saveState: SaveStateType) -> Bool
     {
-        dispatch_sync(self.emulationQueue) {
-            SNESEmulatorBridge.sharedBridge().loadSaveStateFromURL(saveState.fileURL)
-        }
+        guard super.loadSaveState(saveState) else { return false }
+        
+        SNESEmulatorBridge.sharedBridge().loadSaveStateFromURL(saveState.fileURL)
+        
+        return true
     }
 }
 

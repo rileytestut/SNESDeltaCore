@@ -28,9 +28,10 @@ void SNESFinalizeSamplesCallback(void *context);
 @interface SNESEmulatorBridge ()
 
 @property (copy, nonatomic, nullable, readwrite) NSURL *gameURL;
+
 @property (assign, nonatomic, readwrite) SNESEmulationState state;
 
-@property (strong, nonatomic, readonly) dispatch_semaphore_t stopEmulationSemaphore;
+@property (strong, nonatomic, readonly) dispatch_semaphore_t emulationStateSemaphore;
 
 @end
 
@@ -52,7 +53,7 @@ void SNESFinalizeSamplesCallback(void *context);
     self = [super init];
     if (self)
     {
-        _stopEmulationSemaphore = dispatch_semaphore_create(0);
+        _emulationStateSemaphore = dispatch_semaphore_create(0);
     }
     
     return self;
@@ -82,7 +83,7 @@ void SNESFinalizeSamplesCallback(void *context);
     Settings.Stereo = YES;
     Settings.SoundPlaybackRate = 32000;
     Settings.SoundInputRate = 32000;
-    Settings.SupportHiRes = YES;
+    Settings.SupportHiRes = NO;
     Settings.Transparency = YES;
     Settings.AutoDisplayMessages = YES;
     Settings.InitialInfoStringTimeout = 120;
@@ -97,6 +98,8 @@ void SNESFinalizeSamplesCallback(void *context);
     Settings.TurboSkipFrames = 4;
     Settings.CartAName[0] = 0;
     Settings.CartBName[0] = 0;
+    
+    S9xSetSoundMute(YES);
     
     CPU.Flags = 0;
     
@@ -155,39 +158,67 @@ void SNESFinalizeSamplesCallback(void *context);
     
     S9xSetSamplesAvailableCallback(SNESFinalizeSamplesCallback, NULL);
     
-    while (YES)
-    {
-        if (self.state == SNESEmulationStateRunning)
-        {
-            S9xMainLoop();
-        }
-        else
-        {
-            S9xSetSoundMute(YES);
+    __block SNESEmulationState previousEmulationState = SNESEmulationStateStopped;
+    
+    dispatch_queue_t emulationQueue = dispatch_queue_create("com.rileytestut.Delta.SNESDeltaCore.emulationQueue", DISPATCH_QUEUE_SERIAL);
+    dispatch_async(emulationQueue, ^{
+        
+        void (^signalSemaphoreIfNeeded)(void) = ^{
             
-            [self saveGameSaveToURL:saveURL];
-            
-            while (self.state == SNESEmulationStatePaused)
+            if (previousEmulationState != self.state)
             {
-                usleep(100000);
+                dispatch_semaphore_signal(self.emulationStateSemaphore);
             }
             
-            if (self.state == SNESEmulationStateStopped)
+            previousEmulationState = self.state;
+            
+        };
+        
+        while (YES)
+        {
+            if (self.state == SNESEmulationStateRunning)
             {
+                S9xMainLoop();
+                
+                // Only check if we should signal semaphore if the state hasn't changed out from under us
+                // Otherwise, very bad things happen
+                if (self.state == SNESEmulationStateRunning)
+                {
+                    signalSemaphoreIfNeeded();
+                }
+            }
+            else
+            {
+                S9xSetSoundMute(YES);
+                
                 [self saveGameSaveToURL:saveURL];
                 
-                S9xGraphicsDeinit();
-                Memory.Deinit();
-                S9xDeinitAPU();
+                if (self.state == SNESEmulationStatePaused)
+                {
+                    while (self.state == SNESEmulationStatePaused)
+                    {
+                        signalSemaphoreIfNeeded();
+                        usleep(100000);
+                    }
+                }
+                else if (self.state == SNESEmulationStateStopped)
+                {                    
+                    S9xGraphicsDeinit();
+                    Memory.Deinit();
+                    S9xDeinitAPU();
+                    
+                    // Signal after we've finished tearing down
+                    signalSemaphoreIfNeeded();
+                    
+                    break;
+                }
                 
-                break;
+                S9xSetSoundMute(NO);
             }
-            
-            S9xSetSoundMute(NO);
         }
-    }
+    });
     
-    dispatch_semaphore_signal(self.stopEmulationSemaphore);
+    dispatch_semaphore_wait(self.emulationStateSemaphore, DISPATCH_TIME_FOREVER);
 }
 
 - (void)stop
@@ -199,7 +230,7 @@ void SNESFinalizeSamplesCallback(void *context);
     
     self.state = SNESEmulationStateStopped;
     
-    dispatch_semaphore_wait(self.stopEmulationSemaphore, DISPATCH_TIME_FOREVER);
+    dispatch_semaphore_wait(self.emulationStateSemaphore, DISPATCH_TIME_FOREVER);
 }
 
 - (void)pause
@@ -210,6 +241,8 @@ void SNESFinalizeSamplesCallback(void *context);
     }
     
     self.state = SNESEmulationStatePaused;
+    
+    dispatch_semaphore_wait(self.emulationStateSemaphore, DISPATCH_TIME_FOREVER);
 }
 
 - (void)resume
@@ -220,6 +253,8 @@ void SNESFinalizeSamplesCallback(void *context);
     }
     
     self.state = SNESEmulationStateRunning;
+    
+    dispatch_semaphore_wait(self.emulationStateSemaphore, DISPATCH_TIME_FOREVER);
 }
 
 #pragma mark - Inputs -

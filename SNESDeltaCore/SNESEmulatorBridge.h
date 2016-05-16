@@ -31,9 +31,9 @@ typedef NS_ENUM(NSInteger, SNESGameInput)
 
 typedef NS_ENUM(NSInteger, SNESEmulationState)
 {
-    SNESEmulationStateStopped,
-    SNESEmulationStateRunning,
-    SNESEmulationStatePaused,
+    SNESEmulationStateStopped = 0,
+    SNESEmulationStateRunning = 1,
+    SNESEmulationStatePaused  = 2,
 };
 
 NS_ASSUME_NONNULL_BEGIN
@@ -42,6 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 // State
 @property (copy, nonatomic, nullable, readonly) NSURL *gameURL;
+@property (assign, nonatomic, readonly) SNESEmulationState state;
 
 // Audio
 @property (weak, nonatomic, nullable) id<DLTAAudioRendering> audioRenderer;
@@ -51,7 +52,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 // Emulation
 @property (assign, nonatomic, getter=isFastForwarding) BOOL fastForwarding;
-@property (assign, nonatomic, readonly) SNESEmulationState state;
 
 + (instancetype)sharedBridge;
 
