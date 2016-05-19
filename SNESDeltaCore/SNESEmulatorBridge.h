@@ -36,6 +36,12 @@ typedef NS_ENUM(NSInteger, SNESEmulationState)
     SNESEmulationStatePaused  = 2,
 };
 
+typedef NS_ENUM(NSInteger, SNESCheatType)
+{
+    SNESCheatTypeGameGenie = 0,
+    SNESCheatTypeProActionReplay = 1,
+};
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SNESEmulatorBridge : NSObject
@@ -68,6 +74,10 @@ NS_ASSUME_NONNULL_BEGIN
 // Save States
 - (void)saveSaveStateToURL:(NSURL *)URL;
 - (void)loadSaveStateFromURL:(NSURL *)URL;
+
+// Cheats
+- (BOOL)activateCheat:(NSString *)cheatCode type:(SNESCheatType)type;
+- (BOOL)deactivateCheat:(NSString *)cheatCode;
 
 @end
 

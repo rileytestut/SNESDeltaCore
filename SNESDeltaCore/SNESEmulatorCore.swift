@@ -13,6 +13,18 @@ import Roxas
 
 extension SNESGameInput: InputType {}
 
+private extension SNESCheatType
+{
+    init(_ type: CheatType)
+    {
+        switch type
+        {
+        case .gameGenie: self = .GameGenie
+        case .actionReplay: self = .ProActionReplay
+        }
+    }
+}
+
 public class SNESEmulatorCore: EmulatorCore
 {
     override public var fastForwarding: Bool {
@@ -172,6 +184,24 @@ public class SNESEmulatorCore: EmulatorCore
         SNESEmulatorBridge.sharedBridge().loadSaveStateFromURL(saveState.fileURL)
         
         return true
+    }
+    
+    //MARK: - Cheats -
+    /// Cheats
+    public override func activateCheat(cheat: CheatProtocol) throws
+    {
+        if !SNESEmulatorBridge.sharedBridge().activateCheat(cheat.code, type: SNESCheatType(cheat.type))
+        {
+            throw CheatError.invalid
+        }
+    }
+    
+    public override func deactivateCheat(cheat: CheatProtocol) throws
+    {
+        if !SNESEmulatorBridge.sharedBridge().deactivateCheat(cheat.code)
+        {
+            throw CheatError.doesNotExist
+        }
     }
 }
 

@@ -16,6 +16,7 @@
 #include "controls.h"
 #include "conffile.h"
 #include "display.h"
+#include "cheats.h"
 
 // System
 #include <sys/time.h>
@@ -28,10 +29,11 @@ void SNESFinalizeSamplesCallback(void *context);
 @interface SNESEmulatorBridge ()
 
 @property (copy, nonatomic, nullable, readwrite) NSURL *gameURL;
-
 @property (assign, nonatomic, readwrite) SNESEmulationState state;
 
 @property (strong, nonatomic, readonly) dispatch_semaphore_t emulationStateSemaphore;
+
+@property (strong, nonatomic, nonnull) NSMutableDictionary<NSString *, NSNumber *> *cheatCodes;
 
 @end
 
@@ -54,6 +56,7 @@ void SNESFinalizeSamplesCallback(void *context);
     if (self)
     {
         _emulationStateSemaphore = dispatch_semaphore_create(0);
+        _cheatCodes = [NSMutableDictionary dictionary];
     }
     
     return self;
@@ -71,6 +74,8 @@ void SNESFinalizeSamplesCallback(void *context);
     self.state = SNESEmulationStateRunning;
     
     self.gameURL = URL;
+    
+    [self.cheatCodes removeAllObjects];
     
     ZeroMemory(&Settings, sizeof(Settings));
     Settings.MouseMaster = YES;
@@ -301,6 +306,88 @@ void SNESFinalizeSamplesCallback(void *context);
 - (void)loadSaveStateFromURL:(NSURL *)URL
 {
     S9xUnfreezeGame(URL.path.fileSystemRepresentation);
+}
+
+#pragma mark - Cheats -
+
+- (BOOL)activateCheat:(NSString *)cheatCode type:(SNESCheatType)type
+{
+    NSArray *codes = [cheatCode componentsSeparatedByString:@"\n"];
+    for (NSString *code in codes)
+    {
+        BOOL success = YES;
+        
+        uint32 address;
+        uint8 byte;
+        
+        switch (type)
+        {
+            case SNESCheatTypeGameGenie:
+                success = (S9xGameGenieToRaw([code UTF8String], address, byte) == NULL);
+                break;
+                
+            case SNESCheatTypeProActionReplay:
+                success = (S9xProActionReplayToRaw([code UTF8String], address, byte) == NULL);
+                break;
+        }
+        
+        if (!success)
+        {
+            return NO;
+        }
+    }
+    
+    self.cheatCodes[cheatCode] = @(type);
+    
+    [self updateCheats];
+    
+    return YES;
+}
+
+- (BOOL)deactivateCheat:(NSString *)cheatCode
+{
+    if (self.cheatCodes[cheatCode] == nil)
+    {
+        return NO;
+    }
+    
+    self.cheatCodes[cheatCode] = nil;
+    
+    [self updateCheats];
+    
+    return YES;
+}
+
+- (void)updateCheats
+{
+    S9xDeleteCheats();
+    
+    [self.cheatCodes.copy enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull cheatCode, NSNumber * _Nonnull type, BOOL * _Nonnull stop) {
+        
+        NSArray *codes = [cheatCode componentsSeparatedByString:@"\n"];
+        for (NSString *code in codes)
+        {
+            uint32 address = 0;
+            uint8 byte = 0;
+            
+            switch ([type integerValue])
+            {
+                case SNESCheatTypeGameGenie:
+                    S9xGameGenieToRaw([code UTF8String], address, byte);
+                    break;
+                    
+                case SNESCheatTypeProActionReplay:
+                    S9xProActionReplayToRaw([code UTF8String], address, byte);
+                    break;
+            }
+            
+            S9xAddCheat(true, true, address, byte);
+        }
+        
+    }];
+    
+    Settings.ApplyCheats = true;
+    S9xApplyCheats();
 }
 
 #pragma mark - SRAM -
