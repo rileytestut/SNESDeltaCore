@@ -78,6 +78,12 @@ public class SNESEmulatorCore: EmulatorCore
         return 4.0
     }
     
+    override public var supportedCheatFormats: [CheatFormat] {
+        let gameGenieFormat = CheatFormat(name: NSLocalizedString("Game Genie", comment: ""), format: "XXXX-YYYY", type: .gameGenie)
+        let proActionReplayFormat = CheatFormat(name: NSLocalizedString("Pro Action Replay", comment: ""), format: "XXXXXXXX", type: .actionReplay)
+        return [gameGenieFormat, proActionReplayFormat]
+    }
+    
     public override func startEmulation() -> Bool
     {        
         guard super.startEmulation() else { return false }
