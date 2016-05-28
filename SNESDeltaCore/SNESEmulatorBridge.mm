@@ -344,18 +344,16 @@ void SNESFinalizeSamplesCallback(void *context);
     return YES;
 }
 
-- (BOOL)deactivateCheat:(NSString *)cheatCode
+- (void)deactivateCheat:(NSString *)cheatCode
 {
     if (self.cheatCodes[cheatCode] == nil)
     {
-        return NO;
+        return;
     }
     
     self.cheatCodes[cheatCode] = nil;
     
     [self updateCheats];
-    
-    return YES;
 }
 
 - (void)updateCheats

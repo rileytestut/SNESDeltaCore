@@ -77,7 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 // Cheats
 - (BOOL)activateCheat:(NSString *)cheatCode type:(SNESCheatType)type;
-- (BOOL)deactivateCheat:(NSString *)cheatCode;
+- (void)deactivateCheat:(NSString *)cheatCode;
 
 @end
 

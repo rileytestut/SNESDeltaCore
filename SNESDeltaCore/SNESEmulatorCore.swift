@@ -202,12 +202,9 @@ public class SNESEmulatorCore: EmulatorCore
         }
     }
     
-    public override func deactivateCheat(cheat: CheatProtocol) throws
+    public override func deactivateCheat(cheat: CheatProtocol)
     {
-        if !SNESEmulatorBridge.sharedBridge().deactivateCheat(cheat.code)
-        {
-            throw CheatError.doesNotExist
-        }
+        SNESEmulatorBridge.sharedBridge().deactivateCheat(cheat.code)
     }
 }
 
