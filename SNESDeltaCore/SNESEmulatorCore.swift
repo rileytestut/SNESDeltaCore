@@ -125,14 +125,14 @@ public class SNESEmulatorCore: EmulatorCore
     
     //MARK: - EmulatorCore
     /// EmulatorCore
-    public override func gameController(gameController: GameControllerType, didActivateInput input: InputType)
+    public override func gameController(gameController: GameControllerProtocol, didActivateInput input: InputType)
     {
         guard let input = input as? SNESGameInput else { return }
         
         SNESEmulatorBridge.sharedBridge().activateInput(input)
     }
     
-    public override func gameController(gameController: GameControllerType, didDeactivateInput input: InputType)
+    public override func gameController(gameController: GameControllerProtocol, didDeactivateInput input: InputType)
     {
         guard let input = input as? SNESGameInput else { return }
         
@@ -141,7 +141,7 @@ public class SNESEmulatorCore: EmulatorCore
     
     //MARK: - Input Transformation -
     /// Input Transformation
-    public override func inputsForMFiExternalControllerInput(input: InputType) -> [InputType]
+    public override func inputsForMFiExternalController(controller: GameControllerProtocol, input: InputType) -> [InputType]
     {
         guard let input = input as? MFiExternalControllerInput else { return [] }
         
