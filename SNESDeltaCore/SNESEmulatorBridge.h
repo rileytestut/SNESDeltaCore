@@ -10,6 +10,7 @@
 
 @class SNESEmulatorBridge;
 
+@protocol DLTAEmulating;
 @protocol DLTAAudioRendering;
 @protocol DLTAVideoRendering;
 
@@ -49,6 +50,9 @@ NS_ASSUME_NONNULL_BEGIN
 // State
 @property (copy, nonatomic, nullable, readonly) NSURL *gameURL;
 @property (assign, nonatomic, readonly) SNESEmulationState state;
+
+// Core
+@property (weak, nonatomic, nullable) id<DLTAEmulating> emulatorCore;
 
 // Audio
 @property (weak, nonatomic, nullable) id<DLTAAudioRendering> audioRenderer;

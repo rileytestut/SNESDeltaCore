@@ -293,7 +293,7 @@ void SNESFinalizeSamplesCallback(void *context);
 
 - (void)refreshScreen
 {
-    [self.videoRenderer didUpdateVideoBuffer];
+    [self.emulatorCore didUpdate];
 }
 
 #pragma mark - Save States -

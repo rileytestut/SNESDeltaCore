@@ -88,6 +88,7 @@ public class SNESEmulatorCore: EmulatorCore
     {        
         guard super.startEmulation() else { return false }
         
+        SNESEmulatorBridge.sharedBridge().emulatorCore = self
         SNESEmulatorBridge.sharedBridge().audioRenderer = self.audioManager
         SNESEmulatorBridge.sharedBridge().videoRenderer = self.videoManager
         
