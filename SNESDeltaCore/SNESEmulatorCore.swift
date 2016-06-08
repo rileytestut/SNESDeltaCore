@@ -15,12 +15,13 @@ extension SNESGameInput: InputType {}
 
 private extension SNESCheatType
 {
-    init(_ type: CheatType)
+    init?(_ type: CheatType)
     {
         switch type
         {
         case .gameGenie: self = .GameGenie
         case .actionReplay: self = .ProActionReplay
+        default: return nil
         }
     }
 }
@@ -197,7 +198,9 @@ public class SNESEmulatorCore: EmulatorCore
     /// Cheats
     public override func activateCheat(cheat: CheatProtocol) throws
     {
-        if !SNESEmulatorBridge.sharedBridge().activateCheat(cheat.code, type: SNESCheatType(cheat.type))
+        guard let type = SNESCheatType(cheat.type) else { throw CheatError.invalid }
+        
+        if !SNESEmulatorBridge.sharedBridge().activateCheat(cheat.code, type: type)
         {
             throw CheatError.invalid
         }
