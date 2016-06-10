@@ -66,12 +66,14 @@ public class SNESEmulatorCore: EmulatorCore
         return bufferInfo
     }
     
-    override public var videoBufferInfo: VideoManager.BufferInfo {
+    override public var videoBufferInfo: VideoManager.BufferInfo
+    {
         let bufferInfo = VideoManager.BufferInfo(inputFormat: .RGB565, inputDimensions: CGSize(width: 256 * 2, height: 224 * 2), outputDimensions: CGSize(width: 256, height: 224))
         return bufferInfo
     }
     
-    override public var preferredRenderingSize: CGSize {
+    override public var preferredRenderingSize: CGSize
+    {
         return CGSizeMake(256, 224)
     }
     
@@ -127,33 +129,6 @@ public class SNESEmulatorCore: EmulatorCore
         }
         
         return inputs
-    }
-    
-    //MARK: - Save States -
-    /// Save States
-    public override func saveSaveState(completion: (SaveStateType -> Void)) -> Bool
-    {
-        guard super.saveSaveState(completion) else { return false }
-        
-        NSFileManager.defaultManager().prepareTemporaryURL { URL in
-            
-            SNESEmulatorBridge.sharedBridge().saveSaveStateToURL(URL)
-            
-            let name = self.timestampDateFormatter.stringFromDate(NSDate())
-            let saveState = SaveState(name: name, fileURL: URL)
-            completion(saveState)
-        }
-        
-        return true
-    }
-    
-    public override func loadSaveState(saveState: SaveStateType) -> Bool
-    {
-        guard super.loadSaveState(saveState) else { return false }
-        
-        SNESEmulatorBridge.sharedBridge().loadSaveStateFromURL(saveState.fileURL)
-        
-        return true
     }
     
     //MARK: - Cheats -

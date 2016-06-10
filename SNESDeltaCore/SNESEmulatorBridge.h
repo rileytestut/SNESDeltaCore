@@ -39,10 +39,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)activateInput:(SNESGameInput)gameInput;
 - (void)deactivateInput:(SNESGameInput)gameInput;
 
-// Save States
-- (void)saveSaveStateToURL:(NSURL *)URL;
-- (void)loadSaveStateFromURL:(NSURL *)URL;
-
 // Cheats
 - (BOOL)activateCheat:(NSString *)cheatCode type:(SNESCheatType)type;
 - (void)deactivateCheat:(NSString *)cheatCode;
