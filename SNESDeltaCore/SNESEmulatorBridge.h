@@ -7,12 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@class SNESEmulatorBridge;
-
-@protocol DLTAEmulating;
-@protocol DLTAAudioRendering;
-@protocol DLTAVideoRendering;
+#import <DeltaCore/DeltaCore.h>
 
 typedef NS_ENUM(NSInteger, SNESGameInput)
 {
@@ -30,13 +25,6 @@ typedef NS_ENUM(NSInteger, SNESGameInput)
     SNESGameInputSelect = 1 << 11,
 };
 
-typedef NS_ENUM(NSInteger, SNESEmulationState)
-{
-    SNESEmulationStateStopped = 0,
-    SNESEmulationStateRunning = 1,
-    SNESEmulationStatePaused  = 2,
-};
-
 typedef NS_ENUM(NSInteger, SNESCheatType)
 {
     SNESCheatTypeGameGenie = 0,
@@ -45,31 +33,7 @@ typedef NS_ENUM(NSInteger, SNESCheatType)
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SNESEmulatorBridge : NSObject
-
-// State
-@property (copy, nonatomic, nullable, readonly) NSURL *gameURL;
-@property (assign, nonatomic, readonly) SNESEmulationState state;
-
-// Core
-@property (weak, nonatomic, nullable) id<DLTAEmulating> emulatorCore;
-
-// Audio
-@property (weak, nonatomic, nullable) id<DLTAAudioRendering> audioRenderer;
-
-// Video
-@property (weak, nonatomic, nullable) id<DLTAVideoRendering> videoRenderer;
-
-// Emulation
-@property (assign, nonatomic, getter=isFastForwarding) BOOL fastForwarding;
-
-+ (instancetype)sharedBridge;
-
-// Emulation
-- (void)startWithGameURL:(NSURL *)URL;
-- (void)stop;
-- (void)pause;
-- (void)resume;
+@interface SNESEmulatorBridge : DLTAEmulatorBridge
 
 // Inputs
 - (void)activateInput:(SNESGameInput)gameInput;

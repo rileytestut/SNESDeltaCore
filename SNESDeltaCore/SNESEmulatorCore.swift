@@ -28,13 +28,6 @@ private extension SNESCheatType
 
 public class SNESEmulatorCore: EmulatorCore
 {
-    override public var fastForwarding: Bool {
-        didSet
-        {
-            SNESEmulatorBridge.sharedBridge().fastForwarding = self.fastForwarding
-        }
-    }
-    
     public required init(game: GameType)
     {
         super.init(game: game)
@@ -60,7 +53,13 @@ public class SNESEmulatorCore: EmulatorCore
     //MARK: - Overrides -
     /** Overrides **/
     
-    override public var audioBufferInfo: AudioManager.BufferInfo{
+    override public var bridge: DLTAEmulatorBridge
+    {
+        return SNESEmulatorBridge.sharedBridge()
+    }
+    
+    override public var audioBufferInfo: AudioManager.BufferInfo
+    {
         let inputFormat = AVAudioFormat(commonFormat: .PCMFormatInt16, sampleRate: 32040.5, channels: 2, interleaved: true)
         
         let bufferInfo = AudioManager.BufferInfo(inputFormat: inputFormat, preferredSize: 2132)
@@ -75,54 +74,17 @@ public class SNESEmulatorCore: EmulatorCore
     override public var preferredRenderingSize: CGSize {
         return CGSizeMake(256, 224)
     }
-    override public var fastForwardRate: Float {
-        return 4.0
+    
+    override public var supportedRates: ClosedInterval<Double>
+    {
+        return 1...4
     }
     
-    override public var supportedCheatFormats: [CheatFormat] {
+    override public var supportedCheatFormats: [CheatFormat]
+    {
         let gameGenieFormat = CheatFormat(name: NSLocalizedString("Game Genie", comment: ""), format: "XXXX-YYYY", type: .gameGenie)
         let proActionReplayFormat = CheatFormat(name: NSLocalizedString("Pro Action Replay", comment: ""), format: "XXXXXXXX", type: .actionReplay)
         return [gameGenieFormat, proActionReplayFormat]
-    }
-    
-    public override func startEmulation() -> Bool
-    {        
-        guard super.startEmulation() else { return false }
-        
-        SNESEmulatorBridge.sharedBridge().emulatorCore = self
-        SNESEmulatorBridge.sharedBridge().audioRenderer = self.audioManager
-        SNESEmulatorBridge.sharedBridge().videoRenderer = self.videoManager
-        
-        SNESEmulatorBridge.sharedBridge().startWithGameURL(self.game.fileURL)
-        
-        return true
-    }
-
-    public override func stopEmulation() -> Bool
-    {
-        guard super.stopEmulation() else { return false }
-        
-        SNESEmulatorBridge.sharedBridge().stop()
-        
-        return true
-    }
-    
-    public override func pauseEmulation() -> Bool
-    {
-        guard super.pauseEmulation() else { return false }
-        
-        SNESEmulatorBridge.sharedBridge().pause()
-        
-        return true
-    }
-    
-    public override func resumeEmulation() -> Bool
-    {
-        guard super.resumeEmulation() else { return false }
-        
-        SNESEmulatorBridge.sharedBridge().resume()
-        
-        return true
     }
     
     //MARK: - EmulatorCore

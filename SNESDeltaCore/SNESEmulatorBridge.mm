@@ -21,17 +21,9 @@
 // System
 #include <sys/time.h>
 
-// DeltaCore
-#import <DeltaCore/DeltaCore.h>
-
 void SNESFinalizeSamplesCallback(void *context);
 
 @interface SNESEmulatorBridge ()
-
-@property (copy, nonatomic, nullable, readwrite) NSURL *gameURL;
-@property (assign, nonatomic, readwrite) SNESEmulationState state;
-
-@property (strong, nonatomic, readonly) dispatch_semaphore_t emulationStateSemaphore;
 
 @property (strong, nonatomic, nonnull) NSMutableDictionary<NSString *, NSNumber *> *cheatCodes;
 
@@ -55,7 +47,6 @@ void SNESFinalizeSamplesCallback(void *context);
     self = [super init];
     if (self)
     {
-        _emulationStateSemaphore = dispatch_semaphore_create(0);
         _cheatCodes = [NSMutableDictionary dictionary];
     }
     
@@ -66,14 +57,7 @@ void SNESFinalizeSamplesCallback(void *context);
 
 - (void)startWithGameURL:(NSURL *)URL
 {
-    if (self.state != SNESEmulationStateStopped)
-    {
-        return;
-    }
-    
-    self.state = SNESEmulationStateRunning;
-    
-    self.gameURL = URL;
+    [super startWithGameURL:URL];
     
     [self.cheatCodes removeAllObjects];
     
@@ -162,104 +146,42 @@ void SNESFinalizeSamplesCallback(void *context);
     S9xSetSoundMute(NO);
     
     S9xSetSamplesAvailableCallback(SNESFinalizeSamplesCallback, NULL);
-    
-    __block SNESEmulationState previousEmulationState = SNESEmulationStateStopped;
-    
-    dispatch_queue_t emulationQueue = dispatch_queue_create("com.rileytestut.Delta.SNESDeltaCore.emulationQueue", DISPATCH_QUEUE_SERIAL);
-    dispatch_async(emulationQueue, ^{
-        
-        void (^signalSemaphoreIfNeeded)(void) = ^{
-            
-            if (previousEmulationState != self.state)
-            {
-                dispatch_semaphore_signal(self.emulationStateSemaphore);
-            }
-            
-            previousEmulationState = self.state;
-            
-        };
-        
-        while (YES)
-        {
-            if (self.state == SNESEmulationStateRunning)
-            {
-                S9xMainLoop();
-                
-                // Only check if we should signal semaphore if the state hasn't changed out from under us
-                // Otherwise, very bad things happen
-                if (self.state == SNESEmulationStateRunning)
-                {
-                    signalSemaphoreIfNeeded();
-                }
-            }
-            else
-            {
-                S9xSetSoundMute(YES);
-                
-                [self saveGameSaveToURL:saveURL];
-                
-                if (self.state == SNESEmulationStatePaused)
-                {
-                    while (self.state == SNESEmulationStatePaused)
-                    {
-                        signalSemaphoreIfNeeded();
-                        usleep(100000);
-                    }
-                }
-                else if (self.state == SNESEmulationStateStopped)
-                {                    
-                    S9xGraphicsDeinit();
-                    Memory.Deinit();
-                    S9xDeinitAPU();
-                    
-                    // Signal after we've finished tearing down
-                    signalSemaphoreIfNeeded();
-                    
-                    break;
-                }
-                
-                S9xSetSoundMute(NO);
-            }
-        }
-    });
-    
-    dispatch_semaphore_wait(self.emulationStateSemaphore, DISPATCH_TIME_FOREVER);
 }
 
 - (void)stop
 {
-    if (self.state == SNESEmulationStateStopped)
-    {
-        return;
-    }
+    [super stop];
     
-    self.state = SNESEmulationStateStopped;
+    S9xGraphicsDeinit();
+    Memory.Deinit();
+    S9xDeinitAPU();
     
-    dispatch_semaphore_wait(self.emulationStateSemaphore, DISPATCH_TIME_FOREVER);
+    Settings.Paused = YES;
 }
 
 - (void)pause
 {
-    if (self.state != SNESEmulationStateRunning)
-    {
-        return;
-    }
+    [super pause];
     
-    self.state = SNESEmulationStatePaused;
+    S9xSetSoundMute(YES);
     
-    dispatch_semaphore_wait(self.emulationStateSemaphore, DISPATCH_TIME_FOREVER);
+    Settings.Paused = YES;
 }
 
 - (void)resume
 {
-    if (self.state != SNESEmulationStatePaused)
-    {
-        return;
-    }
+    [super resume];
     
-    self.state = SNESEmulationStateRunning;
+    S9xSetSoundMute(NO);
     
-    dispatch_semaphore_wait(self.emulationStateSemaphore, DISPATCH_TIME_FOREVER);
+    Settings.Paused = NO;
+}
+
+#pragma mark - Game Loop -
+
+- (void)runFrame
+{
+    S9xMainLoop();
 }
 
 #pragma mark - Inputs -
@@ -287,13 +209,6 @@ void SNESFinalizeSamplesCallback(void *context);
         
         return sampleCount * 2; // Audio is interleaved, so we multiply by two to account for both channels
     }];
-}
-
-#pragma mark - Video -
-
-- (void)refreshScreen
-{
-    [self.emulatorCore didUpdate];
 }
 
 #pragma mark - Save States -
@@ -407,42 +322,6 @@ void SNESFinalizeSamplesCallback(void *context);
     return saveURL;
 }
 
-#pragma mark - Getters/Setters -
-
-- (void)setFastForwarding:(BOOL)fastForwarding
-{
-    if (fastForwarding == _fastForwarding)
-    {
-        return;
-    }
-    
-    _fastForwarding = fastForwarding;
-    
-    Settings.TurboMode = fastForwarding;
-    
-    S9xClearSamples();
-}
-
-- (void)setState:(SNESEmulationState)state
-{
-    _state = state;
-    
-    switch (_state)
-    {
-        case SNESEmulationStateStopped:
-            Settings.Paused = YES;
-            break;
-            
-        case SNESEmulationStateRunning:
-            Settings.Paused = NO;
-            break;
-            
-        case SNESEmulationStatePaused:
-            Settings.Paused = YES;
-            break;
-    }
-}
-
 @end
 
 #pragma mark - SNESEmulatorBridge Callbacks -
@@ -456,95 +335,6 @@ void SNESFinalizeSamplesCallback(void *context)
 
 void S9xSyncSpeed()
 {
-    if (Settings.SoundSync)
-    {
-        while (!S9xSyncSound())
-        {
-            usleep(0);
-        }
-    }
-    
-    if (Settings.DumpStreams)
-    {
-        return;
-    }
-    
-    if (Settings.HighSpeedSeek > 0)
-    {
-        Settings.HighSpeedSeek--;
-    }
-    
-    if (Settings.TurboMode)
-    {
-        if ((++IPPU.FrameSkip >= Settings.TurboSkipFrames) && !Settings.HighSpeedSeek)
-        {
-            IPPU.FrameSkip = 0;
-            IPPU.SkippedFrames = 0;
-            IPPU.RenderThisFrame = TRUE;
-        }
-        else
-        {
-            IPPU.SkippedFrames++;
-            IPPU.RenderThisFrame = FALSE;
-        }
-        
-        return;
-    }
-    
-    static struct timeval	next1 = { 0, 0 };
-    struct timeval			now;
-    
-    while (gettimeofday(&now, NULL) == -1) ;
-    
-    // If there is no known "next" frame, initialize it now.
-    if (next1.tv_sec == 0)
-    {
-        next1 = now;
-        next1.tv_usec++;
-    }
-    
-    // If we're on AUTO_FRAMERATE, we'll display frames always only if there's excess time.
-    // Otherwise we'll display the defined amount of frames.
-    unsigned	limit = (Settings.SkipFrames == AUTO_FRAMERATE) ? (timercmp(&next1, &now, <) ? 10 : 1) : Settings.SkipFrames;
-    
-    IPPU.RenderThisFrame = (++IPPU.SkippedFrames >= limit) ? TRUE : FALSE;
-    
-    if (IPPU.RenderThisFrame)
-        IPPU.SkippedFrames = 0;
-    else
-    {
-        // If we were behind the schedule, check how much it is.
-        if (timercmp(&next1, &now, <))
-        {
-            long lag = (now.tv_sec - next1.tv_sec) * 1000000 + now.tv_usec - next1.tv_usec;
-            if (lag >= 500000)
-            {
-                // More than a half-second behind means probably pause.
-                // The next line prevents the magic fast-forward effect.
-                next1 = now;
-            }
-        }
-    }
-    
-    // Delay until we're completed this frame.
-    // Can't use setitimer because the sound code already could be using it. We don't actually need it either.
-    while (timercmp(&next1, &now, >))
-    {
-        // If we're ahead of time, sleep a while.
-        long timeleft = (next1.tv_sec - now.tv_sec) * 1000000 + next1.tv_usec - now.tv_usec;
-        usleep((unsigned int)timeleft);
-        
-        while (gettimeofday(&now, NULL) == -1) ;
-        // Continue with a while-loop because usleep() could be interrupted by a signal.
-    }
-    
-    // Calculate the timestamp of the next frame.
-    next1.tv_usec += Settings.FrameTime;
-    if (next1.tv_usec >= 1000000)
-    {
-        next1.tv_sec += next1.tv_usec / 1000000;
-        next1.tv_usec %= 1000000;
-    }
 }
 
 void _splitpath(const char *path, char *drive, char *dir, char *fname, char *ext)
@@ -685,9 +475,7 @@ void S9xAutoSaveSRAM()
 }
 
 bool8 S9xDeinitUpdate(int width, int height)
-{
-    [[SNESEmulatorBridge sharedBridge] refreshScreen];
-    
+{    
     return YES;
 }
 
