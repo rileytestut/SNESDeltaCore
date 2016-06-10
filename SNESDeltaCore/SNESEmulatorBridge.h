@@ -35,10 +35,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SNESEmulatorBridge : DLTAEmulatorBridge
 
-// Inputs
-- (void)activateInput:(SNESGameInput)gameInput;
-- (void)deactivateInput:(SNESGameInput)gameInput;
-
 // Cheats
 - (BOOL)activateCheat:(NSString *)cheatCode type:(SNESCheatType)type;
 - (void)deactivateCheat:(NSString *)cheatCode;

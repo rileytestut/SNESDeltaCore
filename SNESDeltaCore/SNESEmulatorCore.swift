@@ -58,6 +58,11 @@ public class SNESEmulatorCore: EmulatorCore
         return SNESEmulatorBridge.sharedBridge()
     }
     
+    public override var gameInputType: InputType.Type
+    {
+        return SNESGameInput.self
+    }
+    
     override public var audioBufferInfo: AudioManager.BufferInfo
     {
         let inputFormat = AVAudioFormat(commonFormat: .PCMFormatInt16, sampleRate: 32040.5, channels: 2, interleaved: true)
@@ -72,11 +77,6 @@ public class SNESEmulatorCore: EmulatorCore
         return bufferInfo
     }
     
-    override public var preferredRenderingSize: CGSize
-    {
-        return CGSizeMake(256, 224)
-    }
-    
     override public var supportedRates: ClosedInterval<Double>
     {
         return 1...4
@@ -87,22 +87,6 @@ public class SNESEmulatorCore: EmulatorCore
         let gameGenieFormat = CheatFormat(name: NSLocalizedString("Game Genie", comment: ""), format: "XXXX-YYYY", type: .gameGenie)
         let proActionReplayFormat = CheatFormat(name: NSLocalizedString("Pro Action Replay", comment: ""), format: "XXXXXXXX", type: .actionReplay)
         return [gameGenieFormat, proActionReplayFormat]
-    }
-    
-    //MARK: - EmulatorCore
-    /// EmulatorCore
-    public override func gameController(gameController: GameControllerProtocol, didActivateInput input: InputType)
-    {
-        guard let input = input as? SNESGameInput else { return }
-        
-        SNESEmulatorBridge.sharedBridge().activateInput(input)
-    }
-    
-    public override func gameController(gameController: GameControllerProtocol, didDeactivateInput input: InputType)
-    {
-        guard let input = input as? SNESGameInput else { return }
-        
-        SNESEmulatorBridge.sharedBridge().deactivateInput(input)
     }
     
     //MARK: - Input Transformation -

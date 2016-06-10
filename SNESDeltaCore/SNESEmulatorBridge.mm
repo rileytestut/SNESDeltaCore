@@ -187,12 +187,12 @@ void SNESFinalizeSamplesCallback(void *context);
 
 #pragma mark - Inputs -
 
-- (void)activateInput:(SNESGameInput)gameInput
+- (void)activateInput:(NSInteger)gameInput
 {
     S9xReportButton((uint32)gameInput, YES);
 }
 
-- (void)deactivateInput:(SNESGameInput)gameInput
+- (void)deactivateInput:(NSInteger)gameInput
 {
     S9xReportButton((uint32)gameInput, NO);
 }
