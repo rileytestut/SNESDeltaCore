@@ -87,6 +87,7 @@ void SNESFinalizeSamplesCallback(void *context);
     Settings.TurboSkipFrames = 4;
     Settings.CartAName[0] = 0;
     Settings.CartBName[0] = 0;
+    Settings.AutoSaveDelay = 1;
     
     S9xSetSoundMute(YES);
     
