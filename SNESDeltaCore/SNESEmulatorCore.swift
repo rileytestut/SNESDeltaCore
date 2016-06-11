@@ -50,6 +50,13 @@ public class SNESEmulatorCore: EmulatorCore
         return SNESGameInput.self
     }
     
+    public override var gameSaveURL: NSURL
+    {
+        var gameSaveURL = self.game.fileURL.URLByDeletingPathExtension ?? self.game.fileURL
+        gameSaveURL = gameSaveURL.URLByAppendingPathExtension("srm")
+        return gameSaveURL
+    }
+    
     override public var audioBufferInfo: AudioManager.BufferInfo
     {
         let inputFormat = AVAudioFormat(commonFormat: .PCMFormatInt16, sampleRate: 32040.5, channels: 2, interleaved: true)

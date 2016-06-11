@@ -116,9 +116,6 @@ void SNESFinalizeSamplesCallback(void *context);
         exit(1);
     }
     
-    NSURL *saveURL = [self defaultGameSaveURL];
-    [self loadGameSaveFromURL:saveURL];
-    
     Settings.StopEmulation = NO;
     
     GFX.Pitch = 512 * 2;
@@ -251,7 +248,7 @@ void SNESFinalizeSamplesCallback(void *context);
     S9xApplyCheats();
 }
 
-#pragma mark - SRAM -
+#pragma mark - Game Saves -
 
 - (void)saveGameSaveToURL:(NSURL *)URL
 {
@@ -262,12 +259,6 @@ void SNESFinalizeSamplesCallback(void *context);
 - (void)loadGameSaveFromURL:(NSURL *)URL
 {
     Memory.LoadSRAM(URL.path.fileSystemRepresentation);
-}
-
-- (NSURL *)defaultGameSaveURL
-{
-    NSURL *saveURL = [[self.gameURL URLByDeletingPathExtension] URLByAppendingPathExtension:@"srm"];
-    return saveURL;
 }
 
 @end
@@ -418,8 +409,7 @@ const char *S9xGetDirectory (enum s9x_getdirtype dirtype)
 
 void S9xAutoSaveSRAM()
 {
-    NSURL *saveURL = [[SNESEmulatorBridge sharedBridge] defaultGameSaveURL];
-    [[SNESEmulatorBridge sharedBridge] saveGameSaveToURL:saveURL];
+    [[SNESEmulatorBridge sharedBridge].emulatorCore didUpdateGameSave];
 }
 
 bool8 S9xDeinitUpdate(int width, int height)
