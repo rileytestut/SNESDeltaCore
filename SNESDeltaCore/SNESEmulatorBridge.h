@@ -25,19 +25,9 @@ typedef NS_ENUM(NSInteger, SNESGameInput)
     SNESGameInputSelect = 1 << 11,
 };
 
-typedef NS_ENUM(NSInteger, SNESCheatType)
-{
-    SNESCheatTypeGameGenie = 0,
-    SNESCheatTypeProActionReplay = 1,
-};
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SNESEmulatorBridge : DLTAEmulatorBridge
-
-// Cheats
-- (BOOL)activateCheat:(NSString *)cheatCode type:(SNESCheatType)type;
-- (void)deactivateCheat:(NSString *)cheatCode;
 
 @end
 

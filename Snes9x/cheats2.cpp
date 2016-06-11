@@ -273,8 +273,9 @@ void S9xRemoveCheat (uint32 which1)
 void S9xRemoveCheats (void)
 {
 	for (uint32 i = 0; i < Cheat.num_cheats; i++)
-		if (Cheat.c[i].enabled)
-			S9xRemoveCheat(i);
+    {
+        S9xRemoveCheat(i);
+    }
 }
 
 void S9xEnableCheat (uint32 which1)
