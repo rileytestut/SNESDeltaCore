@@ -169,174 +169,7 @@
 		BF04777A1B9FF3A20034A5A5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0477791B9FF3A20034A5A5 /* libz.tbd */; };
 		BF04777C1B9FF3D10034A5A5 /* tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04777B1B9FF3D10034A5A5 /* tile.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF110C261B9FBE64000969AB /* Default.deltaskin in Resources */ = {isa = PBXBuildFile; fileRef = BF110C251B9FBDAA000969AB /* Default.deltaskin */; };
-		BF2A53FA1BB74FA80052BD0C /* DeltaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2A53F91BB74FA80052BD0C /* DeltaCore.framework */; };
 		BF785C9F1B603C2C00189DB8 /* SNESDeltaCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF785C9E1B603C2C00189DB8 /* SNESDeltaCore.swift */; };
-		BF8624F41BB74E2800C12EEE /* reader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0477011B9FF2100034A5A5 /* reader.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8624F51BB74E2800C12EEE /* jma.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476C51B9FF17E0034A5A5 /* jma.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8624F61BB74E2800C12EEE /* seta018.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0477101B9FF2100034A5A5 /* seta018.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8624F71BB74E2800C12EEE /* seta010.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04770E1B9FF2100034A5A5 /* seta010.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8624F81BB74E2800C12EEE /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = BF04774F1B9FF2370034A5A5 /* mztools.c */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8624F91BB74E2800C12EEE /* lzma.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476C91B9FF17E0034A5A5 /* lzma.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8624FA1BB74E2800C12EEE /* globals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476AD1B9FF1490034A5A5 /* globals.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8624FB1BB74E2800C12EEE /* c4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04764A1B9FF0F10034A5A5 /* c4.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8624FC1BB74E2800C12EEE /* gfx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476AB1B9FF1490034A5A5 /* gfx.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8624FD1BB74E2800C12EEE /* SPC_DSP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04762F1B9FF0C10034A5A5 /* SPC_DSP.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8624FE1BB74E2800C12EEE /* inbyte.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476C31B9FF17E0034A5A5 /* inbyte.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8624FF1BB74E2800C12EEE /* 7zlzma.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476BA1B9FF17E0034A5A5 /* 7zlzma.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625011BB74E2800C12EEE /* dsp3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476671B9FF0F10034A5A5 /* dsp3.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625021BB74E2800C12EEE /* netplay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476F91B9FF2100034A5A5 /* netplay.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625031BB74E2800C12EEE /* obc1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476FB1B9FF2100034A5A5 /* obc1.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625041BB74E2800C12EEE /* controls.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476531B9FF0F10034A5A5 /* controls.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625051BB74E2800C12EEE /* tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04777B1B9FF3D10034A5A5 /* tile.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625061BB74E2800C12EEE /* memmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476F31B9FF2100034A5A5 /* memmap.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625081BB74E2800C12EEE /* fxemu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476A61B9FF1490034A5A5 /* fxemu.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625091BB74E2800C12EEE /* SNES_SPC_misc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04762A1B9FF0C10034A5A5 /* SNES_SPC_misc.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF86250A1BB74E2800C12EEE /* iiostrm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476C11B9FF17E0034A5A5 /* iiostrm.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF86250B1BB74E2800C12EEE /* snapshot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0477111B9FF2100034A5A5 /* snapshot.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF86250C1BB74E2800C12EEE /* conffile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476511B9FF0F10034A5A5 /* conffile.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF86250D1BB74E2800C12EEE /* server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04770B1B9FF2100034A5A5 /* server.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF86250E1BB74E2800C12EEE /* sa1cpu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0477051B9FF2100034A5A5 /* sa1cpu.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF86250F1BB74E2800C12EEE /* crosshairs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04765C1B9FF0F10034A5A5 /* crosshairs.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625101BB74E2800C12EEE /* SNESEmulatorBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = BFC800341BA4C8DB00824180 /* SNESEmulatorBridge.mm */; };
-		BF8625111BB74E2800C12EEE /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = BF0477511B9FF2370034A5A5 /* unzip.c */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625121BB74E2800C12EEE /* SNES_SPC_state.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04762B1B9FF0C10034A5A5 /* SNES_SPC_state.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625131BB74E2800C12EEE /* blit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04768E1B9FF1310034A5A5 /* blit.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625141BB74E2800C12EEE /* sa1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0477031B9FF2100034A5A5 /* sa1.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625151BB74E2800C12EEE /* bsx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476481B9FF0F10034A5A5 /* bsx.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625171BB74E2800C12EEE /* seta.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04770C1B9FF2100034A5A5 /* seta.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625191BB74E2800C12EEE /* 2xsai.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04768C1B9FF1310034A5A5 /* 2xsai.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF86251A1BB74E2800C12EEE /* SPC_Filter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476311B9FF0C10034A5A5 /* SPC_Filter.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF86251B1BB74E2800C12EEE /* seta011.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04770F1B9FF2100034A5A5 /* seta011.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF86251C1BB74E2800C12EEE /* SNES_SPC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04762C1B9FF0C10034A5A5 /* SNES_SPC.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF86251D1BB74E2800C12EEE /* dsp4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476681B9FF0F10034A5A5 /* dsp4.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF86251E1BB74E2800C12EEE /* s9x-jma.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476D01B9FF17E0034A5A5 /* s9x-jma.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625201BB74E2800C12EEE /* fxdbg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476A51B9FF1490034A5A5 /* fxdbg.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625211BB74E2800C12EEE /* snes_ntsc.c in Sources */ = {isa = PBXBuildFile; fileRef = BF0476961B9FF1310034A5A5 /* snes_ntsc.c */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625221BB74E2800C12EEE /* clip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476501B9FF0F10034A5A5 /* clip.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625231BB74E2800C12EEE /* cheats2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04764F1B9FF0F10034A5A5 /* cheats2.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625241BB74E2800C12EEE /* crc32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476BF1B9FF17E0034A5A5 /* crc32.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625251BB74E2800C12EEE /* srtc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0477191B9FF2100034A5A5 /* srtc.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625261BB74E2800C12EEE /* cpuexec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476571B9FF0F10034A5A5 /* cpuexec.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625271BB74E2800C12EEE /* ppu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476FF1B9FF2100034A5A5 /* ppu.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625281BB74E2800C12EEE /* cpuops.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04765A1B9FF0F10034A5A5 /* cpuops.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625291BB74E2800C12EEE /* dsp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476631B9FF0F10034A5A5 /* dsp.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF86252A1BB74E2800C12EEE /* sdd1emu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0477091B9FF2100034A5A5 /* sdd1emu.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF86252B1BB74E2800C12EEE /* logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476F11B9FF2100034A5A5 /* logger.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF86252C1BB74E2800C12EEE /* spc7110.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0477151B9FF2100034A5A5 /* spc7110.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF86252D1BB74E2800C12EEE /* cpu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476551B9FF0F10034A5A5 /* cpu.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF86252E1BB74E2800C12EEE /* c4emu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04764C1B9FF0F10034A5A5 /* c4emu.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF86252F1BB74E2800C12EEE /* winout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476D21B9FF17E0034A5A5 /* winout.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625301BB74E2800C12EEE /* dsp2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476661B9FF0F10034A5A5 /* dsp2.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625311BB74E2800C12EEE /* debug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04765E1B9FF0F10034A5A5 /* debug.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625321BB74E2800C12EEE /* cheats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04764D1B9FF0F10034A5A5 /* cheats.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625331BB74E2800C12EEE /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = BF0477531B9FF2370034A5A5 /* zip.c */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625341BB74E2800C12EEE /* epx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476901B9FF1310034A5A5 /* epx.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625351BB74E2800C12EEE /* movie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476F71B9FF2100034A5A5 /* movie.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625361BB74E2800C12EEE /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = BF04774D1B9FF2370034A5A5 /* ioapi.c */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625371BB74E2800C12EEE /* dma.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476611B9FF0F10034A5A5 /* dma.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625381BB74E2800C12EEE /* lzmadec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476CB1B9FF17E0034A5A5 /* lzmadec.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625391BB74E2800C12EEE /* SNESDeltaCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF785C9E1B603C2C00189DB8 /* SNESDeltaCore.swift */; };
-		BF86253B1BB74E2800C12EEE /* hq2x.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476921B9FF1310034A5A5 /* hq2x.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF86253C1BB74E2800C12EEE /* snes9x.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0477131B9FF2100034A5A5 /* snes9x.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF86253D1BB74E2800C12EEE /* apu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04761F1B9FF0C10034A5A5 /* apu.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF86253E1BB74E2800C12EEE /* sdd1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0477071B9FF2100034A5A5 /* sdd1.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF86253F1BB74E2800C12EEE /* dsp1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476651B9FF0F10034A5A5 /* dsp1.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625411BB74E2800C12EEE /* fxinst.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476A81B9FF1490034A5A5 /* fxinst.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625421BB74E2800C12EEE /* loadzip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476F01B9FF2100034A5A5 /* loadzip.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625441BB74E2800C12EEE /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0477791B9FF3A20034A5A5 /* libz.tbd */; };
-		BF8625451BB74E2800C12EEE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0477771B9FF39A0034A5A5 /* AudioToolbox.framework */; };
-		BF8625481BB74E2800C12EEE /* srtc.h in Headers */ = {isa = PBXBuildFile; fileRef = BF04771A1B9FF2100034A5A5 /* srtc.h */; };
-		BF86254A1BB74E2800C12EEE /* cpuops.h in Headers */ = {isa = PBXBuildFile; fileRef = BF04765B1B9FF0F10034A5A5 /* cpuops.h */; };
-		BF86254B1BB74E2800C12EEE /* portable.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476CD1B9FF17E0034A5A5 /* portable.h */; };
-		BF86254C1BB74E2800C12EEE /* jma.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476C61B9FF17E0034A5A5 /* jma.h */; };
-		BF86254D1BB74E2800C12EEE /* lencoder.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476C71B9FF17E0034A5A5 /* lencoder.h */; };
-		BF86254E1BB74E2800C12EEE /* c4.h in Headers */ = {isa = PBXBuildFile; fileRef = BF04764B1B9FF0F10034A5A5 /* c4.h */; };
-		BF86254F1BB74E2800C12EEE /* SPC_CPU.h in Headers */ = {isa = PBXBuildFile; fileRef = BF04762E1B9FF0C10034A5A5 /* SPC_CPU.h */; };
-		BF8625501BB74E2800C12EEE /* resampler.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476281B9FF0C10034A5A5 /* resampler.h */; };
-		BF8625511BB74E2800C12EEE /* 65c816.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476471B9FF0F10034A5A5 /* 65c816.h */; };
-		BF8625521BB74E2800C12EEE /* winout.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476D31B9FF17E0034A5A5 /* winout.h */; };
-		BF8625531BB74E2800C12EEE /* cpumacro.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476591B9FF0F10034A5A5 /* cpumacro.h */; };
-		BF8625541BB74E2800C12EEE /* ariprice.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476BD1B9FF17E0034A5A5 /* ariprice.h */; };
-		BF8625551BB74E2800C12EEE /* controls.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476541B9FF0F10034A5A5 /* controls.h */; };
-		BF8625561BB74E2800C12EEE /* SNESDeltaCore.h in Headers */ = {isa = PBXBuildFile; fileRef = BF9F4FE11AAD8070004C9500 /* SNESDeltaCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BF8625571BB74E2800C12EEE /* SNESEmulatorBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = BFC800331BA4C8DB00824180 /* SNESEmulatorBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BF8625581BB74E2800C12EEE /* epx.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476911B9FF1310034A5A5 /* epx.h */; };
-		BF8625591BB74E2800C12EEE /* snes_ntsc.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476971B9FF1310034A5A5 /* snes_ntsc.h */; };
-		BF86255A1BB74E2800C12EEE /* lzmadec.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476CC1B9FF17E0034A5A5 /* lzmadec.h */; };
-		BF86255B1BB74E2800C12EEE /* srtcemu.h in Headers */ = {isa = PBXBuildFile; fileRef = BF04771B1B9FF2100034A5A5 /* srtcemu.h */; };
-		BF86255C1BB74E2800C12EEE /* sar.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0477061B9FF2100034A5A5 /* sar.h */; };
-		BF86255D1BB74E2800C12EEE /* unzip.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0477521B9FF2370034A5A5 /* unzip.h */; };
-		BF86255E1BB74E2800C12EEE /* language.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476EF1B9FF2100034A5A5 /* language.h */; };
-		BF86255F1BB74E2800C12EEE /* snes_ntsc_config.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476941B9FF1310034A5A5 /* snes_ntsc_config.h */; };
-		BF8625601BB74E2800C12EEE /* fxinst.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476A91B9FF1490034A5A5 /* fxinst.h */; };
-		BF8625621BB74E2800C12EEE /* SPC_DSP.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476301B9FF0C10034A5A5 /* SPC_DSP.h */; };
-		BF8625631BB74E2800C12EEE /* ring_buffer.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476291B9FF0C10034A5A5 /* ring_buffer.h */; };
-		BF8625641BB74E2800C12EEE /* cpuexec.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476581B9FF0F10034A5A5 /* cpuexec.h */; };
-		BF8625651BB74E2800C12EEE /* spc7110emu.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0477181B9FF2100034A5A5 /* spc7110emu.h */; };
-		BF8625661BB74E2800C12EEE /* tile.h in Headers */ = {isa = PBXBuildFile; fileRef = BF04771C1B9FF2100034A5A5 /* tile.h */; };
-		BF8625671BB74E2800C12EEE /* SPC_Filter.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476321B9FF0C10034A5A5 /* SPC_Filter.h */; };
-		BF8625681BB74E2800C12EEE /* SNES_SPC.h in Headers */ = {isa = PBXBuildFile; fileRef = BF04762D1B9FF0C10034A5A5 /* SNES_SPC.h */; };
-		BF8625691BB74E2800C12EEE /* mztools.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0477501B9FF2370034A5A5 /* mztools.h */; };
-		BF86256A1BB74E2800C12EEE /* obc1.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476FC1B9FF2100034A5A5 /* obc1.h */; };
-		BF86256B1BB74E2800C12EEE /* netplay.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476FA1B9FF2100034A5A5 /* netplay.h */; };
-		BF86256C1BB74E2800C12EEE /* gfx.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476AC1B9FF1490034A5A5 /* gfx.h */; };
-		BF86256D1BB74E2800C12EEE /* missing.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476F61B9FF2100034A5A5 /* missing.h */; };
-		BF86256E1BB74E2800C12EEE /* bsx.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476491B9FF0F10034A5A5 /* bsx.h */; };
-		BF86256F1BB74E2800C12EEE /* blargg_config.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476221B9FF0C10034A5A5 /* blargg_config.h */; };
-		BF8625701BB74E2800C12EEE /* snapshot.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0477121B9FF2100034A5A5 /* snapshot.h */; };
-		BF8625711BB74E2800C12EEE /* cpuaddr.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476561B9FF0F10034A5A5 /* cpuaddr.h */; };
-		BF8625721BB74E2800C12EEE /* display.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476601B9FF0F10034A5A5 /* display.h */; };
-		BF8625731BB74E2800C12EEE /* pixform.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476FD1B9FF2100034A5A5 /* pixform.h */; };
-		BF8625741BB74E2800C12EEE /* hermite_resampler.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476251B9FF0C10034A5A5 /* hermite_resampler.h */; };
-		BF8625761BB74E2800C12EEE /* 2xsai.h in Headers */ = {isa = PBXBuildFile; fileRef = BF04768D1B9FF1310034A5A5 /* 2xsai.h */; };
-		BF8625771BB74E2800C12EEE /* rcdefs.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476CE1B9FF17E0034A5A5 /* rcdefs.h */; };
-		BF8625781BB74E2800C12EEE /* ppu.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0477001B9FF2100034A5A5 /* ppu.h */; };
-		BF8625791BB74E2800C12EEE /* ioapi.h in Headers */ = {isa = PBXBuildFile; fileRef = BF04774E1B9FF2370034A5A5 /* ioapi.h */; };
-		BF86257A1BB74E2800C12EEE /* fxemu.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476A71B9FF1490034A5A5 /* fxemu.h */; };
-		BF86257B1BB74E2800C12EEE /* reader.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0477021B9FF2100034A5A5 /* reader.h */; };
-		BF86257C1BB74E2800C12EEE /* blargg_source.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476241B9FF0C10034A5A5 /* blargg_source.h */; };
-		BF86257D1BB74E2800C12EEE /* aribitcd.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476BB1B9FF17E0034A5A5 /* aribitcd.h */; };
-		BF86257E1BB74E2800C12EEE /* lzma.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476CA1B9FF17E0034A5A5 /* lzma.h */; };
-		BF86257F1BB74E2800C12EEE /* blit.h in Headers */ = {isa = PBXBuildFile; fileRef = BF04768F1B9FF1310034A5A5 /* blit.h */; };
-		BF8625801BB74E2800C12EEE /* blargg_common.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476211B9FF0C10034A5A5 /* blargg_common.h */; };
-		BF8625811BB74E2800C12EEE /* font.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476A41B9FF1490034A5A5 /* font.h */; };
-		BF8625821BB74E2800C12EEE /* port.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476FE1B9FF2100034A5A5 /* port.h */; };
-		BF8625831BB74E2800C12EEE /* linear_resampler.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476271B9FF0C10034A5A5 /* linear_resampler.h */; };
-		BF8625841BB74E2800C12EEE /* dma.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476621B9FF0F10034A5A5 /* dma.h */; };
-		BF8625851BB74E2800C12EEE /* crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = BF04774C1B9FF2370034A5A5 /* crypt.h */; };
-		BF8625861BB74E2800C12EEE /* sa1.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0477041B9FF2100034A5A5 /* sa1.h */; };
-		BF8625871BB74E2800C12EEE /* messages.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476F51B9FF2100034A5A5 /* messages.h */; };
-		BF8625881BB74E2800C12EEE /* rngcoder.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476CF1B9FF17E0034A5A5 /* rngcoder.h */; };
-		BF8625891BB74E2800C12EEE /* sdd1.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0477081B9FF2100034A5A5 /* sdd1.h */; };
-		BF86258A1BB74E2800C12EEE /* conffile.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476521B9FF0F10034A5A5 /* conffile.h */; };
-		BF86258B1BB74E2800C12EEE /* logger.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476F21B9FF2100034A5A5 /* logger.h */; };
-		BF86258C1BB74E2800C12EEE /* blargg_endian.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476231B9FF0C10034A5A5 /* blargg_endian.h */; };
-		BF86258D1BB74E2800C12EEE /* s9x-jma.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476D11B9FF17E0034A5A5 /* s9x-jma.h */; };
-		BF86258E1BB74E2800C12EEE /* debug.h in Headers */ = {isa = PBXBuildFile; fileRef = BF04765F1B9FF0F10034A5A5 /* debug.h */; };
-		BF8625901BB74E2800C12EEE /* movie.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476F81B9FF2100034A5A5 /* movie.h */; };
-		BF8625911BB74E2800C12EEE /* btreecd.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476BE1B9FF17E0034A5A5 /* btreecd.h */; };
-		BF8625921BB74E2800C12EEE /* spc7110dec.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0477171B9FF2100034A5A5 /* spc7110dec.h */; };
-		BF8625931BB74E2800C12EEE /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0477541B9FF2370034A5A5 /* zip.h */; };
-		BF8625941BB74E2800C12EEE /* crc32.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476C01B9FF17E0034A5A5 /* crc32.h */; };
-		BF8625951BB74E2800C12EEE /* seta.h in Headers */ = {isa = PBXBuildFile; fileRef = BF04770D1B9FF2100034A5A5 /* seta.h */; };
-		BF8625961BB74E2800C12EEE /* iiostrm.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476C21B9FF17E0034A5A5 /* iiostrm.h */; };
-		BF8625971BB74E2800C12EEE /* cheats.h in Headers */ = {isa = PBXBuildFile; fileRef = BF04764E1B9FF0F10034A5A5 /* cheats.h */; };
-		BF8625981BB74E2800C12EEE /* getset.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476AA1B9FF1490034A5A5 /* getset.h */; };
-		BF8625991BB74E2800C12EEE /* snes9x.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0477141B9FF2100034A5A5 /* snes9x.h */; };
-		BF86259A1BB74E2800C12EEE /* crosshairs.h in Headers */ = {isa = PBXBuildFile; fileRef = BF04765D1B9FF0F10034A5A5 /* crosshairs.h */; };
-		BF86259B1BB74E2800C12EEE /* 7z.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476B91B9FF17E0034A5A5 /* 7z.h */; };
-		BF86259C1BB74E2800C12EEE /* inbyte.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476C41B9FF17E0034A5A5 /* inbyte.h */; };
-		BF86259D1BB74E2800C12EEE /* memmap.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476F41B9FF2100034A5A5 /* memmap.h */; };
-		BF86259E1BB74E2800C12EEE /* ariconst.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476BC1B9FF17E0034A5A5 /* ariconst.h */; };
-		BF86259F1BB74E2800C12EEE /* dsp.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476641B9FF0F10034A5A5 /* dsp.h */; };
-		BF8625A01BB74E2800C12EEE /* spc7110.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0477161B9FF2100034A5A5 /* spc7110.h */; };
-		BF8625A11BB74E2800C12EEE /* snes_ntsc_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476951B9FF1310034A5A5 /* snes_ntsc_impl.h */; };
-		BF8625A21BB74E2800C12EEE /* hq2x.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476931B9FF1310034A5A5 /* hq2x.h */; };
-		BF8625A31BB74E2800C12EEE /* litcoder.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476C81B9FF17E0034A5A5 /* litcoder.h */; };
-		BF8625A41BB74E2800C12EEE /* sdd1emu.h in Headers */ = {isa = PBXBuildFile; fileRef = BF04770A1B9FF2100034A5A5 /* sdd1emu.h */; };
-		BF8625A51BB74E2800C12EEE /* apu.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476201B9FF0C10034A5A5 /* apu.h */; };
-		BF8625A71BB74E2800C12EEE /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = BF0476261B9FF0C10034A5A5 /* license.txt */; };
-		BF8625A81BB74E2800C12EEE /* Default.deltaskin in Resources */ = {isa = PBXBuildFile; fileRef = BF110C251B9FBDAA000969AB /* Default.deltaskin */; };
 		BF9F4FE21AAD8070004C9500 /* SNESDeltaCore.h in Headers */ = {isa = PBXBuildFile; fileRef = BF9F4FE11AAD8070004C9500 /* SNESDeltaCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BFBD7BFA1B6035DE007B75D2 /* SNESControllerSkin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD7BF91B6035DE007B75D2 /* SNESControllerSkin.swift */; };
 		BFC134DE1AAD821C0087AD7B /* DeltaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC134DD1AAD821C0087AD7B /* DeltaCore.framework */; };
@@ -511,7 +344,6 @@
 		BF110C251B9FBDAA000969AB /* Default.deltaskin */ = {isa = PBXFileReference; lastKnownFileType = file; path = Default.deltaskin; sourceTree = "<group>"; };
 		BF2A53F91BB74FA80052BD0C /* DeltaCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeltaCore.framework; path = "../DeltaCore/build/Debug-appletvos/DeltaCore.framework"; sourceTree = "<group>"; };
 		BF785C9E1B603C2C00189DB8 /* SNESDeltaCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNESDeltaCore.swift; sourceTree = "<group>"; };
-		BF8625AC1BB74E2800C12EEE /* SNESDeltaCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SNESDeltaCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF9F4FDC1AAD8070004C9500 /* SNESDeltaCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SNESDeltaCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF9F4FE01AAD8070004C9500 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF9F4FE11AAD8070004C9500 /* SNESDeltaCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNESDeltaCore.h; sourceTree = "<group>"; };
@@ -523,16 +355,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		BF8625431BB74E2800C12EEE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BF2A53FA1BB74FA80052BD0C /* DeltaCore.framework in Frameworks */,
-				BF8625441BB74E2800C12EEE /* libz.tbd in Frameworks */,
-				BF8625451BB74E2800C12EEE /* AudioToolbox.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		BF9F4FD81AAD8070004C9500 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -757,7 +579,6 @@
 			isa = PBXGroup;
 			children = (
 				BF9F4FDC1AAD8070004C9500 /* SNESDeltaCore.framework */,
-				BF8625AC1BB74E2800C12EEE /* SNESDeltaCore.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -825,103 +646,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		BF8625471BB74E2800C12EEE /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BF8625481BB74E2800C12EEE /* srtc.h in Headers */,
-				BF86254A1BB74E2800C12EEE /* cpuops.h in Headers */,
-				BF86254B1BB74E2800C12EEE /* portable.h in Headers */,
-				BF86254C1BB74E2800C12EEE /* jma.h in Headers */,
-				BF86254D1BB74E2800C12EEE /* lencoder.h in Headers */,
-				BF86254E1BB74E2800C12EEE /* c4.h in Headers */,
-				BF86254F1BB74E2800C12EEE /* SPC_CPU.h in Headers */,
-				BF8625501BB74E2800C12EEE /* resampler.h in Headers */,
-				BF8625511BB74E2800C12EEE /* 65c816.h in Headers */,
-				BF8625521BB74E2800C12EEE /* winout.h in Headers */,
-				BF8625531BB74E2800C12EEE /* cpumacro.h in Headers */,
-				BF8625541BB74E2800C12EEE /* ariprice.h in Headers */,
-				BF8625551BB74E2800C12EEE /* controls.h in Headers */,
-				BF8625561BB74E2800C12EEE /* SNESDeltaCore.h in Headers */,
-				BF8625571BB74E2800C12EEE /* SNESEmulatorBridge.h in Headers */,
-				BF8625581BB74E2800C12EEE /* epx.h in Headers */,
-				BF8625591BB74E2800C12EEE /* snes_ntsc.h in Headers */,
-				BF86255A1BB74E2800C12EEE /* lzmadec.h in Headers */,
-				BF86255B1BB74E2800C12EEE /* srtcemu.h in Headers */,
-				BF86255C1BB74E2800C12EEE /* sar.h in Headers */,
-				BF86255D1BB74E2800C12EEE /* unzip.h in Headers */,
-				BF86255E1BB74E2800C12EEE /* language.h in Headers */,
-				BF86255F1BB74E2800C12EEE /* snes_ntsc_config.h in Headers */,
-				BF8625601BB74E2800C12EEE /* fxinst.h in Headers */,
-				BF8625621BB74E2800C12EEE /* SPC_DSP.h in Headers */,
-				BF8625631BB74E2800C12EEE /* ring_buffer.h in Headers */,
-				BF8625641BB74E2800C12EEE /* cpuexec.h in Headers */,
-				BF8625651BB74E2800C12EEE /* spc7110emu.h in Headers */,
-				BF8625661BB74E2800C12EEE /* tile.h in Headers */,
-				BF8625671BB74E2800C12EEE /* SPC_Filter.h in Headers */,
-				BF8625681BB74E2800C12EEE /* SNES_SPC.h in Headers */,
-				BF8625691BB74E2800C12EEE /* mztools.h in Headers */,
-				BF86256A1BB74E2800C12EEE /* obc1.h in Headers */,
-				BF86256B1BB74E2800C12EEE /* netplay.h in Headers */,
-				BF86256C1BB74E2800C12EEE /* gfx.h in Headers */,
-				BF86256D1BB74E2800C12EEE /* missing.h in Headers */,
-				BF86256E1BB74E2800C12EEE /* bsx.h in Headers */,
-				BF86256F1BB74E2800C12EEE /* blargg_config.h in Headers */,
-				BF8625701BB74E2800C12EEE /* snapshot.h in Headers */,
-				BF8625711BB74E2800C12EEE /* cpuaddr.h in Headers */,
-				BF8625721BB74E2800C12EEE /* display.h in Headers */,
-				BF8625731BB74E2800C12EEE /* pixform.h in Headers */,
-				BF8625741BB74E2800C12EEE /* hermite_resampler.h in Headers */,
-				BF8625761BB74E2800C12EEE /* 2xsai.h in Headers */,
-				BF8625771BB74E2800C12EEE /* rcdefs.h in Headers */,
-				BF8625781BB74E2800C12EEE /* ppu.h in Headers */,
-				BF8625791BB74E2800C12EEE /* ioapi.h in Headers */,
-				BF86257A1BB74E2800C12EEE /* fxemu.h in Headers */,
-				BF86257B1BB74E2800C12EEE /* reader.h in Headers */,
-				BF86257C1BB74E2800C12EEE /* blargg_source.h in Headers */,
-				BF86257D1BB74E2800C12EEE /* aribitcd.h in Headers */,
-				BF86257E1BB74E2800C12EEE /* lzma.h in Headers */,
-				BF86257F1BB74E2800C12EEE /* blit.h in Headers */,
-				BF8625801BB74E2800C12EEE /* blargg_common.h in Headers */,
-				BF8625811BB74E2800C12EEE /* font.h in Headers */,
-				BF8625821BB74E2800C12EEE /* port.h in Headers */,
-				BF8625831BB74E2800C12EEE /* linear_resampler.h in Headers */,
-				BF8625841BB74E2800C12EEE /* dma.h in Headers */,
-				BF8625851BB74E2800C12EEE /* crypt.h in Headers */,
-				BF8625861BB74E2800C12EEE /* sa1.h in Headers */,
-				BF8625871BB74E2800C12EEE /* messages.h in Headers */,
-				BF8625881BB74E2800C12EEE /* rngcoder.h in Headers */,
-				BF8625891BB74E2800C12EEE /* sdd1.h in Headers */,
-				BF86258A1BB74E2800C12EEE /* conffile.h in Headers */,
-				BF86258B1BB74E2800C12EEE /* logger.h in Headers */,
-				BF86258C1BB74E2800C12EEE /* blargg_endian.h in Headers */,
-				BF86258D1BB74E2800C12EEE /* s9x-jma.h in Headers */,
-				BF86258E1BB74E2800C12EEE /* debug.h in Headers */,
-				BF8625901BB74E2800C12EEE /* movie.h in Headers */,
-				BF8625911BB74E2800C12EEE /* btreecd.h in Headers */,
-				BF8625921BB74E2800C12EEE /* spc7110dec.h in Headers */,
-				BF8625931BB74E2800C12EEE /* zip.h in Headers */,
-				BF8625941BB74E2800C12EEE /* crc32.h in Headers */,
-				BF8625951BB74E2800C12EEE /* seta.h in Headers */,
-				BF8625961BB74E2800C12EEE /* iiostrm.h in Headers */,
-				BF8625971BB74E2800C12EEE /* cheats.h in Headers */,
-				BF8625981BB74E2800C12EEE /* getset.h in Headers */,
-				BF8625991BB74E2800C12EEE /* snes9x.h in Headers */,
-				BF86259A1BB74E2800C12EEE /* crosshairs.h in Headers */,
-				BF86259B1BB74E2800C12EEE /* 7z.h in Headers */,
-				BF86259C1BB74E2800C12EEE /* inbyte.h in Headers */,
-				BF86259D1BB74E2800C12EEE /* memmap.h in Headers */,
-				BF86259E1BB74E2800C12EEE /* ariconst.h in Headers */,
-				BF86259F1BB74E2800C12EEE /* dsp.h in Headers */,
-				BF8625A01BB74E2800C12EEE /* spc7110.h in Headers */,
-				BF8625A11BB74E2800C12EEE /* snes_ntsc_impl.h in Headers */,
-				BF8625A21BB74E2800C12EEE /* hq2x.h in Headers */,
-				BF8625A31BB74E2800C12EEE /* litcoder.h in Headers */,
-				BF8625A41BB74E2800C12EEE /* sdd1emu.h in Headers */,
-				BF8625A51BB74E2800C12EEE /* apu.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		BF9F4FD91AAD8070004C9500 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1022,24 +746,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		BF8624F21BB74E2800C12EEE /* SNESDeltaCoreTV */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BF8625A91BB74E2800C12EEE /* Build configuration list for PBXNativeTarget "SNESDeltaCoreTV" */;
-			buildPhases = (
-				BF8624F31BB74E2800C12EEE /* Sources */,
-				BF8625431BB74E2800C12EEE /* Frameworks */,
-				BF8625471BB74E2800C12EEE /* Headers */,
-				BF8625A61BB74E2800C12EEE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SNESDeltaCoreTV;
-			productName = SNESDeltaCore;
-			productReference = BF8625AC1BB74E2800C12EEE /* SNESDeltaCore.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		BF9F4FDB1AAD8070004C9500 /* SNESDeltaCore */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF9F4FF21AAD8070004C9500 /* Build configuration list for PBXNativeTarget "SNESDeltaCore" */;
@@ -1087,21 +793,11 @@
 			projectRoot = "";
 			targets = (
 				BF9F4FDB1AAD8070004C9500 /* SNESDeltaCore */,
-				BF8624F21BB74E2800C12EEE /* SNESDeltaCoreTV */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		BF8625A61BB74E2800C12EEE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BF8625A71BB74E2800C12EEE /* license.txt in Resources */,
-				BF8625A81BB74E2800C12EEE /* Default.deltaskin in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		BF9F4FDA1AAD8070004C9500 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1114,85 +810,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		BF8624F31BB74E2800C12EEE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BF8624F41BB74E2800C12EEE /* reader.cpp in Sources */,
-				BF8624F51BB74E2800C12EEE /* jma.cpp in Sources */,
-				BF8624F61BB74E2800C12EEE /* seta018.cpp in Sources */,
-				BF8624F71BB74E2800C12EEE /* seta010.cpp in Sources */,
-				BF8624F81BB74E2800C12EEE /* mztools.c in Sources */,
-				BF8624F91BB74E2800C12EEE /* lzma.cpp in Sources */,
-				BF8624FA1BB74E2800C12EEE /* globals.cpp in Sources */,
-				BF8624FB1BB74E2800C12EEE /* c4.cpp in Sources */,
-				BF8624FC1BB74E2800C12EEE /* gfx.cpp in Sources */,
-				BF8624FD1BB74E2800C12EEE /* SPC_DSP.cpp in Sources */,
-				BF8624FE1BB74E2800C12EEE /* inbyte.cpp in Sources */,
-				BF8624FF1BB74E2800C12EEE /* 7zlzma.cpp in Sources */,
-				BF8625011BB74E2800C12EEE /* dsp3.cpp in Sources */,
-				BF8625021BB74E2800C12EEE /* netplay.cpp in Sources */,
-				BF8625031BB74E2800C12EEE /* obc1.cpp in Sources */,
-				BF8625041BB74E2800C12EEE /* controls.cpp in Sources */,
-				BF8625051BB74E2800C12EEE /* tile.cpp in Sources */,
-				BF8625061BB74E2800C12EEE /* memmap.cpp in Sources */,
-				BF8625081BB74E2800C12EEE /* fxemu.cpp in Sources */,
-				BF8625091BB74E2800C12EEE /* SNES_SPC_misc.cpp in Sources */,
-				BF86250A1BB74E2800C12EEE /* iiostrm.cpp in Sources */,
-				BF86250B1BB74E2800C12EEE /* snapshot.cpp in Sources */,
-				BF86250C1BB74E2800C12EEE /* conffile.cpp in Sources */,
-				BF86250D1BB74E2800C12EEE /* server.cpp in Sources */,
-				BF86250E1BB74E2800C12EEE /* sa1cpu.cpp in Sources */,
-				BF86250F1BB74E2800C12EEE /* crosshairs.cpp in Sources */,
-				BF8625101BB74E2800C12EEE /* SNESEmulatorBridge.mm in Sources */,
-				BF8625111BB74E2800C12EEE /* unzip.c in Sources */,
-				BF8625121BB74E2800C12EEE /* SNES_SPC_state.cpp in Sources */,
-				BF8625131BB74E2800C12EEE /* blit.cpp in Sources */,
-				BF8625141BB74E2800C12EEE /* sa1.cpp in Sources */,
-				BF8625151BB74E2800C12EEE /* bsx.cpp in Sources */,
-				BF8625171BB74E2800C12EEE /* seta.cpp in Sources */,
-				BF8625191BB74E2800C12EEE /* 2xsai.cpp in Sources */,
-				BF86251A1BB74E2800C12EEE /* SPC_Filter.cpp in Sources */,
-				BF86251B1BB74E2800C12EEE /* seta011.cpp in Sources */,
-				BF86251C1BB74E2800C12EEE /* SNES_SPC.cpp in Sources */,
-				BF86251D1BB74E2800C12EEE /* dsp4.cpp in Sources */,
-				BF86251E1BB74E2800C12EEE /* s9x-jma.cpp in Sources */,
-				BF8625201BB74E2800C12EEE /* fxdbg.cpp in Sources */,
-				BF8625211BB74E2800C12EEE /* snes_ntsc.c in Sources */,
-				BF8625221BB74E2800C12EEE /* clip.cpp in Sources */,
-				BF8625231BB74E2800C12EEE /* cheats2.cpp in Sources */,
-				BF8625241BB74E2800C12EEE /* crc32.cpp in Sources */,
-				BF8625251BB74E2800C12EEE /* srtc.cpp in Sources */,
-				BF8625261BB74E2800C12EEE /* cpuexec.cpp in Sources */,
-				BF8625271BB74E2800C12EEE /* ppu.cpp in Sources */,
-				BF8625281BB74E2800C12EEE /* cpuops.cpp in Sources */,
-				BF8625291BB74E2800C12EEE /* dsp.cpp in Sources */,
-				BF86252A1BB74E2800C12EEE /* sdd1emu.cpp in Sources */,
-				BF86252B1BB74E2800C12EEE /* logger.cpp in Sources */,
-				BF86252C1BB74E2800C12EEE /* spc7110.cpp in Sources */,
-				BF86252D1BB74E2800C12EEE /* cpu.cpp in Sources */,
-				BF86252E1BB74E2800C12EEE /* c4emu.cpp in Sources */,
-				BF86252F1BB74E2800C12EEE /* winout.cpp in Sources */,
-				BF8625301BB74E2800C12EEE /* dsp2.cpp in Sources */,
-				BF8625311BB74E2800C12EEE /* debug.cpp in Sources */,
-				BF8625321BB74E2800C12EEE /* cheats.cpp in Sources */,
-				BF8625331BB74E2800C12EEE /* zip.c in Sources */,
-				BF8625341BB74E2800C12EEE /* epx.cpp in Sources */,
-				BF8625351BB74E2800C12EEE /* movie.cpp in Sources */,
-				BF8625361BB74E2800C12EEE /* ioapi.c in Sources */,
-				BF8625371BB74E2800C12EEE /* dma.cpp in Sources */,
-				BF8625381BB74E2800C12EEE /* lzmadec.cpp in Sources */,
-				BF8625391BB74E2800C12EEE /* SNESDeltaCore.swift in Sources */,
-				BF86253B1BB74E2800C12EEE /* hq2x.cpp in Sources */,
-				BF86253C1BB74E2800C12EEE /* snes9x.cpp in Sources */,
-				BF86253D1BB74E2800C12EEE /* apu.cpp in Sources */,
-				BF86253E1BB74E2800C12EEE /* sdd1.cpp in Sources */,
-				BF86253F1BB74E2800C12EEE /* dsp1.cpp in Sources */,
-				BF8625411BB74E2800C12EEE /* fxinst.cpp in Sources */,
-				BF8625421BB74E2800C12EEE /* loadzip.cpp in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		BF9F4FD71AAD8070004C9500 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1277,66 +894,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		BF8625AA1BB74E2800C12EEE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = SNESDeltaCore/PrefixHeader.pch;
-				INFOPLIST_FILE = SNESDeltaCore/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_CFLAGS = (
-					"-funsigned-char",
-					"-ffast-math",
-					"-finline",
-					"-fno-builtin",
-					"-fno-common",
-					"-fomit-frame-pointer",
-					"-funroll-loops",
-					"-fstrict-aliasing",
-				);
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-			};
-			name = Debug;
-		};
-		BF8625AB1BB74E2800C12EEE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = SNESDeltaCore/PrefixHeader.pch;
-				INFOPLIST_FILE = SNESDeltaCore/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_CFLAGS = (
-					"-funsigned-char",
-					"-ffast-math",
-					"-finline",
-					"-fno-builtin",
-					"-fno-common",
-					"-fomit-frame-pointer",
-					"-funroll-loops",
-					"-fstrict-aliasing",
-				);
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-			};
-			name = Release;
-		};
 		BF9F4FF01AAD8070004C9500 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1493,15 +1050,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BF8625A91BB74E2800C12EEE /* Build configuration list for PBXNativeTarget "SNESDeltaCoreTV" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BF8625AA1BB74E2800C12EEE /* Debug */,
-				BF8625AB1BB74E2800C12EEE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		BF9F4FD61AAD8070004C9500 /* Build configuration list for PBXProject "SNESDeltaCore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
