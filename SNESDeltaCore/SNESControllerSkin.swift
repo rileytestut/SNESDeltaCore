@@ -10,22 +10,30 @@ import DeltaCore
 
 public class SNESControllerSkin: ControllerSkin
 {
-    //MARK: - Overrides -
-    /** Overrides **/
+    //MARK: - DynamicObject
+    /// DynamicObject
+    var dynamicSubclass: Bool {
+        return true
+    }
+    
+    var dynamicIndentifier: String {
+        return GameType.snes.rawValue
+    }
+
     
     //MARK: - ControllerSkin
     /// ControllerSkin
     public override class func defaultControllerSkinForGameUTI(_ UTI: String) -> ControllerSkin?
     {
-        let URL = NSBundle(forClass: self).URLForResource("Default", withExtension: "deltaskin")
+        let URL = Bundle(for: self).urlForResource("Default", withExtension: "deltaskin")
         let controllerSkin = ControllerSkin(URL: URL!)
         
         return controllerSkin
     }
     
-    public override func inputsForItem(_ item: Item, point: CGPoint) -> [InputType]
+    public override func inputsForItem(_ item: Item, point: CGPoint) -> [InputProtocol]
     {
-        var inputs: [InputType] = []
+        var inputs: [InputProtocol] = []
         
         for key in item.keys
         {
@@ -38,24 +46,24 @@ public class SNESControllerSkin: ControllerSkin
                 let leftRect = CGRect(x: item.frame.minX, y: item.frame.minY, width: item.frame.width / 3.0, height: item.frame.height)
                 let rightRect = CGRect(x: item.frame.maxX - item.frame.width / 3.0, y: item.frame.minY, width: item.frame.width / 3.0, height: item.frame.height)
                 
-                if CGRectContainsPoint(topRect, point)
+                if topRect.contains(point)
                 {
-                    inputs.append(SNESGameInput.Up)
+                    inputs.append(SNESGameInput.up)
                 }
                 
-                if CGRectContainsPoint(bottomRect, point)
+                if bottomRect.contains(point)
                 {
-                    inputs.append(SNESGameInput.Down)
+                    inputs.append(SNESGameInput.down)
                 }
                 
-                if CGRectContainsPoint(leftRect, point)
+                if leftRect.contains(point)
                 {
-                    inputs.append(SNESGameInput.Left)
+                    inputs.append(SNESGameInput.left)
                 }
                 
-                if CGRectContainsPoint(rightRect, point)
+                if rightRect.contains(point)
                 {
-                    inputs.append(SNESGameInput.Right)
+                    inputs.append(SNESGameInput.right)
                 }
                 
             case "a": inputs.append(SNESGameInput.A)
@@ -64,25 +72,13 @@ public class SNESControllerSkin: ControllerSkin
             case "y": inputs.append(SNESGameInput.Y)
             case "l": inputs.append(SNESGameInput.L)
             case "r": inputs.append(SNESGameInput.R)
-            case "start": inputs.append(SNESGameInput.Start)
-            case "select": inputs.append(SNESGameInput.Select)
-            case "menu": inputs.append(ControllerInput.Menu)
+            case "start": inputs.append(SNESGameInput.start)
+            case "select": inputs.append(SNESGameInput.select)
+            case "menu": inputs.append(ControllerInput.menu)
             default: break
             }
         }
         
         return inputs
-    }
-    
-    //MARK: - DynamicObject
-    /// DynamicObject
-    public override class func isDynamicSubclass() -> Bool
-    {
-        return true
-    }
-    
-    public override class func dynamicIdentifier() -> String?
-    {
-        return kUTTypeSNESGame as String;
     }
 }
