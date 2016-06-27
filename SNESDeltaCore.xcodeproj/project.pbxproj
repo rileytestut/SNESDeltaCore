@@ -1071,6 +1071,7 @@
 				TargetAttributes = {
 					BF9F4FDB1AAD8070004C9500 = {
 						CreatedOnToolsVersion = 6.3;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -1458,6 +1459,7 @@
 					"-fstrict-aliasing",
 				);
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1486,6 +1488,7 @@
 					"-fstrict-aliasing",
 				);
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

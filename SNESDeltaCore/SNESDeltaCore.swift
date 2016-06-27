@@ -8,4 +8,4 @@
 
 import Foundation
 
-public let kUTTypeSNESGame: CFStringRef = "com.rileytestut.delta.game.snes"
+public let kUTTypeSNESGame: CFString = "com.rileytestut.delta.game.snes"

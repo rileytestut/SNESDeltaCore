@@ -15,7 +15,7 @@ public class SNESControllerSkin: ControllerSkin
     
     //MARK: - ControllerSkin
     /// ControllerSkin
-    public override class func defaultControllerSkinForGameUTI(UTI: String) -> ControllerSkin?
+    public override class func defaultControllerSkinForGameUTI(_ UTI: String) -> ControllerSkin?
     {
         let URL = NSBundle(forClass: self).URLForResource("Default", withExtension: "deltaskin")
         let controllerSkin = ControllerSkin(URL: URL!)
@@ -23,7 +23,7 @@ public class SNESControllerSkin: ControllerSkin
         return controllerSkin
     }
     
-    public override func inputsForItem(item: Item, point: CGPoint) -> [InputType]
+    public override func inputsForItem(_ item: Item, point: CGPoint) -> [InputType]
     {
         var inputs: [InputType] = []
         

@@ -50,7 +50,7 @@ public class SNESEmulatorCore: EmulatorCore
         return SNESGameInput.self
     }
     
-    public override var gameSaveURL: NSURL
+    public override var gameSaveURL: URL
     {
         var gameSaveURL = self.game.fileURL.URLByDeletingPathExtension ?? self.game.fileURL
         gameSaveURL = gameSaveURL.URLByAppendingPathExtension("srm")
@@ -59,7 +59,7 @@ public class SNESEmulatorCore: EmulatorCore
     
     override public var audioBufferInfo: AudioManager.BufferInfo
     {
-        let inputFormat = AVAudioFormat(commonFormat: .PCMFormatInt16, sampleRate: 32040.5, channels: 2, interleaved: true)
+        let inputFormat = AVAudioFormat(commonFormat: .pcmFormatInt16, sampleRate: 32040.5, channels: 2, interleaved: true)
         
         let bufferInfo = AudioManager.BufferInfo(inputFormat: inputFormat, preferredSize: 2132)
         return bufferInfo
@@ -71,7 +71,7 @@ public class SNESEmulatorCore: EmulatorCore
         return bufferInfo
     }
     
-    override public var supportedRates: ClosedInterval<Double>
+    override public var supportedRates: ClosedRange<Double>
     {
         return 1...4
     }
@@ -85,7 +85,7 @@ public class SNESEmulatorCore: EmulatorCore
     
     //MARK: - Input Transformation -
     /// Input Transformation
-    public override func inputsForMFiExternalController(controller: GameControllerProtocol, input: InputType) -> [InputType]
+    public override func inputsForMFiExternalController(_ controller: GameControllerProtocol, input: InputType) -> [InputType]
     {
         guard let input = input as? MFiExternalControllerInput else { return [] }
         
@@ -112,7 +112,7 @@ public class SNESEmulatorCore: EmulatorCore
 
 private extension SNESEmulatorCore
 {
-    func inputsForXAxis(xAxis: Float, YAxis yAxis: Float) -> [InputType]
+    func inputsForXAxis(_ xAxis: Float, YAxis yAxis: Float) -> [InputType]
     {
         var inputs: [InputType] = []
         
