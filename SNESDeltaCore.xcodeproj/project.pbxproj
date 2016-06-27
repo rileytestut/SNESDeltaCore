@@ -771,7 +771,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Riley Testut";
 				TargetAttributes = {
 					BF9F4FDB1AAD8070004C9500 = {
@@ -1043,6 +1043,7 @@
 					"-fstrict-aliasing",
 				);
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
