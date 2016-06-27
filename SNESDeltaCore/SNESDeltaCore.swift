@@ -8,4 +8,7 @@
 
 import Foundation
 
-public let kUTTypeSNESGame: CFString = "com.rileytestut.delta.game.snes"
+public extension GameType
+{
+    public static let snes = "com.rileytestut.delta.game.snes" as GameType
+}
