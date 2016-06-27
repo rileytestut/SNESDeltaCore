@@ -184,8 +184,7 @@ void SNESFinalizeSamplesCallback(void *context);
 {
     S9xFinalizeSamples();
     
-    [self.audioRenderer.ringBuffer writeToRingBuffer:^int32_t(void * _Nonnull ringBuffer, int32_t availableBytes) {
-        
+    [self.audioRenderer.ringBuffer writeWithHandler:^int32_t(void * _Nonnull ringBuffer, int32_t availableBytes) {
         int sampleCount = MIN(availableBytes / 2, S9xGetSampleCount());
         S9xMixSamples((uint8 *)ringBuffer, sampleCount);
         
@@ -216,11 +215,11 @@ void SNESFinalizeSamplesCallback(void *context);
     
     switch ((CheatType)type)
     {
-        case CheatTypegameGenie:
+        case CheatTypeGameGenie:
             success = (S9xGameGenieToRaw([cheatCode UTF8String], address, byte) == NULL);
             break;
             
-        case CheatTypeactionReplay:
+        case CheatTypeActionReplay:
             success = (S9xProActionReplayToRaw([cheatCode UTF8String], address, byte) == NULL);
             break;
             
@@ -409,7 +408,7 @@ const char *S9xGetDirectory (enum s9x_getdirtype dirtype)
 
 void S9xAutoSaveSRAM()
 {
-    [[SNESEmulatorBridge sharedBridge].emulatorCore didUpdateGameSave];
+    [SNESEmulatorBridge sharedBridge].saveUpdateHandler();
 }
 
 bool8 S9xDeinitUpdate(int width, int height)
