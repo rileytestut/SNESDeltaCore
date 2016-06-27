@@ -66,12 +66,12 @@ public class SNESControllerSkin: ControllerSkin
                     inputs.append(SNESGameInput.right)
                 }
                 
-            case "a": inputs.append(SNESGameInput.A)
-            case "b": inputs.append(SNESGameInput.B)
-            case "x": inputs.append(SNESGameInput.X)
-            case "y": inputs.append(SNESGameInput.Y)
-            case "l": inputs.append(SNESGameInput.L)
-            case "r": inputs.append(SNESGameInput.R)
+            case "a": inputs.append(SNESGameInput.a)
+            case "b": inputs.append(SNESGameInput.b)
+            case "x": inputs.append(SNESGameInput.x)
+            case "y": inputs.append(SNESGameInput.y)
+            case "l": inputs.append(SNESGameInput.l)
+            case "r": inputs.append(SNESGameInput.r)
             case "start": inputs.append(SNESGameInput.start)
             case "select": inputs.append(SNESGameInput.select)
             case "menu": inputs.append(ControllerInput.menu)

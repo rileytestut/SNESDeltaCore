@@ -23,6 +23,7 @@
 
 // DeltaCore
 #import <DeltaCore/DeltaCore-Swift.h>
+#import <SNESDeltaCore/SNESDeltaCore-Swift.h>
 
 void SNESFinalizeSamplesCallback(void *context);
 

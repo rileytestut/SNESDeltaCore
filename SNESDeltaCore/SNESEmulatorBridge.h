@@ -9,22 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <DeltaCore/DeltaCore.h>
 
-typedef NS_ENUM(NSInteger, SNESGameInput)
-{
-    SNESGameInputUp     = 1 << 0,
-    SNESGameInputDown   = 1 << 1,
-    SNESGameInputLeft   = 1 << 2,
-    SNESGameInputRight  = 1 << 3,
-    SNESGameInputA      = 1 << 4,
-    SNESGameInputB      = 1 << 5,
-    SNESGameInputX      = 1 << 6,
-    SNESGameInputY      = 1 << 7,
-    SNESGameInputL      = 1 << 8,
-    SNESGameInputR      = 1 << 9,
-    SNESGameInputStart  = 1 << 10,
-    SNESGameInputSelect = 1 << 11,
-};
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SNESEmulatorBridge : DLTAEmulatorBridge

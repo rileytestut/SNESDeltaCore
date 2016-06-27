@@ -11,7 +11,21 @@ import AVFoundation
 
 import DeltaCore
 
-extension SNESGameInput: InputProtocol {}
+@objc public enum SNESGameInput: Int, InputProtocol
+{
+    case up     = 1
+    case down   = 2
+    case left   = 4
+    case right  = 8
+    case a      = 16
+    case b      = 32
+    case x      = 64
+    case y      = 128
+    case l      = 256
+    case r      = 512
+    case start  = 1024
+    case select = 2048
+}
 
 public class SNESEmulatorCoreConfiguration: EmulatorCoreConfiguration
 {
@@ -63,14 +77,14 @@ public class SNESEmulatorCoreConfiguration: EmulatorCoreConfiguration
         case let .dPad(xAxis: xAxis, yAxis: yAxis): inputs.append(contentsOf: self.inputs(forXAxis: xAxis, YAxis: yAxis))
         case let .leftThumbstick(xAxis: xAxis, yAxis: yAxis): inputs.append(contentsOf: self.inputs(forXAxis: xAxis, YAxis: yAxis))
         case .rightThumbstick(xAxis: _, yAxis: _): break
-        case .a: inputs.append(SNESGameInput.A)
-        case .b: inputs.append(SNESGameInput.B)
-        case .x: inputs.append(SNESGameInput.X)
-        case .y: inputs.append(SNESGameInput.Y)
-        case .l: inputs.append(SNESGameInput.L)
-        case .r: inputs.append(SNESGameInput.R)
-        case .leftTrigger: inputs.append(SNESGameInput.L)
-        case .rightTrigger: inputs.append(SNESGameInput.R)
+        case .a: inputs.append(SNESGameInput.a)
+        case .b: inputs.append(SNESGameInput.b)
+        case .x: inputs.append(SNESGameInput.x)
+        case .y: inputs.append(SNESGameInput.y)
+        case .l: inputs.append(SNESGameInput.l)
+        case .r: inputs.append(SNESGameInput.r)
+        case .leftTrigger: inputs.append(SNESGameInput.l)
+        case .rightTrigger: inputs.append(SNESGameInput.r)
         }
         
         return inputs
