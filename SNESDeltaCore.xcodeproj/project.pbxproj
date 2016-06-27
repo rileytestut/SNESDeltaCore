@@ -204,7 +204,6 @@
 		BF8625141BB74E2800C12EEE /* sa1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0477031B9FF2100034A5A5 /* sa1.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF8625151BB74E2800C12EEE /* bsx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476481B9FF0F10034A5A5 /* bsx.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF8625171BB74E2800C12EEE /* seta.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04770C1B9FF2100034A5A5 /* seta.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF8625181BB74E2800C12EEE /* SNESEmulatorCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC800371BA4D3B600824180 /* SNESEmulatorCore.swift */; };
 		BF8625191BB74E2800C12EEE /* 2xsai.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04768C1B9FF1310034A5A5 /* 2xsai.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF86251A1BB74E2800C12EEE /* SPC_Filter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0476311B9FF0C10034A5A5 /* SPC_Filter.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF86251B1BB74E2800C12EEE /* seta011.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04770F1B9FF2100034A5A5 /* seta011.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
@@ -343,7 +342,7 @@
 		BFC134DE1AAD821C0087AD7B /* DeltaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC134DD1AAD821C0087AD7B /* DeltaCore.framework */; };
 		BFC800351BA4C8DB00824180 /* SNESEmulatorBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = BFC800331BA4C8DB00824180 /* SNESEmulatorBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BFC800361BA4C8DB00824180 /* SNESEmulatorBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = BFC800341BA4C8DB00824180 /* SNESEmulatorBridge.mm */; };
-		BFC800381BA4D3B600824180 /* SNESEmulatorCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC800371BA4D3B600824180 /* SNESEmulatorCore.swift */; };
+		BFFE69131D21E172008B5CF5 /* SNESEmulatorCoreConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFE69121D21E172008B5CF5 /* SNESEmulatorCoreConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -520,7 +519,7 @@
 		BFC134DD1AAD821C0087AD7B /* DeltaCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeltaCore.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/Delta-cubiloonxwcpqtawcqdjabbtttfl/Build/Products/Debug-iphoneos/DeltaCore.framework"; sourceTree = "<group>"; };
 		BFC800331BA4C8DB00824180 /* SNESEmulatorBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNESEmulatorBridge.h; sourceTree = "<group>"; };
 		BFC800341BA4C8DB00824180 /* SNESEmulatorBridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SNESEmulatorBridge.mm; sourceTree = "<group>"; };
-		BFC800371BA4D3B600824180 /* SNESEmulatorCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNESEmulatorCore.swift; sourceTree = "<group>"; };
+		BFFE69121D21E172008B5CF5 /* SNESEmulatorCoreConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNESEmulatorCoreConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -816,7 +815,7 @@
 		BFF912D41AB0996500AC07A1 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				BFC800371BA4D3B600824180 /* SNESEmulatorCore.swift */,
+				BFFE69121D21E172008B5CF5 /* SNESEmulatorCoreConfiguration.swift */,
 				BFC800321BA4C89F00824180 /* Bridge */,
 				BF04761D1B9FF03B0034A5A5 /* Snes9x */,
 			);
@@ -1152,7 +1151,6 @@
 				BF8625141BB74E2800C12EEE /* sa1.cpp in Sources */,
 				BF8625151BB74E2800C12EEE /* bsx.cpp in Sources */,
 				BF8625171BB74E2800C12EEE /* seta.cpp in Sources */,
-				BF8625181BB74E2800C12EEE /* SNESEmulatorCore.swift in Sources */,
 				BF8625191BB74E2800C12EEE /* 2xsai.cpp in Sources */,
 				BF86251A1BB74E2800C12EEE /* SPC_Filter.cpp in Sources */,
 				BF86251B1BB74E2800C12EEE /* seta011.cpp in Sources */,
@@ -1227,12 +1225,12 @@
 				BF04767E1B9FF0F10034A5A5 /* crosshairs.cpp in Sources */,
 				BFC800361BA4C8DB00824180 /* SNESEmulatorBridge.mm in Sources */,
 				BF04775A1B9FF2370034A5A5 /* unzip.c in Sources */,
+				BFFE69131D21E172008B5CF5 /* SNESEmulatorCoreConfiguration.swift in Sources */,
 				BF04763F1B9FF0C10034A5A5 /* SNES_SPC_state.cpp in Sources */,
 				BF04769A1B9FF1310034A5A5 /* blit.cpp in Sources */,
 				BF0477311B9FF2100034A5A5 /* sa1.cpp in Sources */,
 				BF04766A1B9FF0F10034A5A5 /* bsx.cpp in Sources */,
 				BF04773A1B9FF2100034A5A5 /* seta.cpp in Sources */,
-				BFC800381BA4D3B600824180 /* SNESEmulatorCore.swift in Sources */,
 				BF0476981B9FF1310034A5A5 /* 2xsai.cpp in Sources */,
 				BF0476451B9FF0C10034A5A5 /* SPC_Filter.cpp in Sources */,
 				BF04773D1B9FF2100034A5A5 /* seta011.cpp in Sources */,
