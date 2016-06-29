@@ -12,3 +12,21 @@ public extension GameType
 {
     public static let snes = "com.rileytestut.delta.game.snes" as GameType
 }
+
+public struct SNESDeltaCore: DeltaCoreProtocol
+{
+    public static let core = SNESDeltaCore()
+    
+    public let supportedGameTypes: Set<GameType> = [.snes]
+    
+    public let emulatorBridge: DLTAEmulatorBridge = SNESEmulatorBridge()
+    
+    public let emulatorConfiguration: EmulatorCoreConfiguration = SNESEmulatorCoreConfiguration(gameType: .snes)
+    
+    public let inputManager: InputManager = SNESInputManager()
+    
+    private init()
+    {
+    }
+    
+}

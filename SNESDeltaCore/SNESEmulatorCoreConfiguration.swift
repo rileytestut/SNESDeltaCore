@@ -11,21 +11,6 @@ import AVFoundation
 
 import DeltaCore
 
-@objc public enum SNESGameInput: Int, InputProtocol
-{
-    case up     = 1
-    case down   = 2
-    case left   = 4
-    case right  = 8
-    case a      = 16
-    case b      = 32
-    case x      = 64
-    case y      = 128
-    case l      = 256
-    case r      = 512
-    case start  = 1024
-    case select = 2048
-}
 
 public class SNESEmulatorCoreConfiguration: EmulatorCoreConfiguration
 {
