@@ -22,12 +22,21 @@
 #include <sys/time.h>
 
 // DeltaCore
-#import <DeltaCore/DeltaCore-Swift.h>
 #import <SNESDeltaCore/SNESDeltaCore-Swift.h>
+
+@interface SNESEmulatorBridge ()
+
+@property (nonatomic, copy, nullable, readwrite) NSURL *gameURL;
+
+@end
 
 void SNESFinalizeSamplesCallback(void *context);
 
 @implementation SNESEmulatorBridge
+@synthesize gameURL = _gameURL;
+@synthesize audioRenderer = _audioRenderer;
+@synthesize videoRenderer = _videoRenderer;
+@synthesize saveUpdateHandler = _saveUpdateHandler;
 
 + (instancetype)sharedBridge
 {
@@ -44,7 +53,7 @@ void SNESFinalizeSamplesCallback(void *context);
 
 - (void)startWithGameURL:(NSURL *)URL
 {
-    [super startWithGameURL:URL];
+    self.gameURL = URL;
         
     ZeroMemory(&Settings, sizeof(Settings));
     Settings.MouseMaster = YES;
@@ -133,8 +142,6 @@ void SNESFinalizeSamplesCallback(void *context);
 
 - (void)stop
 {
-    [super stop];
-    
     S9xGraphicsDeinit();
     Memory.Deinit();
     S9xDeinitAPU();
@@ -144,8 +151,6 @@ void SNESFinalizeSamplesCallback(void *context);
 
 - (void)pause
 {
-    [super pause];
-    
     S9xSetSoundMute(YES);
     
     Settings.Paused = YES;
@@ -153,8 +158,6 @@ void SNESFinalizeSamplesCallback(void *context);
 
 - (void)resume
 {
-    [super resume];
-    
     S9xSetSoundMute(NO);
     
     Settings.Paused = NO;
