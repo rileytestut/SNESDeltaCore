@@ -576,6 +576,15 @@
 			name = Inputs;
 			sourceTree = "<group>";
 		};
+		BF425A921D23BA5200F48ED9 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				BFC800321BA4C89F00824180 /* Bridge */,
+				BF04761D1B9FF03B0034A5A5 /* Snes9x */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
 		BF9F4FD21AAD8070004C9500 = {
 			isa = PBXGroup;
 			children = (
@@ -598,8 +607,9 @@
 			children = (
 				BF9F4FE11AAD8070004C9500 /* SNESDeltaCore.h */,
 				BF785C9E1B603C2C00189DB8 /* SNESDeltaCore.swift */,
+				BF425A921D23BA5200F48ED9 /* Core */,
 				BFBD7BF81B6035C8007B75D2 /* Model */,
-				BFF912D41AB0996500AC07A1 /* Core */,
+				BFF912D41AB0996500AC07A1 /* Emulator Configuration */,
 				BF425A911D23B91800F48ED9 /* Inputs */,
 				BF9F4FDF1AAD8070004C9500 /* Supporting Files */,
 			);
@@ -644,14 +654,12 @@
 			name = Bridge;
 			sourceTree = "<group>";
 		};
-		BFF912D41AB0996500AC07A1 /* Core */ = {
+		BFF912D41AB0996500AC07A1 /* Emulator Configuration */ = {
 			isa = PBXGroup;
 			children = (
 				BFFE69121D21E172008B5CF5 /* SNESEmulatorCoreConfiguration.swift */,
-				BFC800321BA4C89F00824180 /* Bridge */,
-				BF04761D1B9FF03B0034A5A5 /* Snes9x */,
 			);
-			name = Core;
+			name = "Emulator Configuration";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

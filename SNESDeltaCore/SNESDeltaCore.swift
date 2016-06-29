@@ -21,7 +21,7 @@ public struct SNESDeltaCore: DeltaCoreProtocol
     
     public let emulatorBridge: DLTAEmulatorBridge = SNESEmulatorBridge()
     
-    public let emulatorConfiguration: EmulatorCoreConfiguration = SNESEmulatorCoreConfiguration(gameType: .snes)
+    public let emulatorConfiguration: EmulatorConfiguration = SNESEmulatorConfiguration()
     
     public let inputManager: InputManager = SNESInputManager()
     
