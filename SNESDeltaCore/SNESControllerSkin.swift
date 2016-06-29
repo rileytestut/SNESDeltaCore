@@ -12,11 +12,11 @@ public class SNESControllerSkin: ControllerSkin
 {
     //MARK: - DynamicObject
     /// DynamicObject
-    var dynamicSubclass: Bool {
+    public class override var isDynamicSubclass: Bool {
         return true
     }
     
-    var dynamicIndentifier: String {
+    public class override var dynamicIdentifier: String {
         return GameType.snes.rawValue
     }
 

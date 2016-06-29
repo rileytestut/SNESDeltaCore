@@ -29,6 +29,18 @@ import DeltaCore
 
 public class SNESEmulatorCoreConfiguration: EmulatorCoreConfiguration
 {
+    //MARK: - DynamicObject
+    /// DynamicObject
+    public class override var isDynamicSubclass: Bool {
+        return true
+    }
+    
+    public class override var dynamicIdentifier: String {
+        return GameType.snes.rawValue
+    }
+    
+    //MARK: - EmulatorCoreConfiguration
+    /// EmulatorCoreConfiguration
     public override var bridge: DLTAEmulatorBridge {
         return SNESEmulatorBridge.shared()
     }
