@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc public enum SNESGameInput: Int, InputProtocol
+@objc public enum SNESGameInput: Int, Input
 {
     case up     = 1
     case down   = 2
@@ -26,11 +26,11 @@ import Foundation
 
 public struct SNESInputManager: InputManager
 {
-    public var gameInputType: InputProtocol.Type = SNESGameInput.self
+    public var gameInputType: Input.Type = SNESGameInput.self
     
-    public func inputs(for controller: ControllerSkin, item: ControllerSkin.Item, point: CGPoint) -> [InputProtocol]
+    public func inputs(for controller: ControllerSkin, item: ControllerSkin.Item, point: CGPoint) -> [Input]
     {
-        var inputs: [InputProtocol] = []
+        var inputs: [Input] = []
         
         for key in item.keys
         {
@@ -79,9 +79,9 @@ public struct SNESInputManager: InputManager
         return inputs
     }
     
-    public func inputs(for controller: MFiExternalController, input: MFiExternalControllerInput) -> [InputProtocol]
+    public func inputs(for controller: MFiExternalController, input: MFiExternalControllerInput) -> [Input]
     {
-        var inputs: [InputProtocol] = []
+        var inputs: [Input] = []
         
         switch input
         {
@@ -104,9 +104,9 @@ public struct SNESInputManager: InputManager
 
 private extension SNESInputManager
 {
-    func inputs(forXAxis xAxis: Float, YAxis yAxis: Float) -> [InputProtocol]
+    func inputs(forXAxis xAxis: Float, YAxis yAxis: Float) -> [Input]
     {
-        var inputs: [InputProtocol] = []
+        var inputs: [Input] = []
         
         if xAxis > 0.0
         {

@@ -31,9 +31,9 @@ public class SNESControllerSkin: ControllerSkin
         return controllerSkin
     }
     
-    public override func inputsForItem(_ item: Item, point: CGPoint) -> [InputProtocol]
+    public override func inputsForItem(_ item: Item, point: CGPoint) -> [Input]
     {
-        var inputs: [InputProtocol] = []
+        var inputs: [Input] = []
         
         for key in item.keys
         {
