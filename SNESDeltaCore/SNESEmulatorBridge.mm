@@ -188,12 +188,14 @@ void SNESFinalizeSamplesCallback(void *context);
 {
     S9xFinalizeSamples();
     
-    [self.audioRenderer.ringBuffer writeWithHandler:^int32_t(void * _Nonnull ringBuffer, int32_t availableBytes) {
-        int sampleCount = MIN(availableBytes / 2, S9xGetSampleCount());
-        S9xMixSamples((uint8 *)ringBuffer, sampleCount);
-        
-        return sampleCount * 2; // Audio is interleaved, so we multiply by two to account for both channels
-    }];
+    int sampleCount = MIN((int)self.audioRenderer.audioBuffer.availableBytesForWriting / 2, S9xGetSampleCount());
+    
+    void *buffer = malloc(sampleCount * 2); // Audio is interleaved, so we multiply by two to account for both channels
+    S9xMixSamples((uint8 *)buffer, sampleCount);
+    
+    [self.audioRenderer.audioBuffer writeBuffer:(uint8 *)buffer size:sampleCount * 2];
+    
+    free(buffer);
 }
 
 #pragma mark - Save States -
