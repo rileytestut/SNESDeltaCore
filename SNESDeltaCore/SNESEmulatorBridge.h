@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SNESEmulatorBridge : NSObject <DLTAEmulatorBridging>
 
+@property (class, nonatomic, readonly) SNESEmulatorBridge *sharedBridge;
+
 @end
 
 NS_ASSUME_NONNULL_END

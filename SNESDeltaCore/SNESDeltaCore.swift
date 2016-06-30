@@ -19,7 +19,7 @@ public struct SNESDeltaCore: DeltaCoreProtocol
     
     public let supportedGameTypes: Set<GameType> = [.snes]
     
-    public let emulatorBridge: EmulatorBridging = SNESEmulatorBridge()
+    public let emulatorBridge: EmulatorBridging = SNESEmulatorBridge.shared
     
     public let emulatorConfiguration: EmulatorConfiguration = SNESEmulatorConfiguration()
     
