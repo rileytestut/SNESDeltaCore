@@ -176,6 +176,9 @@
 		BFC134DE1AAD821C0087AD7B /* DeltaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC134DD1AAD821C0087AD7B /* DeltaCore.framework */; };
 		BFC800351BA4C8DB00824180 /* SNESEmulatorBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = BFC800331BA4C8DB00824180 /* SNESEmulatorBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BFC800361BA4C8DB00824180 /* SNESEmulatorBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = BFC800341BA4C8DB00824180 /* SNESEmulatorBridge.mm */; };
+		BFE7EEA91D258EC9008D0BA3 /* SNESRegistrationResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE7EEA81D258EC9008D0BA3 /* SNESRegistrationResponder.swift */; };
+		BFE7EEAC1D258F8E008D0BA3 /* SNESRegistrationResponder+Dynamic.h in Headers */ = {isa = PBXBuildFile; fileRef = BFE7EEAA1D258F8E008D0BA3 /* SNESRegistrationResponder+Dynamic.h */; };
+		BFE7EEAD1D258F8E008D0BA3 /* SNESRegistrationResponder+Dynamic.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE7EEAB1D258F8E008D0BA3 /* SNESRegistrationResponder+Dynamic.m */; };
 		BFFE69131D21E172008B5CF5 /* SNESEmulatorCoreConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFE69121D21E172008B5CF5 /* SNESEmulatorCoreConfiguration.swift */; };
 /* End PBXBuildFile section */
 
@@ -353,6 +356,9 @@
 		BFC134DD1AAD821C0087AD7B /* DeltaCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeltaCore.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/Delta-cubiloonxwcpqtawcqdjabbtttfl/Build/Products/Debug-iphoneos/DeltaCore.framework"; sourceTree = "<group>"; };
 		BFC800331BA4C8DB00824180 /* SNESEmulatorBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNESEmulatorBridge.h; sourceTree = "<group>"; };
 		BFC800341BA4C8DB00824180 /* SNESEmulatorBridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SNESEmulatorBridge.mm; sourceTree = "<group>"; };
+		BFE7EEA81D258EC9008D0BA3 /* SNESRegistrationResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNESRegistrationResponder.swift; sourceTree = "<group>"; };
+		BFE7EEAA1D258F8E008D0BA3 /* SNESRegistrationResponder+Dynamic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SNESRegistrationResponder+Dynamic.h"; sourceTree = "<group>"; };
+		BFE7EEAB1D258F8E008D0BA3 /* SNESRegistrationResponder+Dynamic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SNESRegistrationResponder+Dynamic.m"; sourceTree = "<group>"; };
 		BFFE69121D21E172008B5CF5 /* SNESEmulatorCoreConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNESEmulatorCoreConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -607,6 +613,7 @@
 			children = (
 				BF9F4FE11AAD8070004C9500 /* SNESDeltaCore.h */,
 				BF785C9E1B603C2C00189DB8 /* SNES.swift */,
+				BFE7EEAE1D259155008D0BA3 /* Registration */,
 				BF425A921D23BA5200F48ED9 /* Core */,
 				BFBD7BF81B6035C8007B75D2 /* Model */,
 				BFF912D41AB0996500AC07A1 /* Emulator Configuration */,
@@ -652,6 +659,16 @@
 				BFC800341BA4C8DB00824180 /* SNESEmulatorBridge.mm */,
 			);
 			name = Bridge;
+			sourceTree = "<group>";
+		};
+		BFE7EEAE1D259155008D0BA3 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				BFE7EEA81D258EC9008D0BA3 /* SNESRegistrationResponder.swift */,
+				BFE7EEAA1D258F8E008D0BA3 /* SNESRegistrationResponder+Dynamic.h */,
+				BFE7EEAB1D258F8E008D0BA3 /* SNESRegistrationResponder+Dynamic.m */,
+			);
+			name = Registration;
 			sourceTree = "<group>";
 		};
 		BFF912D41AB0996500AC07A1 /* Emulator Configuration */ = {
@@ -722,6 +739,7 @@
 				BF0476D61B9FF17E0034A5A5 /* aribitcd.h in Headers */,
 				BF0476E51B9FF17E0034A5A5 /* lzma.h in Headers */,
 				BF04769B1B9FF1310034A5A5 /* blit.h in Headers */,
+				BFE7EEAC1D258F8E008D0BA3 /* SNESRegistrationResponder+Dynamic.h in Headers */,
 				BF0476351B9FF0C10034A5A5 /* blargg_common.h in Headers */,
 				BF0476AE1B9FF1490034A5A5 /* font.h in Headers */,
 				BF04772C1B9FF2100034A5A5 /* port.h in Headers */,
@@ -847,6 +865,7 @@
 				BF0476DE1B9FF17E0034A5A5 /* inbyte.cpp in Sources */,
 				BF0476D51B9FF17E0034A5A5 /* 7zlzma.cpp in Sources */,
 				BF0476891B9FF0F10034A5A5 /* dsp3.cpp in Sources */,
+				BFE7EEAD1D258F8E008D0BA3 /* SNESRegistrationResponder+Dynamic.m in Sources */,
 				BF0477271B9FF2100034A5A5 /* netplay.cpp in Sources */,
 				BF0477291B9FF2100034A5A5 /* obc1.cpp in Sources */,
 				BF0476751B9FF0F10034A5A5 /* controls.cpp in Sources */,
@@ -901,6 +920,7 @@
 				BF0476E61B9FF17E0034A5A5 /* lzmadec.cpp in Sources */,
 				BF785C9F1B603C2C00189DB8 /* SNES.swift in Sources */,
 				BF04769E1B9FF1310034A5A5 /* hq2x.cpp in Sources */,
+				BFE7EEA91D258EC9008D0BA3 /* SNESRegistrationResponder.swift in Sources */,
 				BF0477411B9FF2100034A5A5 /* snes9x.cpp in Sources */,
 				BF0476331B9FF0C10034A5A5 /* apu.cpp in Sources */,
 				BF0477351B9FF2100034A5A5 /* sdd1.cpp in Sources */,
