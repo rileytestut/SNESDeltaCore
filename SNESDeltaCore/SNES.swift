@@ -1,5 +1,5 @@
 //
-//  SNESDeltaCore.swift
+//  SNES.swift
 //  SNESDeltaCore
 //
 //  Created by Riley Testut on 7/22/15.
@@ -13,9 +13,9 @@ public extension GameType
     public static let snes = "com.rileytestut.delta.game.snes" as GameType
 }
 
-public struct SNESDeltaCore: DeltaCoreProtocol
+public struct SNES: DeltaCoreProtocol
 {
-    public static let core = SNESDeltaCore()
+    public static let core = SNES()
     
     public let supportedGameTypes: Set<GameType> = [.snes]
     
