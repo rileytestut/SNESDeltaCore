@@ -23,7 +23,7 @@ public struct SNES: DeltaCoreProtocol
     
     public let emulatorConfiguration: EmulatorConfiguration = SNESEmulatorConfiguration()
     
-    public let inputManager: InputManager = SNESInputManager()
+    public let inputTransformer: InputTransforming = SNESInputTransformer()
     
     private init()
     {

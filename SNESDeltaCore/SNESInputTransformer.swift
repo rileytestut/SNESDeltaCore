@@ -1,5 +1,5 @@
 //
-//  SNESInputManager.swift
+//  SNESInputTransformer.swift
 //  SNESDeltaCore
 //
 //  Created by Riley Testut on 6/29/16.
@@ -24,7 +24,7 @@ import Foundation
     case select = 2048
 }
 
-public struct SNESInputManager: InputManager
+public struct SNESInputTransformer: InputTransforming
 {
     public var gameInputType: Input.Type = SNESGameInput.self
     
@@ -102,7 +102,7 @@ public struct SNESInputManager: InputManager
     }
 }
 
-private extension SNESInputManager
+private extension SNESInputTransformer
 {
     func inputs(forXAxis xAxis: Float, YAxis yAxis: Float) -> [Input]
     {
