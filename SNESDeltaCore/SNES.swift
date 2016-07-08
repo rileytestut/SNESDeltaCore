@@ -17,6 +17,8 @@ public struct SNES: DeltaCoreProtocol
 {
     public static let core = SNES()
     
+    public let bundleIdentifier: String = "com.rileytestut.SNESDeltaCore"
+    
     public let supportedGameTypes: Set<GameType> = [.snes]
     
     public let emulatorBridge: EmulatorBridging = SNESEmulatorBridge.shared
