@@ -813,6 +813,8 @@
 				TargetAttributes = {
 					BF9F4FDB1AAD8070004C9500 = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = 6XVY5G3U44;
+						DevelopmentTeamName = "Yvette Testut";
 						LastSwiftMigration = 0800;
 					};
 				};
