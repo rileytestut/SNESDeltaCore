@@ -616,7 +616,6 @@
 				BF785C9E1B603C2C00189DB8 /* SNES.swift */,
 				BFE7EEAE1D259155008D0BA3 /* Registration */,
 				BF425A921D23BA5200F48ED9 /* Core */,
-				BFBD7BF81B6035C8007B75D2 /* Model */,
 				BFF912D41AB0996500AC07A1 /* Emulator Configuration */,
 				BF425A911D23B91800F48ED9 /* Inputs */,
 				BF9F4FDF1AAD8070004C9500 /* Supporting Files */,
@@ -632,13 +631,6 @@
 				BF04775E1B9FF29B0034A5A5 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		BFBD7BF81B6035C8007B75D2 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Model;
 			sourceTree = "<group>";
 		};
 		BFC134DF1AAD82240087AD7B /* Frameworks */ = {
