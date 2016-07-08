@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF02F6FE1D300B4A0000D872 /* Standard.deltaskin in Resources */ = {isa = PBXBuildFile; fileRef = BF02F6FD1D300B4A0000D872 /* Standard.deltaskin */; };
 		BF0476331B9FF0C10034A5A5 /* apu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04761F1B9FF0C10034A5A5 /* apu.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		BF0476341B9FF0C10034A5A5 /* apu.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476201B9FF0C10034A5A5 /* apu.h */; };
 		BF0476351B9FF0C10034A5A5 /* blargg_common.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0476211B9FF0C10034A5A5 /* blargg_common.h */; };
@@ -168,7 +169,6 @@
 		BF0477781B9FF39A0034A5A5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0477771B9FF39A0034A5A5 /* AudioToolbox.framework */; };
 		BF04777A1B9FF3A20034A5A5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0477791B9FF3A20034A5A5 /* libz.tbd */; };
 		BF04777C1B9FF3D10034A5A5 /* tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF04777B1B9FF3D10034A5A5 /* tile.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		BF110C261B9FBE64000969AB /* Default.deltaskin in Resources */ = {isa = PBXBuildFile; fileRef = BF110C251B9FBDAA000969AB /* Default.deltaskin */; };
 		BF425A7C1D23ACFA00F48ED9 /* SNESInputTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF425A7B1D23ACFA00F48ED9 /* SNESInputTransformer.swift */; };
 		BF785C9F1B603C2C00189DB8 /* SNES.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF785C9E1B603C2C00189DB8 /* SNES.swift */; };
 		BF9F4FE21AAD8070004C9500 /* SNESDeltaCore.h in Headers */ = {isa = PBXBuildFile; fileRef = BF9F4FE11AAD8070004C9500 /* SNESDeltaCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -182,6 +182,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF02F6FD1D300B4A0000D872 /* Standard.deltaskin */ = {isa = PBXFileReference; lastKnownFileType = file; name = Standard.deltaskin; path = "Controller Skin/Standard.deltaskin"; sourceTree = "<group>"; };
 		BF04761F1B9FF0C10034A5A5 /* apu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = apu.cpp; path = Snes9x/apu/apu.cpp; sourceTree = SOURCE_ROOT; };
 		BF0476201B9FF0C10034A5A5 /* apu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = apu.h; path = Snes9x/apu/apu.h; sourceTree = SOURCE_ROOT; };
 		BF0476211B9FF0C10034A5A5 /* blargg_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = blargg_common.h; path = Snes9x/apu/blargg_common.h; sourceTree = SOURCE_ROOT; };
@@ -344,7 +345,6 @@
 		BF0477771B9FF39A0034A5A5 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		BF0477791B9FF3A20034A5A5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		BF04777B1B9FF3D10034A5A5 /* tile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tile.cpp; path = Snes9x/tile.cpp; sourceTree = SOURCE_ROOT; };
-		BF110C251B9FBDAA000969AB /* Default.deltaskin */ = {isa = PBXFileReference; lastKnownFileType = file; path = Default.deltaskin; sourceTree = "<group>"; };
 		BF2A53F91BB74FA80052BD0C /* DeltaCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeltaCore.framework; path = "../DeltaCore/build/Debug-appletvos/DeltaCore.framework"; sourceTree = "<group>"; };
 		BF425A7B1D23ACFA00F48ED9 /* SNESInputTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNESInputTransformer.swift; sourceTree = "<group>"; };
 		BF785C9E1B603C2C00189DB8 /* SNES.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNES.swift; sourceTree = "<group>"; };
@@ -624,7 +624,7 @@
 		BF9F4FDF1AAD8070004C9500 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BF110C251B9FBDAA000969AB /* Default.deltaskin */,
+				BF02F6FD1D300B4A0000D872 /* Standard.deltaskin */,
 				BF9F4FE01AAD8070004C9500 /* Info.plist */,
 				BF04775E1B9FF29B0034A5A5 /* PrefixHeader.pch */,
 			);
@@ -838,8 +838,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF02F6FE1D300B4A0000D872 /* Standard.deltaskin in Resources */,
 				BF04763A1B9FF0C10034A5A5 /* license.txt in Resources */,
-				BF110C261B9FBE64000969AB /* Default.deltaskin in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
