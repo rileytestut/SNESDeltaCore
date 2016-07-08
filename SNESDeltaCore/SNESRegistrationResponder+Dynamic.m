@@ -8,6 +8,8 @@
 
 #import "SNESRegistrationResponder+Dynamic.h"
 
+@import DeltaCore;
+
 @implementation SNESRegistrationResponder (Dynamic)
 
 + (void)load
