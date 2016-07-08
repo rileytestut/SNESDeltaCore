@@ -28,7 +28,7 @@ public struct SNESInputTransformer: InputTransforming
 {
     public var gameInputType: Input.Type = SNESGameInput.self
     
-    public func inputs(for controller: ControllerSkin, item: ControllerSkin.Item, point: CGPoint) -> [Input]
+    public func inputs(for controllerSkin: ControllerSkin, item: ControllerSkin.Item, point: CGPoint) -> [Input]
     {
         var inputs: [Input] = []
         
