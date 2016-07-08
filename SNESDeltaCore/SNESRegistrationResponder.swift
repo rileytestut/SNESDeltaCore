@@ -10,8 +10,7 @@ import Foundation
 
 public class SNESRegistrationResponder: NSObject
 {
-    @objc(handleDeltaRegistrationRequest:)
-    public class func handleDeltaRegistrationRequest(notification: Notification)
+    public class func handleDeltaRegistrationRequest(_ notification: Notification)
     {
         guard let object = notification.object else { return }
         
