@@ -22,6 +22,7 @@
 #include <sys/time.h>
 
 // DeltaCore
+#import <SNESDeltaCore/SNESDeltaCore.h>
 #import <SNESDeltaCore/SNESDeltaCore-Swift.h>
 
 @interface SNESEmulatorBridge ()
@@ -212,26 +213,24 @@ void SNESFinalizeSamplesCallback(void *context);
 
 #pragma mark - Cheats -
 
-- (BOOL)addCheatCode:(NSString *)cheatCode type:(NSInteger)type
+- (BOOL)addCheatCode:(NSString *)cheatCode type:(NSString *)type
 {
     BOOL success = YES;
     
     uint32 address = 0;
     uint8 byte = 0;
     
-    switch ((CheatType)type)
+    if ([type isEqualToString:CheatTypeGameGenie])
     {
-        case CheatTypeGameGenie:
-            success = (S9xGameGenieToRaw([cheatCode UTF8String], address, byte) == NULL);
-            break;
-            
-        case CheatTypeActionReplay:
-            success = (S9xProActionReplayToRaw([cheatCode UTF8String], address, byte) == NULL);
-            break;
-            
-        default:
-            success = NO;
-            break;
+        success = (S9xGameGenieToRaw([cheatCode UTF8String], address, byte) == NULL);
+    }
+    else if ([type isEqualToString:CheatTypeActionReplay])
+    {
+        success = (S9xProActionReplayToRaw([cheatCode UTF8String], address, byte) == NULL);
+    }
+    else
+    {
+        success = NO;
     }
     
     if (success)
