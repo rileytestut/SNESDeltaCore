@@ -54,6 +54,8 @@ void SNESFinalizeSamplesCallback(void *context);
 
 - (void)startWithGameURL:(NSURL *)URL
 {
+    [self stop];
+    
     self.gameURL = URL;
         
     ZeroMemory(&Settings, sizeof(Settings));
