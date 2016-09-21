@@ -10,7 +10,7 @@ import Foundation
 
 public extension GameType
 {
-    public static let snes = "com.rileytestut.delta.game.snes" as GameType
+    public static let snes = GameType("com.rileytestut.delta.game.snes")
 }
 
 public struct SNES: DeltaCoreProtocol
