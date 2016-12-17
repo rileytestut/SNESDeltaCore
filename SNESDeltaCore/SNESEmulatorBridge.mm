@@ -185,6 +185,22 @@ void SNESFinalizeSamplesCallback(void *context);
     S9xReportButton((uint32)gameInput, NO);
 }
 
+- (void)resetInputs
+{
+    [self deactivateInput:SNESGameInputUp];
+    [self deactivateInput:SNESGameInputDown];
+    [self deactivateInput:SNESGameInputLeft];
+    [self deactivateInput:SNESGameInputRight];
+    [self deactivateInput:SNESGameInputA];
+    [self deactivateInput:SNESGameInputB];
+    [self deactivateInput:SNESGameInputX];
+    [self deactivateInput:SNESGameInputY];
+    [self deactivateInput:SNESGameInputL];
+    [self deactivateInput:SNESGameInputR];
+    [self deactivateInput:SNESGameInputStart];
+    [self deactivateInput:SNESGameInputSelect];
+}
+
 #pragma mark - Audio -
 
 - (void)renderAudioSamples
