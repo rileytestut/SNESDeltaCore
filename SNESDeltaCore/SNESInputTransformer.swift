@@ -92,8 +92,8 @@ public struct SNESInputTransformer: InputTransforming
         case .b: inputs.append(SNESGameInput.b)
         case .x: inputs.append(SNESGameInput.x)
         case .y: inputs.append(SNESGameInput.y)
-        case .l: inputs.append(SNESGameInput.l)
-        case .r: inputs.append(SNESGameInput.r)
+        case .l: inputs.append(SNESGameInput.select)
+        case .r: inputs.append(SNESGameInput.start)
         case .leftTrigger: inputs.append(SNESGameInput.l)
         case .rightTrigger: inputs.append(SNESGameInput.r)
         }
