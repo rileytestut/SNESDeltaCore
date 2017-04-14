@@ -131,7 +131,7 @@ void SNESFinalizeSamplesCallback(void *context);
     
     Settings.StopEmulation = NO;
     
-    GFX.Pitch = 512 * 2;
+    GFX.Pitch = 512;
     GFX.Screen = (uint16 *)self.videoRenderer.videoBuffer;
     
     S9xGraphicsInit();

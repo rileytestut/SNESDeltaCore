@@ -23,7 +23,7 @@ public struct SNESEmulatorConfiguration: EmulatorConfiguration
     }()
     
     public let videoBufferInfo: VideoManager.BufferInfo = {
-        let bufferInfo = VideoManager.BufferInfo(inputFormat: .rgb565, inputDimensions: CGSize(width: 256 * 2, height: 224 * 2), outputDimensions: CGSize(width: 256, height: 224))
+        let bufferInfo = VideoManager.BufferInfo(format: .rgb565, dimensions: CGSize(width: 256, height: 224))
         return bufferInfo
     }()
     
