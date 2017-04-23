@@ -212,7 +212,7 @@ void SNESFinalizeSamplesCallback(void *context);
     void *buffer = malloc(sampleCount * 2); // Audio is interleaved, so we multiply by two to account for both channels
     S9xMixSamples((uint8 *)buffer, sampleCount);
     
-    [self.audioRenderer.audioBuffer writeBuffer:(uint8 *)buffer size:sampleCount * 2];
+    [self.audioRenderer.audioBuffer writeBuffer:(uint8_t *)buffer size:sampleCount * 2];
     
     free(buffer);
 }
