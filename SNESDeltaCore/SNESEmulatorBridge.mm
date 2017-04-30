@@ -14,7 +14,6 @@
 #include "snapshot.h"
 #include "memmap.h"
 #include "controls.h"
-#include "conffile.h"
 #include "display.h"
 #include "cheats.h"
 
@@ -24,6 +23,8 @@
 // DeltaCore
 #import <SNESDeltaCore/SNESDeltaCore.h>
 #import <SNESDeltaCore/SNESDeltaCore-Swift.h>
+
+class ConfigFile;
 
 @interface SNESEmulatorBridge ()
 
@@ -57,8 +58,8 @@ void SNESFinalizeSamplesCallback(void *context);
     [self stop];
     
     self.gameURL = URL;
-        
-    ZeroMemory(&Settings, sizeof(Settings));
+    
+    memset(&Settings, 0, sizeof(Settings));
     Settings.MouseMaster = YES;
     Settings.SuperScopeMaster = YES;
     Settings.JustifierMaster = YES;
@@ -67,8 +68,8 @@ void SNESFinalizeSamplesCallback(void *context);
     Settings.FrameTimeNTSC = 16667;
     Settings.SixteenBitSound = YES;
     Settings.Stereo = YES;
-    Settings.SoundPlaybackRate = 32000;
-    Settings.SoundInputRate = 32000;
+    Settings.SoundPlaybackRate = 32040;
+    Settings.SoundInputRate = 32040;
     Settings.SupportHiRes = NO;
     Settings.Transparency = YES;
     Settings.AutoDisplayMessages = YES;
@@ -98,12 +99,10 @@ void SNESFinalizeSamplesCallback(void *context);
         exit(1);
     }
     
-    int preferredBufferSize = (Settings.SoundPlaybackRate / 60) * 4;
-    S9xInitSound(preferredBufferSize, 0);
+    int milliseconds = 16;
+    S9xInitSound(milliseconds, 0);
     
     S9xSetRenderPixelFormat(RGB565);
-    
-    S9xReset();
     
     S9xUnmapAllControls();
     S9xSetController(0, CTL_JOYPAD, 0, 0, 0, 0);
