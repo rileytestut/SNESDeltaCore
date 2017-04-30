@@ -22,23 +22,21 @@ public struct SNES: DeltaCoreProtocol
     
     public let gameType = GameType.snes
     
-    public let bundleIdentifier: String = "com.rileytestut.SNESDeltaCore"
+    public let bundleIdentifier = "com.rileytestut.SNESDeltaCore"
     
-    public let gameSaveFileExtension: String = "srm"
+    public let gameSaveFileExtension = "srm"
     
     public let frameDuration = (1.0 / 60.0)
-    
-    public let supportedRates: ClosedRange<Double> = 1...4
-    
-    public let supportedCheatFormats: [CheatFormat] = {
-        let gameGenieFormat = CheatFormat(name: NSLocalizedString("Game Genie", comment: ""), format: "XXXX-YYYY", type: .gameGenie)
-        let proActionReplayFormat = CheatFormat(name: NSLocalizedString("Pro Action Replay", comment: ""), format: "XXXXXXXX", type: .actionReplay)
-        return [gameGenieFormat, proActionReplayFormat]
-    }()
     
     public let audioFormat = AVAudioFormat(commonFormat: .pcmFormatInt16, sampleRate: 32040, channels: 2, interleaved: true)
     
     public let videoFormat = VideoFormat(pixelFormat: .rgb565, dimensions: CGSize(width: 256, height: 224))
+    
+    public let supportedCheatFormats: Set<CheatFormat> = {
+        let gameGenieFormat = CheatFormat(name: NSLocalizedString("Game Genie", comment: ""), format: "XXXX-YYYY", type: .gameGenie)
+        let proActionReplayFormat = CheatFormat(name: NSLocalizedString("Pro Action Replay", comment: ""), format: "XXXXXXXX", type: .actionReplay)
+        return [gameGenieFormat, proActionReplayFormat]
+    }()
     
     public let emulatorBridge: EmulatorBridging = SNESEmulatorBridge.shared
     
@@ -47,5 +45,4 @@ public struct SNES: DeltaCoreProtocol
     private init()
     {
     }
-    
 }
