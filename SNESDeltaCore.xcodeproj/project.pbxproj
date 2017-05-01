@@ -339,7 +339,7 @@
 			children = (
 				BF425A7B1D23ACFA00F48ED9 /* SNESInputTransformer.swift */,
 			);
-			name = Inputs;
+			path = Inputs;
 			sourceTree = "<group>";
 		};
 		BF6D1BDD1EB3F73200476805 /* libSnes9x */ = {
@@ -662,7 +662,7 @@
 				BFC800331BA4C8DB00824180 /* SNESEmulatorBridge.h */,
 				BFC800341BA4C8DB00824180 /* SNESEmulatorBridge.mm */,
 			);
-			name = Bridge;
+			path = Bridge;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -723,7 +723,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Riley Testut";
 				TargetAttributes = {
 					BF6D1BDB1EB3F73200476805 = {
@@ -1016,6 +1016,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rileytestut.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
