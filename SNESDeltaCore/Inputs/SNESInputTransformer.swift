@@ -79,23 +79,23 @@ public struct SNESInputTransformer: InputTransforming
         return inputs
     }
     
-    public func inputs(for controller: MFiExternalController, input: MFiExternalControllerInput) -> [Input]
+    public func inputs(for controller: MFiGameController, input: MFiGameController.Input) -> [Input]
     {
-        var inputs: [Input] = []
+        var inputs: [SNESGameInput] = []
         
         switch input
         {
         case let .dPad(xAxis: xAxis, yAxis: yAxis): inputs.append(contentsOf: self.inputs(forXAxis: xAxis, YAxis: yAxis))
         case let .leftThumbstick(xAxis: xAxis, yAxis: yAxis): inputs.append(contentsOf: self.inputs(forXAxis: xAxis, YAxis: yAxis))
         case .rightThumbstick(xAxis: _, yAxis: _): break
-        case .a: inputs.append(SNESGameInput.a)
-        case .b: inputs.append(SNESGameInput.b)
-        case .x: inputs.append(SNESGameInput.x)
-        case .y: inputs.append(SNESGameInput.y)
-        case .l: inputs.append(SNESGameInput.select)
-        case .r: inputs.append(SNESGameInput.start)
-        case .leftTrigger: inputs.append(SNESGameInput.l)
-        case .rightTrigger: inputs.append(SNESGameInput.r)
+        case .a: inputs.append(.a)
+        case .b: inputs.append(.b)
+        case .x: inputs.append(.x)
+        case .y: inputs.append(.y)
+        case .l: inputs.append(.select)
+        case .r: inputs.append(.start)
+        case .leftTrigger: inputs.append(.l)
+        case .rightTrigger: inputs.append(.r)
         }
         
         return inputs
@@ -104,26 +104,26 @@ public struct SNESInputTransformer: InputTransforming
 
 private extension SNESInputTransformer
 {
-    func inputs(forXAxis xAxis: Float, YAxis yAxis: Float) -> [Input]
+    func inputs(forXAxis xAxis: Float, YAxis yAxis: Float) -> [SNESGameInput]
     {
-        var inputs: [Input] = []
+        var inputs: [SNESGameInput] = []
         
         if xAxis > 0.0
         {
-            inputs.append(SNESGameInput.right)
+            inputs.append(.right)
         }
         else if xAxis < 0.0
         {
-            inputs.append(SNESGameInput.left)
+            inputs.append(.left)
         }
         
         if yAxis > 0.0
         {
-            inputs.append(SNESGameInput.up)
+            inputs.append(.up)
         }
         else if yAxis < 0.0
         {
-            inputs.append(SNESGameInput.down)
+            inputs.append(.down)
         }
         
         return inputs
