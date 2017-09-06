@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		BF02F6FE1D300B4A0000D872 /* Standard.deltaskin in Resources */ = {isa = PBXBuildFile; fileRef = BF02F6FD1D300B4A0000D872 /* Standard.deltaskin */; };
 		BF379C121D30350E0069EDB6 /* SNESDeltaCore.m in Sources */ = {isa = PBXBuildFile; fileRef = BF379C111D30350E0069EDB6 /* SNESDeltaCore.m */; };
-		BF425A7C1D23ACFA00F48ED9 /* SNESInputTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF425A7B1D23ACFA00F48ED9 /* SNESInputTransformer.swift */; };
+		BF3F86B11F40F9150095F38A /* Standard.deltamapping in Resources */ = {isa = PBXBuildFile; fileRef = BF3F86B01F40F7FB0095F38A /* Standard.deltamapping */; };
 		BF6D1CAE1EB3F75900476805 /* apu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF6D1BE71EB3F75900476805 /* apu.cpp */; };
 		BF6D1CCA1EB3F75900476805 /* bsx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF6D1C1C1EB3F75900476805 /* bsx.cpp */; };
 		BF6D1CCB1EB3F75900476805 /* c4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF6D1C1E1EB3F75900476805 /* c4.cpp */; };
@@ -113,7 +113,7 @@
 /* Begin PBXFileReference section */
 		BF02F6FD1D300B4A0000D872 /* Standard.deltaskin */ = {isa = PBXFileReference; lastKnownFileType = file; name = Standard.deltaskin; path = "Controller Skin/Standard.deltaskin"; sourceTree = "<group>"; };
 		BF379C111D30350E0069EDB6 /* SNESDeltaCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNESDeltaCore.m; sourceTree = "<group>"; };
-		BF425A7B1D23ACFA00F48ED9 /* SNESInputTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNESInputTransformer.swift; sourceTree = "<group>"; };
+		BF3F86B01F40F7FB0095F38A /* Standard.deltamapping */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Standard.deltamapping; sourceTree = "<group>"; };
 		BF6D1BDC1EB3F73200476805 /* libSnes9x.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSnes9x.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF6D1BE51EB3F75900476805 /* 65c816.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = 65c816.h; path = snes9x/65c816.h; sourceTree = SOURCE_ROOT; };
 		BF6D1BE71EB3F75900476805 /* apu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = apu.cpp; sourceTree = "<group>"; };
@@ -334,14 +334,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BF425A911D23B91800F48ED9 /* Inputs */ = {
-			isa = PBXGroup;
-			children = (
-				BF425A7B1D23ACFA00F48ED9 /* SNESInputTransformer.swift */,
-			);
-			path = Inputs;
-			sourceTree = "<group>";
-		};
 		BF6D1BDD1EB3F73200476805 /* libSnes9x */ = {
 			isa = PBXGroup;
 			children = (
@@ -641,7 +633,6 @@
 				BF379C111D30350E0069EDB6 /* SNESDeltaCore.m */,
 				BF785C9E1B603C2C00189DB8 /* SNES.swift */,
 				BFC800321BA4C89F00824180 /* Bridge */,
-				BF425A911D23B91800F48ED9 /* Inputs */,
 				BF9F4FDF1AAD8070004C9500 /* Supporting Files */,
 			);
 			path = SNESDeltaCore;
@@ -650,8 +641,9 @@
 		BF9F4FDF1AAD8070004C9500 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BF02F6FD1D300B4A0000D872 /* Standard.deltaskin */,
 				BF9F4FE01AAD8070004C9500 /* Info.plist */,
+				BF02F6FD1D300B4A0000D872 /* Standard.deltaskin */,
+				BF3F86B01F40F7FB0095F38A /* Standard.deltamapping */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -760,6 +752,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF3F86B11F40F9150095F38A /* Standard.deltamapping in Resources */,
 				BF02F6FE1D300B4A0000D872 /* Standard.deltaskin in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -849,7 +842,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF425A7C1D23ACFA00F48ED9 /* SNESInputTransformer.swift in Sources */,
 				BFC800361BA4C8DB00824180 /* SNESEmulatorBridge.mm in Sources */,
 				BF379C121D30350E0069EDB6 /* SNESDeltaCore.m in Sources */,
 				BF785C9F1B603C2C00189DB8 /* SNES.swift in Sources */,
