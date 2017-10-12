@@ -50,7 +50,7 @@ public struct SNES: DeltaCoreProtocol
     
     public let frameDuration = (1.0 / 60.0)
     
-    public let audioFormat = AVAudioFormat(commonFormat: .pcmFormatInt16, sampleRate: 32040, channels: 2, interleaved: true)
+    public let audioFormat = AVAudioFormat(commonFormat: .pcmFormatInt16, sampleRate: 32040, channels: 2, interleaved: true)!
     
     public let videoFormat = VideoFormat(pixelFormat: .rgb565, dimensions: CGSize(width: 256, height: 224))
     
