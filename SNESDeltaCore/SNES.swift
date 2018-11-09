@@ -40,16 +40,12 @@ public struct SNES: DeltaCoreProtocol
 {
     public static let core = SNES()
     
-    public let bundleIdentifier = "com.rileytestut.SNESDeltaCore"
-    
     public let gameType = GameType.snes
     
     public let gameInputType: Input.Type = SNESGameInput.self
     
     public let gameSaveFileExtension = "srm"
-    
-    public let frameDuration = (1.0 / 60.0)
-    
+        
     public let audioFormat = AVAudioFormat(commonFormat: .pcmFormatInt16, sampleRate: 32040, channels: 2, interleaved: true)!
     
     public let videoFormat = VideoFormat(pixelFormat: .rgb565, dimensions: CGSize(width: 256, height: 224))

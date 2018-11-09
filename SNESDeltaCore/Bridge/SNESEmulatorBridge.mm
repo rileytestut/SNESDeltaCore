@@ -282,6 +282,14 @@ void SNESFinalizeSamplesCallback(void *context);
     Memory.LoadSRAM(URL.path.fileSystemRepresentation);
 }
 
+#pragma mark - Getters/Setters -
+
+- (NSTimeInterval)frameDuration
+{
+    NSTimeInterval frameDuration = Settings.PAL ? (1.0 / 50.0) : (1.0 / 60.0);
+    return frameDuration;
+}
+
 @end
 
 #pragma mark - SNESEmulatorBridge Callbacks -
