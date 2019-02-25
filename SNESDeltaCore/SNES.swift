@@ -13,7 +13,7 @@ import DeltaCore
 
 public extension GameType
 {
-    public static let snes = GameType("com.rileytestut.delta.game.snes")
+    static let snes = GameType("com.rileytestut.delta.game.snes")
 }
 
 @objc public enum SNESGameInput: Int, Input
