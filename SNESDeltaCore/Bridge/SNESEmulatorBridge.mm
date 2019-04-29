@@ -170,11 +170,13 @@ void SNESFinalizeSamplesCallback(void *context);
 - (void)runFrame
 {
     S9xMainLoop();
+    
+    [self.videoRenderer processFrame];
 }
 
 #pragma mark - Inputs -
 
-- (void)activateInput:(NSInteger)gameInput
+- (void)activateInput:(NSInteger)gameInput value:(double)value
 {
     S9xReportButton((uint32)gameInput, YES);
 }
