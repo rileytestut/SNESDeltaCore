@@ -167,11 +167,14 @@ void SNESFinalizeSamplesCallback(void *context);
 
 #pragma mark - Game Loop -
 
-- (void)runFrame
+- (void)runFrameAndProcessVideo:(BOOL)processVideo
 {
     S9xMainLoop();
     
-    [self.videoRenderer processFrame];
+    if (processVideo)
+    {
+        [self.videoRenderer processFrame];
+    }
 }
 
 #pragma mark - Inputs -
