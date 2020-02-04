@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-#import <DeltaCore/DeltaCore.h>
-#import <DeltaCore/DeltaCore-Swift.h>
+@protocol DLTAEmulatorBridging;
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Weverything" // Silence "Cannot find protocol definition" warning due to forward declaration.
 @interface SNESEmulatorBridge : NSObject <DLTAEmulatorBridging>
+#pragma clang diagnostic pop
 
 @property (class, nonatomic, readonly) SNESEmulatorBridge *sharedBridge;
 

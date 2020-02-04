@@ -11,11 +11,6 @@ import AVFoundation
 
 import DeltaCore
 
-public extension GameType
-{
-    static let snes = GameType("com.rileytestut.delta.game.snes")
-}
-
 @objc public enum SNESGameInput: Int, Input
 {
     case up     = 1
@@ -40,23 +35,23 @@ public struct SNES: DeltaCoreProtocol
 {
     public static let core = SNES()
     
-    public let gameType = GameType.snes
+    public var name: String { "SNESDeltaCore" }
+    public var identifier: String { "com.rileytestut.SNESDeltaCore" }
     
-    public let gameInputType: Input.Type = SNESGameInput.self
-    
-    public let gameSaveFileExtension = "srm"
+    public var gameType: GameType { GameType.snes }
+    public var gameInputType: Input.Type { SNESGameInput.self }
+    public var gameSaveFileExtension: String { "srm" }
         
     public let audioFormat = AVAudioFormat(commonFormat: .pcmFormatInt16, sampleRate: 32040, channels: 2, interleaved: true)!
-    
     public let videoFormat = VideoFormat(format: .bitmap(.rgb565), dimensions: CGSize(width: 256, height: 224))
     
-    public let supportedCheatFormats: Set<CheatFormat> = {
+    public var supportedCheatFormats: Set<CheatFormat> {
         let gameGenieFormat = CheatFormat(name: NSLocalizedString("Game Genie", comment: ""), format: "XXXX-YYYY", type: .gameGenie)
         let proActionReplayFormat = CheatFormat(name: NSLocalizedString("Pro Action Replay", comment: ""), format: "XXXXXXXX", type: .actionReplay)
         return [gameGenieFormat, proActionReplayFormat]
-    }()
+    }
     
-    public let emulatorBridge: EmulatorBridging = SNESEmulatorBridge.shared
+    public var emulatorBridge: EmulatorBridging { SNESEmulatorBridge.shared }
         
     private init()
     {

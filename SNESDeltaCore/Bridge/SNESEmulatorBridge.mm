@@ -12,21 +12,22 @@
 #include "snes9x.h"
 #include "apu.h"
 #include "snapshot.h"
-#include "memmap.h"
+#include "snes9x/memmap.h"
 #include "controls.h"
 #include "display.h"
-#include "cheats.h"
+#include "snes9x/cheats.h"
 
 // System
 #include <sys/time.h>
 
 // DeltaCore
 #import <SNESDeltaCore/SNESDeltaCore.h>
-#import <SNESDeltaCore/SNESDeltaCore-Swift.h>
+#import <DeltaCore/DeltaCore-Swift.h>
+#import "SNESDeltaCore-Swift.h"
 
 class ConfigFile;
 
-@interface SNESEmulatorBridge ()
+@interface SNESEmulatorBridge () <DLTAEmulatorBridging>
 
 @property (nonatomic, copy, nullable, readwrite) NSURL *gameURL;
 
