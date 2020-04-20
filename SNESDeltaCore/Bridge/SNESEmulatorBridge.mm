@@ -238,30 +238,36 @@ void SNESFinalizeSamplesCallback(void *context);
 
 - (BOOL)addCheatCode:(NSString *)cheatCode type:(NSString *)type
 {
-    BOOL success = YES;
-    
-    uint32 address = 0;
-    uint8 byte = 0;
-    
-    if ([type isEqualToString:CheatTypeGameGenie])
+    NSArray<NSString *> *codes = [cheatCode componentsSeparatedByString:@"\n"];
+    for (NSString *code in codes)
     {
-        success = (S9xGameGenieToRaw([cheatCode UTF8String], address, byte) == NULL);
-    }
-    else if ([type isEqualToString:CheatTypeActionReplay])
-    {
-        success = (S9xProActionReplayToRaw([cheatCode UTF8String], address, byte) == NULL);
-    }
-    else
-    {
-        success = NO;
-    }
-    
-    if (success)
-    {
+        BOOL success = YES;
+        
+        uint32 address = 0;
+        uint8 byte = 0;
+        
+        if ([type isEqualToString:CheatTypeGameGenie])
+        {
+            success = (S9xGameGenieToRaw([code UTF8String], address, byte) == NULL);
+        }
+        else if ([type isEqualToString:CheatTypeActionReplay])
+        {
+            success = (S9xProActionReplayToRaw([code UTF8String], address, byte) == NULL);
+        }
+        else
+        {
+            success = NO;
+        }
+        
+        if (!success)
+        {
+            return NO;
+        }
+        
         S9xAddCheat(true, true, address, byte);
     }
         
-    return success;
+    return YES;
 }
 
 - (void)resetCheats
