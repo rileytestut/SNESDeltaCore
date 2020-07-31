@@ -22,7 +22,7 @@ Pod::Spec.new do |spec|
   spec.xcconfig = {
     "HEADER_SEARCH_PATHS" => '"${PODS_CONFIGURATION_BUILD_DIR}"',
     "USER_HEADER_SEARCH_PATHS" => '"${PODS_CONFIGURATION_BUILD_DIR}/DeltaCore/Swift Compatibility Header" "$(PODS_ROOT)/Headers/Private/SNESDeltaCore/snes9x"',
-    "OTHER_CFLAGS" => "-funsigned-char -ffast-math -finline -fno-builtin -fno-common -fomit-frame-pointer -funroll-loops -fstrict-aliasing -DHAVE_STDINT_H -DARM"
+    "OTHER_CFLAGS" => "-funsigned-char -ffast-math -finline -fno-builtin -fno-common -fomit-frame-pointer -funroll-loops -fstrict-aliasing -DHAVE_STDINT_H -DARM -DSTATIC_LIBRARY=1"
   }
   
 end

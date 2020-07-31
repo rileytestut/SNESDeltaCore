@@ -22,8 +22,14 @@
 
 // DeltaCore
 #import <SNESDeltaCore/SNESDeltaCore.h>
+#import <DeltaCore/DeltaCore.h>
 #import <DeltaCore/DeltaCore-Swift.h>
+
+#if STATIC_LIBRARY
 #import "SNESDeltaCore-Swift.h"
+#else
+#import <SNESDeltaCore/SNESDeltaCore-Swift.h>
+#endif
 
 class ConfigFile;
 

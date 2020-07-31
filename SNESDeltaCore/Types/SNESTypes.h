@@ -9,7 +9,7 @@
 #import <DeltaCore/DeltaTypes.h>
 
 // Extensible Enums
-FOUNDATION_EXPORT GameType const GameTypeSNES NS_SWIFT_NAME(GameType.snes);
+FOUNDATION_EXPORT GameType const GameTypeSNES NS_SWIFT_NAME(snes);
 
 FOUNDATION_EXPORT CheatType const CheatTypeActionReplay;
 FOUNDATION_EXPORT CheatType const CheatTypeGameGenie;

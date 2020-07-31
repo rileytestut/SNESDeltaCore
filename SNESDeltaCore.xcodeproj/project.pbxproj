@@ -1072,6 +1072,7 @@
 				PRODUCT_NAME = SNESDeltaCore;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"";
 			};
 			name = Debug;
 		};
@@ -1092,6 +1093,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"";
 			};
 			name = Release;
 		};
