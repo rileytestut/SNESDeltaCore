@@ -698,7 +698,7 @@
               },
               "extendedEdges": {
                 "top": 30,
-                "bottom": 30,
+                "bottom": 73,
                 "left": 60,
                 "right": 30
               }
@@ -732,6 +732,7 @@
               },
               "extendedEdges": {
                 "top": 0,
+                "bottom": 73,
                 "left": 10,
                 "right": 10
               }
@@ -1034,7 +1035,7 @@
               },
               "extendedEdges": {
                 "top": 30,
-                "bottom": 30,
+                "bottom": 73,
                 "left": 60,
                 "right": 30
               }
@@ -1068,6 +1069,7 @@
               },
               "extendedEdges": {
                 "top": 0,
+                "bottom": 73,
                 "left": 10,
                 "right": 10
               }
