@@ -113,19 +113,25 @@ void SNESFinalizeSamplesCallback(void *context);
     
     S9xUnmapAllControls();
     S9xSetController(0, CTL_JOYPAD, 0, 0, 0, 0);
+    S9xSetController(1, CTL_JOYPAD, 1, 0, 0, 0);
     
-    S9xMapButton(SNESGameInputUp, S9xGetCommandT("Joypad1 Up"), NO);
-    S9xMapButton(SNESGameInputDown, S9xGetCommandT("Joypad1 Down"), NO);
-    S9xMapButton(SNESGameInputLeft, S9xGetCommandT("Joypad1 Left"), NO);
-    S9xMapButton(SNESGameInputRight, S9xGetCommandT("Joypad1 Right"), NO);
-    S9xMapButton(SNESGameInputA, S9xGetCommandT("Joypad1 A"), NO);
-    S9xMapButton(SNESGameInputB, S9xGetCommandT("Joypad1 B"), NO);
-    S9xMapButton(SNESGameInputX, S9xGetCommandT("Joypad1 X"), NO);
-    S9xMapButton(SNESGameInputY, S9xGetCommandT("Joypad1 Y"), NO);
-    S9xMapButton(SNESGameInputL, S9xGetCommandT("Joypad1 L"), NO);
-    S9xMapButton(SNESGameInputR, S9xGetCommandT("Joypad1 R"), NO);
-    S9xMapButton(SNESGameInputStart, S9xGetCommandT("Joypad1 Start"), NO);
-    S9xMapButton(SNESGameInputSelect, S9xGetCommandT("Joypad1 Select"), NO);
+    for (int player = 1; player <= 8; player++)
+    {
+        NSUInteger mask = player << 16;
+        
+        S9xMapButton(mask | SNESGameInputUp, S9xGetCommandT([[[NSString stringWithFormat:@"Joypad%d ", player] stringByAppendingString:@"Up"] UTF8String]), NO);
+        S9xMapButton(mask | SNESGameInputDown, S9xGetCommandT([[[NSString stringWithFormat:@"Joypad%d ", player] stringByAppendingString:@"Down"] UTF8String]), NO);
+        S9xMapButton(mask | SNESGameInputLeft, S9xGetCommandT([[[NSString stringWithFormat:@"Joypad%d ", player] stringByAppendingString:@"Left"] UTF8String]), NO);
+        S9xMapButton(mask | SNESGameInputRight, S9xGetCommandT([[[NSString stringWithFormat:@"Joypad%d ", player] stringByAppendingString:@"Right"] UTF8String]), NO);
+        S9xMapButton(mask | SNESGameInputA, S9xGetCommandT([[[NSString stringWithFormat:@"Joypad%d ", player] stringByAppendingString:@"A"] UTF8String]), NO);
+        S9xMapButton(mask | SNESGameInputB, S9xGetCommandT([[[NSString stringWithFormat:@"Joypad%d ", player] stringByAppendingString:@"B"] UTF8String]), NO);
+        S9xMapButton(mask | SNESGameInputX, S9xGetCommandT([[[NSString stringWithFormat:@"Joypad%d ", player] stringByAppendingString:@"X"] UTF8String]), NO);
+        S9xMapButton(mask | SNESGameInputY, S9xGetCommandT([[[NSString stringWithFormat:@"Joypad%d ", player] stringByAppendingString:@"Y"] UTF8String]), NO);
+        S9xMapButton(mask | SNESGameInputL, S9xGetCommandT([[[NSString stringWithFormat:@"Joypad%d ", player] stringByAppendingString:@"L"] UTF8String]), NO);
+        S9xMapButton(mask | SNESGameInputR, S9xGetCommandT([[[NSString stringWithFormat:@"Joypad%d ", player] stringByAppendingString:@"R"] UTF8String]), NO);
+        S9xMapButton(mask | SNESGameInputStart, S9xGetCommandT([[[NSString stringWithFormat:@"Joypad%d ", player] stringByAppendingString:@"Start"] UTF8String]), NO);
+        S9xMapButton(mask | SNESGameInputSelect, S9xGetCommandT([[[NSString stringWithFormat:@"Joypad%d ", player] stringByAppendingString:@"Select"] UTF8String]), NO);
+    }
     
     S9xReportControllers();
     
@@ -186,30 +192,35 @@ void SNESFinalizeSamplesCallback(void *context);
 
 #pragma mark - Inputs -
 
-- (void)activateInput:(NSInteger)gameInput value:(double)value
+- (void)activateInput:(NSInteger)gameInput value:(double)value at:(NSInteger)playerIndex
 {
-    S9xReportButton((uint32)gameInput, YES);
+    NSUInteger mask = (playerIndex + 1) << 16;
+    S9xReportButton(mask | (uint32)gameInput, YES);
 }
 
-- (void)deactivateInput:(NSInteger)gameInput
+- (void)deactivateInput:(NSInteger)gameInput at:(NSInteger)playerIndex
 {
-    S9xReportButton((uint32)gameInput, NO);
+    NSUInteger mask = (playerIndex + 1) << 16;
+    S9xReportButton(mask | (uint32)gameInput, NO);
 }
 
 - (void)resetInputs
 {
-    [self deactivateInput:SNESGameInputUp];
-    [self deactivateInput:SNESGameInputDown];
-    [self deactivateInput:SNESGameInputLeft];
-    [self deactivateInput:SNESGameInputRight];
-    [self deactivateInput:SNESGameInputA];
-    [self deactivateInput:SNESGameInputB];
-    [self deactivateInput:SNESGameInputX];
-    [self deactivateInput:SNESGameInputY];
-    [self deactivateInput:SNESGameInputL];
-    [self deactivateInput:SNESGameInputR];
-    [self deactivateInput:SNESGameInputStart];
-    [self deactivateInput:SNESGameInputSelect];
+    for (int playerIndex = 0; playerIndex < 8; playerIndex++)
+    {
+        [self deactivateInput:SNESGameInputUp at:playerIndex];
+        [self deactivateInput:SNESGameInputDown at:playerIndex];
+        [self deactivateInput:SNESGameInputLeft at:playerIndex];
+        [self deactivateInput:SNESGameInputRight at:playerIndex];
+        [self deactivateInput:SNESGameInputA at:playerIndex];
+        [self deactivateInput:SNESGameInputB at:playerIndex];
+        [self deactivateInput:SNESGameInputX at:playerIndex];
+        [self deactivateInput:SNESGameInputY at:playerIndex];
+        [self deactivateInput:SNESGameInputL at:playerIndex];
+        [self deactivateInput:SNESGameInputR at:playerIndex];
+        [self deactivateInput:SNESGameInputStart at:playerIndex];
+        [self deactivateInput:SNESGameInputSelect at:playerIndex];
+    }
 }
 
 #pragma mark - Audio -
