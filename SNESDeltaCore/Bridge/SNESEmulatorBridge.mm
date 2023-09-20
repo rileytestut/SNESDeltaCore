@@ -119,18 +119,23 @@ void SNESFinalizeSamplesCallback(void *context);
     {
         NSUInteger mask = player << 16;
         
-        S9xMapButton(mask | SNESGameInputUp, S9xGetCommandT([[[NSString stringWithFormat:@"Joypad%d ", player] stringByAppendingString:@"Up"] UTF8String]), NO);
-        S9xMapButton(mask | SNESGameInputDown, S9xGetCommandT([[[NSString stringWithFormat:@"Joypad%d ", player] stringByAppendingString:@"Down"] UTF8String]), NO);
-        S9xMapButton(mask | SNESGameInputLeft, S9xGetCommandT([[[NSString stringWithFormat:@"Joypad%d ", player] stringByAppendingString:@"Left"] UTF8String]), NO);
-        S9xMapButton(mask | SNESGameInputRight, S9xGetCommandT([[[NSString stringWithFormat:@"Joypad%d ", player] stringByAppendingString:@"Right"] UTF8String]), NO);
-        S9xMapButton(mask | SNESGameInputA, S9xGetCommandT([[[NSString stringWithFormat:@"Joypad%d ", player] stringByAppendingString:@"A"] UTF8String]), NO);
-        S9xMapButton(mask | SNESGameInputB, S9xGetCommandT([[[NSString stringWithFormat:@"Joypad%d ", player] stringByAppendingString:@"B"] UTF8String]), NO);
-        S9xMapButton(mask | SNESGameInputX, S9xGetCommandT([[[NSString stringWithFormat:@"Joypad%d ", player] stringByAppendingString:@"X"] UTF8String]), NO);
-        S9xMapButton(mask | SNESGameInputY, S9xGetCommandT([[[NSString stringWithFormat:@"Joypad%d ", player] stringByAppendingString:@"Y"] UTF8String]), NO);
-        S9xMapButton(mask | SNESGameInputL, S9xGetCommandT([[[NSString stringWithFormat:@"Joypad%d ", player] stringByAppendingString:@"L"] UTF8String]), NO);
-        S9xMapButton(mask | SNESGameInputR, S9xGetCommandT([[[NSString stringWithFormat:@"Joypad%d ", player] stringByAppendingString:@"R"] UTF8String]), NO);
-        S9xMapButton(mask | SNESGameInputStart, S9xGetCommandT([[[NSString stringWithFormat:@"Joypad%d ", player] stringByAppendingString:@"Start"] UTF8String]), NO);
-        S9xMapButton(mask | SNESGameInputSelect, S9xGetCommandT([[[NSString stringWithFormat:@"Joypad%d ", player] stringByAppendingString:@"Select"] UTF8String]), NO);
+        void (^mapInput)(uint32_t, NSString *) = ^(uint32_t input, NSString *inputName) {
+            NSString *command = [NSString stringWithFormat:@"Joypad%d %@", player, inputName];
+            S9xMapButton(mask | input, S9xGetCommandT(command.UTF8String), NO);
+        };
+        
+        mapInput(SNESGameInputUp, @"Up");
+        mapInput(SNESGameInputDown, @"Down");
+        mapInput(SNESGameInputLeft, @"Left");
+        mapInput(SNESGameInputRight, @"Right");
+        mapInput(SNESGameInputA, @"A");
+        mapInput(SNESGameInputB, @"B");
+        mapInput(SNESGameInputX, @"X");
+        mapInput(SNESGameInputY, @"Y");
+        mapInput(SNESGameInputL, @"L");
+        mapInput(SNESGameInputR, @"R");
+        mapInput(SNESGameInputStart, @"Start");
+        mapInput(SNESGameInputSelect, @"Select");
     }
     
     S9xReportControllers();
