@@ -197,13 +197,13 @@ void SNESFinalizeSamplesCallback(void *context);
 
 #pragma mark - Inputs -
 
-- (void)activateInput:(NSInteger)gameInput value:(double)value at:(NSInteger)playerIndex
+- (void)activateInput:(NSInteger)gameInput value:(double)value playerIndex:(NSInteger)playerIndex
 {
     NSUInteger mask = (playerIndex + 1) << 16;
     S9xReportButton(mask | (uint32)gameInput, YES);
 }
 
-- (void)deactivateInput:(NSInteger)gameInput at:(NSInteger)playerIndex
+- (void)deactivateInput:(NSInteger)gameInput playerIndex:(NSInteger)playerIndex
 {
     NSUInteger mask = (playerIndex + 1) << 16;
     S9xReportButton(mask | (uint32)gameInput, NO);
@@ -213,18 +213,18 @@ void SNESFinalizeSamplesCallback(void *context);
 {
     for (int playerIndex = 0; playerIndex < 8; playerIndex++)
     {
-        [self deactivateInput:SNESGameInputUp at:playerIndex];
-        [self deactivateInput:SNESGameInputDown at:playerIndex];
-        [self deactivateInput:SNESGameInputLeft at:playerIndex];
-        [self deactivateInput:SNESGameInputRight at:playerIndex];
-        [self deactivateInput:SNESGameInputA at:playerIndex];
-        [self deactivateInput:SNESGameInputB at:playerIndex];
-        [self deactivateInput:SNESGameInputX at:playerIndex];
-        [self deactivateInput:SNESGameInputY at:playerIndex];
-        [self deactivateInput:SNESGameInputL at:playerIndex];
-        [self deactivateInput:SNESGameInputR at:playerIndex];
-        [self deactivateInput:SNESGameInputStart at:playerIndex];
-        [self deactivateInput:SNESGameInputSelect at:playerIndex];
+        [self deactivateInput:SNESGameInputUp playerIndex:playerIndex];
+        [self deactivateInput:SNESGameInputDown playerIndex:playerIndex];
+        [self deactivateInput:SNESGameInputLeft playerIndex:playerIndex];
+        [self deactivateInput:SNESGameInputRight playerIndex:playerIndex];
+        [self deactivateInput:SNESGameInputA playerIndex:playerIndex];
+        [self deactivateInput:SNESGameInputB playerIndex:playerIndex];
+        [self deactivateInput:SNESGameInputX playerIndex:playerIndex];
+        [self deactivateInput:SNESGameInputY playerIndex:playerIndex];
+        [self deactivateInput:SNESGameInputL playerIndex:playerIndex];
+        [self deactivateInput:SNESGameInputR playerIndex:playerIndex];
+        [self deactivateInput:SNESGameInputStart playerIndex:playerIndex];
+        [self deactivateInput:SNESGameInputSelect playerIndex:playerIndex];
     }
 }
 
