@@ -195,6 +195,24 @@ void SNESFinalizeSamplesCallback(void *context);
     }
 }
 
+- (nullable NSData *)readMemoryAtAddress:(NSInteger)address size:(NSInteger)size
+{
+    if (Memory.RAM == NULL)
+    {
+        return nil;
+    }
+    
+    if (address + size > 0x20000)
+    {
+        // Beyond RAM bounds, return nil.
+        return nil;
+    }
+    
+    void *bytes = (Memory.RAM + address);
+    NSData *data = [NSData dataWithBytesNoCopy:bytes length:size freeWhenDone:NO];
+    return data;
+}
+
 #pragma mark - Inputs -
 
 - (void)activateInput:(NSInteger)gameInput value:(double)value playerIndex:(NSInteger)playerIndex
