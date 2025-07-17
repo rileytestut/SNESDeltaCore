@@ -98,6 +98,20 @@
 			remoteGlobalIDString = BF6D1BDB1EB3F73200476805;
 			remoteInfo = libSnes9x;
 		};
+		D5B44B892E29A58200EA8B6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D59D6C332E29A50E00DBAF5B /* DeltaCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BF46895D1AACF36800A2586D;
+			remoteInfo = DeltaCore;
+		};
+		D5B44BA62E29A5FD00EA8B6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D59D6C332E29A50E00DBAF5B /* DeltaCore.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BF46895C1AACF36800A2586D;
+			remoteInfo = DeltaCore;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -317,6 +331,7 @@
 		BFC800331BA4C8DB00824180 /* SNESEmulatorBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNESEmulatorBridge.h; sourceTree = "<group>"; };
 		BFC800341BA4C8DB00824180 /* SNESEmulatorBridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SNESEmulatorBridge.mm; sourceTree = "<group>"; };
 		BFFDF03423E3B9DC00931B96 /* DeltaCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DeltaCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D59D6C332E29A50E00DBAF5B /* DeltaCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DeltaCore.xcodeproj; path = ../DeltaCore/DeltaCore.xcodeproj; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -627,6 +642,7 @@
 			children = (
 				BF9F4FDE1AAD8070004C9500 /* SNESDeltaCore */,
 				BF6D1BDD1EB3F73200476805 /* libSnes9x */,
+				D59D6C202E29A4B600DBAF5B /* Dependencies */,
 				BF9F4FDD1AAD8070004C9500 /* Products */,
 				BFFDF03323E3B9DC00931B96 /* Frameworks */,
 			);
@@ -680,6 +696,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D59D6C202E29A4B600DBAF5B /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				D59D6C332E29A50E00DBAF5B /* DeltaCore.xcodeproj */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		D5B44B862E29A58200EA8B6C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D5B44B8A2E29A58200EA8B6C /* DeltaCore.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -725,6 +757,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				D5B44BA72E29A5FD00EA8B6C /* PBXTargetDependency */,
 				BF6D1D5C1EB403BB00476805 /* PBXTargetDependency */,
 			);
 			name = SNESDeltaCore;
@@ -765,6 +798,12 @@
 			mainGroup = BF9F4FD21AAD8070004C9500;
 			productRefGroup = BF9F4FDD1AAD8070004C9500 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D5B44B862E29A58200EA8B6C /* Products */;
+					ProjectRef = D59D6C332E29A50E00DBAF5B /* DeltaCore.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				BF9F4FDB1AAD8070004C9500 /* SNESDeltaCore */,
@@ -772,6 +811,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D5B44B8A2E29A58200EA8B6C /* DeltaCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = DeltaCore.framework;
+			remoteRef = D5B44B892E29A58200EA8B6C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		BF9F4FDA1AAD8070004C9500 /* Resources */ = {
@@ -881,6 +930,11 @@
 			isa = PBXTargetDependency;
 			target = BF6D1BDB1EB3F73200476805 /* libSnes9x */;
 			targetProxy = BF6D1D5B1EB403BB00476805 /* PBXContainerItemProxy */;
+		};
+		D5B44BA72E29A5FD00EA8B6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DeltaCore;
+			targetProxy = D5B44BA62E29A5FD00EA8B6C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
