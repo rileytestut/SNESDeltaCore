@@ -121,7 +121,7 @@ void SNESFinalizeSamplesCallback(void *context);
         
         void (^mapInput)(uint32_t, NSString *) = ^(uint32_t input, NSString *inputName) {
             NSString *command = [NSString stringWithFormat:@"Joypad%d %@", player, inputName];
-            S9xMapButton(mask | input, S9xGetCommandT(command.UTF8String), NO);
+            S9xMapButton((uint32)(mask | input), S9xGetCommandT(command.UTF8String), NO);
         };
         
         mapInput(SNESGameInputUp, @"Up");
@@ -218,13 +218,13 @@ void SNESFinalizeSamplesCallback(void *context);
 - (void)activateInput:(NSInteger)gameInput value:(double)value playerIndex:(NSInteger)playerIndex
 {
     NSUInteger mask = (playerIndex + 1) << 16;
-    S9xReportButton(mask | (uint32)gameInput, YES);
+    S9xReportButton((uint32)(mask | gameInput), YES);
 }
 
 - (void)deactivateInput:(NSInteger)gameInput playerIndex:(NSInteger)playerIndex
 {
     NSUInteger mask = (playerIndex + 1) << 16;
-    S9xReportButton(mask | (uint32)gameInput, NO);
+    S9xReportButton((uint32)(mask | gameInput), NO);
 }
 
 - (void)resetInputs
