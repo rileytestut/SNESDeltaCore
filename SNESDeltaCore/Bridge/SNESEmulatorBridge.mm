@@ -153,7 +153,7 @@ void SNESFinalizeSamplesCallback(void *context);
     
     S9xGraphicsInit();
     
-    sprintf(String, "\"%s\" %s: %s", Memory.ROMName, TITLE, VERSION);
+    snprintf(String, 513, "\"%s\" %s: %s", Memory.ROMName, TITLE, VERSION);
     
     S9xSetSoundMute(NO);
     
