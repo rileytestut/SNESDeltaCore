@@ -76,7 +76,9 @@ void SNESFinalizeSamplesCallback(void *context);
     Settings.SixteenBitSound = YES;
     Settings.Stereo = YES;
     Settings.SoundPlaybackRate = 32040;
-    Settings.SoundInputRate = 32040;
+    // HEADS UP: This value comes from a message Riley had, and he said we should apply it.
+    // There may be a better way in the future.
+    Settings.SoundInputRate = 31955;
     Settings.SupportHiRes = NO;
     Settings.Transparency = YES;
     Settings.AutoDisplayMessages = YES;
